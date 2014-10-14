@@ -4,5 +4,5 @@
 int main()
 {
     float x = 3.14 / 2;
-    printf("%f\n", sin(x));
+    printf("MODIFIED%f\n", sin(x));
 }
