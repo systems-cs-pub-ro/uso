@@ -7,8 +7,11 @@ utils.o: utils.c
 hello.o: hello.c
 	gcc -c hello.c
 
-build: utils.o hello.o
-	gcc utils.o hello.o -o hello
+help.o: help.c
+	gcc -c help.c
+
+build: utils.o hello.o help.o
+	gcc utils.o help.o hello.o -o hello
 
 clean:
-	rm *.o hello
+	rm -f *.o hello
