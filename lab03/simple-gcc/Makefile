@@ -1,3 +1,6 @@
+build: utils.o hello.o help.o
+	gcc utils.o help.o hello.o -o hello
+
 all:
 	gcc simple_hello.c -o simple
 
@@ -9,9 +12,6 @@ hello.o: hello.c
 
 help.o: help.c
 	gcc -c help.c
-
-build: utils.o hello.o help.o
-	gcc utils.o help.o hello.o -o hello
 
 clean:
 	rm -f *.o hello
