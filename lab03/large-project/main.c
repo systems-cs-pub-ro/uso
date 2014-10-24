@@ -16,6 +16,7 @@ int main(void)
 
     printf("\nSum is: ");
     pretty_print_int(sum);
+    puts("");
 
     return 0;
 }
