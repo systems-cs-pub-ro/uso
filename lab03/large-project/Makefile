@@ -1,7 +1,7 @@
 all: main
 
 main: main.o sum/sum.o sum/add/add.o utils/utils.o
-	gcc -Wall $^ -o $@
+	gcc -Wall main.o sum/sum.o sum/add/add.o utils/util.so -o main
 
 main.o:
 	#TODO
