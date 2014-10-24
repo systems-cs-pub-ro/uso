@@ -16,4 +16,4 @@ utils/utils.o:
 	#TODO
 
 clean:
-	rm -f main main.o sum/sum.o sum/add/add.o utils/utils.o
+	rm -f main main.o sum/sum.o sum/add/add.o utils/utils.o *~

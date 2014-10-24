@@ -5,10 +5,10 @@
 
 int vect_sum(int *v, int len)
 {
-    int i, s = 0;
+	int i, s = 0;
 
-    for (i = 0; i < len; i++)
-        s = add(s, v[i]);
+	for (i = 0; i < len; i++)
+		s = add(s, v[i]);
 
-    return s;
+	return s;
 }

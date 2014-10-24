@@ -14,4 +14,4 @@ help.o: help.c
 	gcc -c help.c
 
 clean:
-	rm -f *.o hello
+	rm -f *.o *~ hello

@@ -6,13 +6,13 @@
 
 int main(void)
 {
-    int i, j;
-    long v[N] = {1, 2, 3, 4};
-    long w[N] = {4, 3, 2, 1};
+	int i, j;
+	long v[N] = {1, 2, 3, 4};
+	long w[N] = {4, 3, 2, 1};
 
-    for (i = 0; i < MAX_ITER; ++i)
-        for (j = 0; j < N; ++j)
-            v[j] += w[j];
+	for (i = 0; i < MAX_ITER; ++i)
+		for (j = 0; j < N; ++j)
+			v[j] += w[j];
 
-    return 0;
+	return 0;
 }

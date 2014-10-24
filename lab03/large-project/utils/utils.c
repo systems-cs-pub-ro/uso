@@ -3,20 +3,20 @@
 
 void pretty_print_int(int n)
 {
-    printf("integer: %d", n);
+	printf("integer: %d\n", n);
 }
 
 void pretty_print_vect(int *v, int len)
 {
-    int i;
+	int i;
 
-    printf("{vector:\n\t{\n");
+	printf("{vector:\n\t{\n");
 
-    for (i = 0; i < len; i++) {
-        printf("\t\t");
-        pretty_print_int(v[i]);
-        printf(",\n");
-    }
+	for (i = 0; i < len; i++) {
+		printf("\t\t");
+		pretty_print_int(v[i]);
+		printf(",\n");
+	}
 
-    printf("\t}\n}");
+	printf("\t}\n}\n");
 }

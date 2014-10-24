@@ -6,11 +6,11 @@ tema: tema.o utils.o
 tema.o: tema.c
 	gcc -Wall -c tema.c
 
-utils.o : utils.c
+utils.o: utils.c
 	gcc -Wall -c utils.c
 
 run: tema
 	./tema
 
 clean:
-	rm *.o tema
+	rm -f *.o *~ tema

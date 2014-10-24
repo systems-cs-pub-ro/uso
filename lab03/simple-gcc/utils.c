@@ -1,7 +1,7 @@
-#include "utils.h"
 #include <stdio.h>
+#include "utils.h"
 
-void do_print_crap()
+void do_print_crap(void)
 {
-	printf("craaaaap\n");
+	puts("craaaaap");
 }
