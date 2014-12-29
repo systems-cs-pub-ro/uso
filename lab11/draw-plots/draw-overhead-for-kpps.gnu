@@ -1,5 +1,5 @@
-# Create plot showing overhead (in seconds) for different network traffic.
-# Traffic is measured in kilo packets per second (kpps).
+# Create plot showing overhead (in seconds) for different traffic rates.
+# Traffic is measured in kilopackets per second (kpps).
 # We use a CSV file as input.
 #
 # Input file is memwalk-overhead-for-kpps.csv. Output file is
