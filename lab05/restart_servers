@@ -1,0 +1,13 @@
+#!/bin/bash
+
+trap "echo IT\'s A TRAP!" SIGINT SIGTERM SIGQUIT
+
+if [[ $(whoami) == "geo" ]]; then
+    for i in 5 4 3 2 1; do
+        echo "Restarting in $i ..."
+        sleep 1
+    done
+        echo "Rickrolled!"
+else
+    echo "Please run me logged in as: geo"
+fi

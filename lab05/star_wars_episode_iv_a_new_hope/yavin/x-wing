@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if [[ $(whoami) == "luke" ]]; then
-    echo "Use the force, Luke!"
-    rm -rf ../death_star
-fi
