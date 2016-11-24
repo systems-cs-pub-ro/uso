@@ -1,0 +1,8 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE students (key INTEGER PRIMARY KEY, nume TEXT, prenume TEXT, nota double);
+INSERT INTO "students" VALUES(1,'Ionescu','Ion',7.0);
+INSERT INTO "students" VALUES(2,'Gheorghescu','Gheorghe',3.0);
+INSERT INTO "students" VALUES(3,'Vasilescu','Vasile',8.0);
+INSERT INTO "students" VALUES(4,'Marinescu','Marian',10.0);
+COMMIT;
