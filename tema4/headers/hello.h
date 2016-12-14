@@ -1,0 +1,1 @@
+#define USO	42
