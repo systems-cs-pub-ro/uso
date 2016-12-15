@@ -1,6 +1,5 @@
 //To be called with -Ipath/to/hello.h
 #include <stdio.h>
-#include <tema4header.h>
  
 #include 	<hello.h>
 #include <shadow.h>
