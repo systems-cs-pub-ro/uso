@@ -1,0 +1,379 @@
+===== Demo =====
+
+Pentru început, vrem să ne acomodăm cu cele mai importante comenzi din linia de comandă, în special cele care lucrează cu fișiere și directoare. Îndrumați de asistent, vom descoperi împreună cum putem folosi linia de comandă pentru a lucra cu sistemul de fișiere și pentru a face acțiuni mai rapid ca în interfața grafică.
+
+<note tip>
+Avem și un [[uso:resurse:cheatsheet|cheatsheet]] pe care îl putem folosi ca să ne reamintim cele mai frecvente comenzi.
+</note>
+
+Să începem!
+
+<hidden>
+
+<note important>
+Înainte de toate, spuneți-le de [[uso:resurse:cheatsheet|cheatsheet]]!!!!!!
+</note>
+
+
+Începeți cu (pentru că sigur au văzut deja la curs cum arată niște comenzi, să ne lămurim de la început) faptul că exită 3 formate pentru opțiunile unei comenzi:
+  * formatul lung (de exemplu ''%%--help%%'')
+  * formatul GNU (ca în ''ls -l'')
+  * formatul BSD (''ps aux'')
+
+<note tip>
+Este de preferat să întrebați de fiecare dată ce cred ei că va face o comandă înainte de a da ENTER. Vă rog să îi implicați cât mai mult în demo, că altfel vor dormi așa cum o fac la curs.
+</note>
+
+</hidden>
+
+==== 0. Autentificare cu utilizatorul root ====
+Ne propunem să schimbăm utilizatorul curent cu utilizatorul root.
+Una din metodele existente constă în folosirea comenzii su (abreviere de la en. switch user).
+
+<code>
+
+TODO
+
+</code>
+
+// TODO se observă 
+
+==== 1. Navigare în sistemul de fișiere ====
+
+Deschideți un terminal. Clonați conținutul [[https://github.com/systems-cs-pub-ro/uso|repository-ului oficial uso]] folosind comanda de mai jos: <code bash>
+student@uso:~$ git clone https://github.com/systems-cs-pub-ro/uso 
+</code> 
+
+Ne propunem să lucrăm cu acele comenzi care ne ajută să parcurgem directoarele din sistemul de fișiere (adică să-l traversăm). Apoi să folosim comenzile pentru listarea conținutului unui director și pentru afișarea conținutului unui fișier.
+
+Foarte importantă este distincția între o cale absolută (o cale către un director care pornește din directorul rădăcină, exemplu: ''/home/student'') și o cale relativă la directorul curent (folosind intrările speciale ''.'' - directorul curent și ''..'' - directorul părinte).
+
+Urmăriți cu atenție secvența de comenzi de mai jos. Dacă vreți să dați și voi comenzile pe stația la care lucrați, __folosiți cât mai des tasta ''**TAB**''__ atunci când dați un parametru comenzii ''ls'' sau ''cd''. 
+
+<code bash>
+[student@uso demo]$ pwd
+/home/student/uso/lab02/demo
+
+[student@uso demo]$ tree .
+.
+|-- ac_dc
+|   |-- angus
+|   |-- bon
+|   |-- brian
+|   |-- chris
+|   |-- cliff
+|   |-- dave
+|   |-- george
+|   |-- malcom
+|   |-- mark
+|   `-- phil
+|-- cargo
+|-- hammerfall
+|   |-- anders
+|   |-- jesper
+|   |-- joacim
+|   |-- magnus
+|   |-- oscar
+|   |-- pontus
+|   `-- stefan
+|-- iris
+|-- metallica
+|-- nightwish
+|-- nirvana
+|-- phoenix
+`-- slayer
+
+</code>
+
+Acum că am văzut structura directoarelor, haideți să navigăm prin ele:
+
+<code bash>
+[student@uso demo]$ cd ac_dc  # aici am folosit o cale relativă la directorul curent
+[student@uso ac_dc]$ ls
+angus  bon  brian  chris  cliff  dave  george  malcom  mark  phil
+[student@uso ac_dc]$ cd .. # Am navigat în directorul părinte directorului ac_dc, care este /home/student/uso/lab02/demo
+[student@uso demo]$ ls -R    
+.:
+ac_dc  cargo  hammerfall  iris  metallica  nightwish  nirvana  phoenix  slayer
+
+./ac_dc:
+angus  bon  brian  chris  cliff  dave  george  malcom  mark  phil
+
+./hammerfall:
+anders  jesper  joacim  magnus  oscar  pontus  stefan
+
+./metallica:
+
+./nirvana:
+[student@uso demo]$ cd /home/student/uso/lab02/demo/hammerfall # am fi putut folosi și cd hammerfall, dar am folosit cale absolută
+[student@uso hammerfall]$ ls
+anders  jesper  joacim  magnus  oscar  pontus  stefan
+</code>
+
+Lui ls îi putem da argument atât o cale relativă către un director sau un fișier, cât și o cale absolută:
+
+<code bash>
+[student@uso hammerfall]$ ls ../ac_dc   
+angus  bon  brian  chris  cliff  dave  george  malcom  mark  phil
+
+[student@uso hammerfall]$ ls -l ../ac_dc/brian
+-rw-r--r-- 1 student all 0 Oct 17 08:56 ../ac_dc/brian
+
+[student@uso hammerfall]$ ls -l ./anders
+-rw-r--r-- 1 student all 0 Oct 17 08:56 ./anders
+
+[student@uso hammerfall]$ ls -l anders
+-rw-r--r-- 1 student all 0 Oct 17 08:56 anders
+
+[student@uso hammerfall]$ ls -l /home/student/uso/lab02/demo/hammerfall/oscar  
+-rw-r--r-- 1 b46099 all 0 Oct 17 08:56 /home/student/uso/lab02/demo/hammerfall/oscar
+</code>
+
+<note important> Mare atenție la căile relative vs. cele absolute. O cale relativă este o cale raportată la directorul curent, în timp ce o cale absolută este raportată la directorul rădăcină (''/''). O cale relativă începe, de obicei, cu un nume, cu ''.'' sau cu ''..'', în timp ce o cale absolută începe întotdeauna cu ''/''. De reținut faptul că și ''~/uso'' este tot o cale absolută, chiar dacă începe cu caracterul ''~'', acest lucru fiind datorat faptului că ''~'' este doar un alias către directorul ''home'' al utilizatorului curent (''/home/student'').</note>
+
+Cum am văzut și mai sus, exemple de folosire a căilor relative sunt:
+<note tip>Țineți cont de folosirea tastei **''TAB''**.</note>
+
+<code bash>
+[student@uso demo]$ ls hammerfall        # ls h<TAB>
+[student@uso demo]$ ls -l .
+[student@uso demo]$ cd ./ac_dc           # cd ./a<TAB>
+[student@uso ac_dc]$ ls ../hammerfall    # ls ../h<TAB>
+[student@uso ac_dc]$ ls ../../demo/iris  # ls ../../d<TAB>/i<TAB>
+</code>
+
+Câteva exemple de utilizare a căilor absolute:
+<code bash>
+[student@uso demo]$ ls /
+[student@uso demo]$ tree /home/student/uso/lab02/demo/hammerfall   # ls /h<TAB>/stu<TAB>/uso/demo/h<TAB>
+[student@uso demo]$ ls -l ~/uso/lab02/demo/hammerfall              # ls ~/uso/lab02/d<TAB>/h<TAB>
+[student@uso demo]$ tree -L 1 ~
+</code>
+
+Acum să vedem câteva erori care pot să apară. Ce credeți că se întâmplă mai jos? Care este cauza erorii apărute, ce greșeală a fost făcută? 
+
+<code bash>
+[student@uso hammerfall]$ ls -l brian
+ls: cannot access brian: No such file or directory
+
+[student@uso hammerfall]$ cd ..
+[student@uso demo]$ cd nightwish
+-bash: cd: nightwish: Not a directory
+
+[student@uso demo]$ cd /home/student/uso/lab02/demo/scorpions
+-bash: cd: /home/student/uso/lab02/demo/scorpions: No such file or directory
+
+[student@uso demo]$ cd ac_dc
+[student@uso ac_dc]$ cd ..
+[student@uso demo]$ cd /nirvana
+-bash: cd: /nirvana: No such file or directory
+</code>
+
+<note important>
+Citiți cu atenție mesajele erorilor din Bash ori de câte ori o comandă nu funcționează. Oferă suficiente indicii despre rădăcina erorii. 
+</note>
+
+<note important>În general, orice comandă ''cd'' ar trebui urmată de una ''ls'' sau ''pwd'' în scop de verificare. Cum am văzut mai sus, uneori pot apărea erori, fie directorul nu există, fie nu avem permisiuni să îl accesăm, iar comanda se poate executa fără succes, prin urmare este **foarte important** care orice comandă de modificare/alterare a stării curente să fie urmată de una de verificare. Câteva exemple de comenzi care fac pereche bună sunt: ''cd'' -- ''pwd''; ''touch'', ''mv'', ''rm'' -- ''ls''; ''echo'' -- ''cat'' etc.
+</note>
+
+<hidden>
+
+Intrați în directorul ''~/uso/lab02/demo''
+
+  * La eroarea cu ''cd nightwish'' și nu a mers ca nu e director puteți da ''ls -l'' să le arătați că în stânga nu are un ''d'' de la director.
+  * Arătați sau precizați efectul comenzilor ''cd'', ''cd ~'', ''cd -''. 
+  * Arătați sau precizați efectul comenzii ''cd<SPACE><TAB>'' --> cum am dat ''ls'' fără a folosi ''ls''
+  * Arătați sau precizați efectul comenzii ''cd me<TAB>''. 
+
+<note important>**Insistați pe folosirea <TAB> nu treceți peste asta**</note>  
+
+</hidden> 
+
+<note important>
+Folosiți tasta ''TAB'' ori de câte ori puteți. De multe ori e suficient să tastăm doar primele 2-3 litere din numele directorului sau fișierului pe care vrem să-l accesăm. Dacă există două sau mai multe directoare/fișiere care au același prefix, putem fie adăuga mai multe litere pentru a elimina ambiguitatea, fie tasta de două ori ''TAB'' pentru a afișa lista de hituri cu același prefix. Putem itera apoi prin lista de potriviri folosind tot tasta ''TAB''. 
+</note>
+
+Urmăriți exemplele de mai jos.
+
+<code bash>
+[student@uso demo]$ ls h<TAB>
+anders jesper joacim magnus oscar  pontus stefan
+
+[student@uso demo]$ cd ac_<TAB>
+
+[student@uso ac_dc]$ ls c<TAB><TAB>
+chris  cliff
+
+[student@uso ac_dc]$ ls ch<TAB>
+chris
+</code>
+
+==== 2. Utilizarea scurtăturilor ====
+
+Ne propunem să navigăm rapid în directorul home al utilizatorului cu care suntem logați, indiferend de calea în care ne aflăm în momentul curent.
+
+Rețineți că simbolul ~ (numit tilda) este o prescurtare pentru directorul home al utilizatorului.
+Putem folosi acest simbol împreună cu comanda //TODO cd pentru a duce acest exercițiu la bun sfârșit.
+
+// Scurtătura -
+
+Un alt simbol bine de reținut - este o prescurtare pentru directorul anterior accesat.
+
+// Demo și aici
+
+=== 3. Listarea conținutului unui director recursiv ===
+
+Pentru a lista recursiv conținutul directoarelor se poate folosi utilitarul ''tree'', care afișează conținutul directoarelor într-un format arborescent, fiind ușor de urmărit și înțeles organizarea sistemului de fișiere. De cele mai multe ori este suficientă o simplă comandă ''ls'', dar dacă vrem să vizualizăm și nivelurile inferioare din ierarhia de fișiere și directoare, ''tree'' poate fi foarte util.
+
+Utilizat fără argumente, ''tree'' va lista toate fișiere și directoarele aflate //sub// directorul curent (''.'').
+
+<code bash>
+[student@uso demo]$ tree
+.
+├── ac_dc
+│   ├── angus
+│   ├── bon
+│   ├── brian
+│   ├── chris
+│   ├── cliff
+│   ├── dave
+│   ├── george
+│   ├── malcom
+│   ├── mark
+│   └── phil
+├── cargo
+├── hammerfall
+│   ├── anders
+│   ├── jesper
+│   ├── joacim
+│   ├── magnus
+│   ├── oscar
+│   ├── pontus
+│   └── stefan
+├── iris
+├── nightwish
+├── phoenix
+└── slayer
+
+2 directories, 22 files
+</code>
+
+''tree'' poate primi ca argument unul sau mai multe directoare și le va lista, independent, pe fiecare.
+
+<code bash>
+[student@uso demo]$ tree hammerfall ac_dc
+hammerfall
+├── anders
+├── jesper
+├── joacim
+├── magnus
+├── oscar
+├── pontus
+└── stefan
+ac_dc
+├── angus
+├── bon
+├── brian
+├── chris
+├── cliff
+├── dave
+├── george
+├── malcom
+├── mark
+└── phil
+
+0 directories, 17 files
+</code>
+
+În cazul în care dorim să afișăm un director care conține foarte multe fișiere și subdirectoare, putem limita nivelul până la care se face listarea folosind argumentul ''-L''.
+<code bash>
+[student@uso demo]$ tree -L 1
+.
+├── ac_dc
+├── cargo
+├── hammerfall
+├── iris
+├── nightwish
+├── phoenix
+└── slayer
+
+2 directories, 5 files
+</code>
+
+<note>De notat faptul că tree poate să nu primească niciun argument sau, dacă primește, acesta trebuie să fie neapărat director, în caz contrar se va afișa o eroare.
+<code bash>
+[student@uso demo]$ tree iris
+iris [error opening dir]
+</code>
+</note>
+==== 3. Pagini de manual ====
+
+În Linux, probabil cea mai folosită formă de documentație o reprezintă paginile de manual. Haideți să vedem care sunt comenzile pe care le folosim pentru a ne documenta în Linux și cum găsim informația utilă.
+
+Căutarea unei comenzi: 
+
+<code bash>
+student@mint ~ $ apropos "remove files"
+student@mint ~ $ apropos "copy files"
+</code>
+
+Localizarea unei comenzi:
+
+<code bash>
+student@mint ~ $ which dpkg
+</code>
+
+Localizare binar, sursă, dar și fișierele de care se folosește pagina de manual:
+
+<code bash>
+student@mint ~ $ whereis ls
+ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+</code>
+
+<hidden>
+
+continuare output which dpkg
+<code bash>
+/usr/bin/dpkg
+student@mint ~ $ whereis dpkg
+dpkg: /usr/bin/dpkg /etc/dpkg /usr/lib/dpkg /usr/bin/X11/dpkg /usr/share/dpkg /usr/share/man/man1/dpkg.1.gz
+student@mint ~ $ which iptables
+/sbin/iptables
+student@mint ~ $ whereis iptables
+iptables: /sbin/iptables /usr/share/iptables /usr/share/man/man8/iptables.8.gz
+</code>
+  * Evident, vor întreba ce e ''dpkg''. Le explicați despre package management, pe scurt. Apoi le arătați cum își pot instala pachete, cum pot folosi ''apt-cache search'' pentru căutarea unor pachete și cum se face ''update'' la repositories + ''upgrade''. 
+  * Întrebați dacă au idee de ce una e în **''/bin''** și alta în **''/sbin''**. 
+  * Ce știu ei că se află în **''/bin''** de obicei? 
+  * De la ce ar putea veni **''s''** în **''/sbin''**?
+  * Dacă întreabă ce este **''iptables''**, reamintiți-le să folosească **''man''** cu încredere (același lucru pentru detalii cu privire la **''which''** sau **''whereis''**)
+
+</hidden>
+
+==== 4. Crearea unei ierarhii de fișiere și directoare ====
+
+
+touch
+mkdir
+
+mkdir -p
+
+==== 5. Editarea unui fișier folosind vim ====
+
+// TODO - note vimtutor
+
+==== 6. Copierea, mutarea și ștergerea din ierarhia de fișiere ====
+
+// TODO -
+		cp -r director		<hidden>
+			De pus accent pe faptul că cp fără -r NU copiază în adâncime
+		</hidden>
+		mv director
+		rm director
+
+==== 7. Wildcards ====
+Poate vi se pare că durează mult să scrieți comenzi și că ați fi folosit mai ușor interfața grafică. Ei bine, linia de comandă are caractere speciale (de tipul wildcards) cu care putem face dintr-o singură comandă o acțiune pe mai multe fișiere. Să vedem cum putem face aceste lucru.
+Vrem să listăm conținutul tuturor fișierelor cu extensia *.conf din /etc:
+ls /etc/*.conf
+
+Vrem să ștergem toate toate fișierele din directorul, insă nu și pe acesta.
