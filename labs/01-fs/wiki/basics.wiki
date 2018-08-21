@@ -10,7 +10,7 @@ Listarea conținutului directorului curent se face folosind comanda ''ls''.
 grotesque  'hacker-s secret'   rookiss  'toddler-s bottle'
 </code>
 
-Observăm că prin utilizarea comenzii ''ls'' putem vedea ce avem în directorul curent, dar nu și în subdirectoarele acestuia. Un mod pentru a putea vizualiza întreaga ierarhie începând cu directorul curent este utilizarea utilitarului ''tree''. Dacă acesta nu este instalat, rulați comanda ''sudo apt-get install tree''.
+Observăm că prin utilizarea comenzii ''ls'' putem vedea ce avem în directorul curent, dar nu și în subdirectoarele acestuia. Un mod prin care putem vizualiza o întreagă ierarhie este utilizarea utilitarului ''tree''. Dacă rulați această comandă fără argument, acesta va afișa ierarhia directorului curent, altfel va lista ierarhia directorului primit ca argument. Dacă acesta nu este instalat, rulați comanda ''sudo apt-get install tree''.
 
 <code bash>
 [student@uso basics]$ tree .
@@ -72,7 +72,7 @@ Observăm că prin utilizarea comenzii ''ls'' putem vedea ce avem în directorul
 13 directories, 40 files
 </code>
 
-Vrem să afisăm calea curentă pentru a vedea în ce director ne aflăm. Vom folosi comanda ''pwd''. După aceea, vom lista conținutul directorului pentru a-l inspecta.
+Vrem să afișăm calea curentă pentru a vedea în ce director ne aflăm. Vom folosi comanda ''pwd''. După aceea, vom lista conținutul directorului pentru a-l inspecta.
 
 <code bash>
 [student@uso basics]$ cd ~/uso/labs/01-fs/support/basics/
@@ -82,7 +82,7 @@ Vrem să afisăm calea curentă pentru a vedea în ce director ne aflăm. Vom fo
 grotesque  'hacker-s secret'   rookiss  'toddler-s bottle'
 </code>
 
-De multe ori avem nevoie să ne plasăm cu un director în spate. Pentru a ajunge în directorul părinte folosim comanda ''cd ..''. E bine să verificăm de fiecare dată că ne aflăm în directorul în care trebuie.
+De multe ori avem nevoie să ne plasăm cu un director în spate. Pentru a ajunge în directorul părinte folosim comanda ''cd ..'' E bine să verificăm de fiecare dată că ne aflăm în directorul în care trebuie.
 
 <code bash>
 [student@uso basics]$ pwd
@@ -193,7 +193,7 @@ Până a trece mai departe, trebuie să vă asigurați că ați înțeles cum tr
 ==== Listarea fișierelor dintr-un director ====
 Plasați-vă din nou în directorul ''/uso/labs/01-fs/support/basics''.
 
-După cum am observat mai sus, listarea unui director se poate face folosind comanda ''ls''. Această formă de utilizator nu ne prezintă foarte multe informații despre fișierele din directorul inspectat (dimensiune, drepturi, tip, etc.). Folosind argumentul ''-l'' al lui ''ls'' putem lista conținutul unui director în format lung.
+După cum am observat mai sus, listarea unui director se poate face folosind comanda ''ls''. Această formă de utilizare nu ne prezintă foarte multe informații despre fișierele din directorul inspectat (dimensiune, drepturi, tip, etc.). Folosind argumentul ''-l'' al lui ''ls'' putem lista conținutul unui director în format lung.
 
 <code bash>
 [student@uso basics]$ ls -l
@@ -204,14 +204,14 @@ drwxr-xr-x 2 student student 4096 aug 21 22:17  rookiss
 drwxr-xr-x 4 student student 4096 aug 21 22:17 'toddler-s bottle'
 </code>
 
-Putem lista conținutul unui director altul decât cel în care ne aflăm dacă dăm comenzii ''ls'', ca argument, calea către acesta (fie absolută, fie relativă).
+Putem lista conținutul unui director, altul decât cel în care ne aflăm, dacă dăm comenzii ''ls'', ca argument, calea către acesta (fie absolută, fie relativă).
 
 <code bash>
 [student@uso basics]$ ls hacker-s\ secret/hard/
 malware     pwnsandbox
 </code>
 
-Utilizarea simplă a comenzii ''ls'' fără a-i da un argument special nu ne afisează fișierele acunse dintr-un director. Pentru asta, folosim argumentul ''-a''. De remarcat, numele fișierelor ascunse încep cu ''.''.
+Utilizarea simplă a comenzii ''ls'' fără a-i da un argument special nu ne afișează fișierele acunse dintr-un director. Pentru asta, folosim argumentul ''-a''. De remarcat, numele fișierelor ascunse încep cu ''.''.
 
 <WRAP center round tip 60%>
 ''.'' reprezintă directorul curent, iar ''..'' reprezintă directorul părinte.
@@ -234,18 +234,18 @@ Câteodată un director poate avea foarte multe intrări, iar noi să dorim insp
 'ascii easy.pdf'   fix.pdf   otp.pdf
 </code>
 
-Până a trece mai departe, trebuie să vă asigurați că ați înțeles și reținut cum puteți lista conținutul unui director sub diverse forme. Pentru asta, parcurgeți următoarele exerciții după care verificați cu asistentul că totul este în regulă. Recomandăm folosirea paginii de manual pentru utilitarul ''ls'' (''man ls''). Vă va da informații despre toate argumentele pe care le puteți da comenzii ''ls''.
+Până a trece mai departe, trebuie să vă asigurați că ați înțeles și reținut cum puteți lista conținutul unui director sub diverse forme. Pentru asta, parcurgeți următoarele exerciții după care verificați cu asistentul că totul este în regulă. Recomandăm folosirea paginii de manual pentru utilitarul ''ls'' (''man ls''). Vă va da informații despre toate argumentele pe care le puteți da acesteia.
 
 <WRAP center round tip 60%>
-Putem da oricate argumente comenzii ''ls'', fie sub forma ''ls -a -b -c'', fie ''ls -abc''.
+Putem da oricâte argumente comenzii ''ls'', fie sub forma ''ls -a -b -c'', fie ''ls -abc''.
 </WRAP>
 
-    - Să se listeze in format lung conținutul directorului ''grotesque/do\ you\ dare/'' cu afișarea dimensiunii fișierelor în format human readable. (Hint: ''man ls'' și căutați după șirul ''human readable'').
+    - Să se listeze în format lung conținutul directorului ''grotesque/do\ you\ dare/'' cu afișarea dimensiunii fișierelor în format human readable. (Hint: ''man ls'' și căutați după șirul ''human readable'').
     - Afișati conținutul directorului ''toddler-s\ bottle/'' cu afișarea unui simbol pentru tipul de fișier. Remarcați diferențele dintre fișiere. (Hint: ''classify'')
     - Listați directorul ''hacker-s\ secret/hard'' fără a naviga către el.
     - Listați întreg conținutul directorului ''grotesque/'' (inclusiv fișiere ascunse).
     - Listați doar fișierele cu extensia ''.txt'' din directorul ''toddler-s\ bottle/bof/easy'' folosind o singură comandă.
-    - Plasati-vă în directorul ''toddler-s\ bottle/passcode'' și afisați toate fișierele ale căror nume au prefixul ''passcode''.
+    - Plasați-vă în directorul ''toddler-s\ bottle/passcode'' și afisați toate fișierele ale căror nume au prefixul ''passcode''.
 
 ==== Creare de noi directoare într-o ierarhie ====
 
@@ -290,13 +290,13 @@ total 4
 
 Până a trece mai departe, trebuie să vă asigurați că ați înțeles cum puteți crea noi fișiere și directoare. Pentru asta, parcurgeți următoarele exerciții după care verificați cu asistentul că totul este în regulă. Recomandăm folosirea paginii de manual pentru utilitarul ''ls'' (''man ls''). Vă va da informații despre toate argumentele pe care le puteți da comenzii ''ls''.
 
-    - Vă aflați în ''weird directory''. Creați directorul cu numel ''third weird directory'' la calea ''basics/toddler-s\ bottle''. Mutați-vă la acea cale.
+    - Vă aflați în ''weird directory''. Creați directorul cu numele ''third weird directory'' la calea ''basics/toddler-s\ bottle''. Mutați-vă la acea cale.
     - Creați un fișier gol cu numele ''my_second_file.txt''.
     - Modificați conținutul fișierului și afișați conținutul acestuia folosind comanda ''cat''. Puteți folosi orice editor de text doriți pentru face modificări asupra fișierului.
 
 ==== Mutarea fișierelor și directoarelor ====
 
-Pentru a redenumi un fișier folosim comanda ''mv''. Comanda ''mv'' are formatul ''mv sursă destinație''. În cazul în care uitați, folosiți pagina de manual a acesteia.
+Pentru a redenumi un fișier folosim comanda ''mv''. Comanda ''mv'' are formatul ''mv sursă destinație''. În cazul în care uitați, folosiți ''man'' pentru a vă aminti.
 
 <code bash>
 [student@uso basics]$ cd ~/uso/labs/01-fs/support/basics/toddler-s\ bottle
@@ -388,7 +388,7 @@ Pentru a redenumi un fișier am văzut că folosim comanda ''mv''. În cazul în
  bof3.txt   grotesque   my-new-rookiss    'weird directory 2'
 </code>
 
-Putem întâlni sitația în care vrem să redenumim un fișier al cărui nume conține deja spații, acestea trebuie escapate ca mai devreme. Putem scrie numele între ghilimele, însă există riscul să greșim în cazul numelor complicate și lungi. Cel mai sigur și ușor este să abuzăm de tasta <TAB> pentru a fi siguri că nu greșim.
+Putem întâlni sitația în care vrem să redenumim un fișier al cărui nume conține deja spații, acestea trebuie escapate ca mai devreme. Putem scrie numele între ghilimele, însă există riscul să greșim în cazul numelor complicate și lungi. Cel mai sigur și ușor este să abuzăm de tasta ''TAB'' pentru a fi siguri că nu greșim.
 
 <code bash>
 [student@uso basics]$ cd ~/uso/labs/01-fs/support/basics
@@ -438,7 +438,7 @@ Ne aflăm în directorul ''~/uso/labs/01-fs/support/basics/grotesque'' și vrem 
 [student@uso basics]$
 </code>
 
-În cazul în care vrem să ștergem un întreg director, comanda ''rm <nume_director>'' nu va funcționa. Trebuie să îi precizăm că vrem să ștergem **recursiv** toate fișierele și subdirectoarele din aceasta ierarhie. Pentru acest lucru, folosim argumentul ''-r''
+În cazul în care vrem să ștergem un întreg director, comanda ''rm <nume_director>'' nu va funcționa. Trebuie să îi precizăm că vrem să ștergem **recursiv** toate fișierele și subdirectoarele din această ierarhie. Pentru acest lucru, folosim argumentul ''-r''
 al comenzii ''rm''.
 Dacă directorul pe care vrem să-l ștergem este gol, putem folosi și
 comanda ''rmdir''.
@@ -461,10 +461,10 @@ comanda ''rmdir''.
  bof3.txt   grotesque   my-new-rookiss
 </code>
 
-Pentru a vă asigura că ați înțeles cum se șterg fișierele și directoarele dintr-o ierarhie, parcurgeți următoarele exerciții și consultați-vă cu asistentul în cazul orcărei nelămuriri.
+Pentru a vă asigura că ați înțeles cum se șterg fișierele dintr-o ierarhie, parcurgeți următoarele exerciții și consultați-vă cu asistentul în cazul orcărei nelămuriri.
 
     - Mergeți în directorul ''my-new-rookiss'' și ștergeți fișierul ''syscall''.
-    - În cadrul aceluiaș director, ștergeți fișierele ''loveletter'' și ''input'' folosind o singură comandă.
+    - În cadrul aceluiași director, ștergeți fișierele ''loveletter'' și ''input'' folosind o singură comandă.
     - Rămâneți în acest director. Ștergeți fișierul ''random-org'' din directorul părinte.
     - Ștergeți directorul ''really hard'' din ''hacker-s secret''.
     - Ștergeți toate fișierele ale căror nume conțin spații din directorul ''toddler-s\ bottle/bof/hard''.
