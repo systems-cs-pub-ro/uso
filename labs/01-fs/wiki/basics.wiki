@@ -302,6 +302,16 @@ grotesque/         hacker-s secret/   my-new-folder/     rookiss/           todd
 bof/              fd                flag              input             my-new-collision  passcode/         random
 </code>
 
+Bineînțeles, putem redenumi un fișier aflat într-un alt director.
+<code bash>
+[student@uso basics]$ cd ~/home/student/uso/lab01/basics/toddler-s\ bottle/
+[student@uso basics]$ ls ../grotesque/do\ you\ dare?/
+ascii     dos4fun   elf       hunter    hunting   mipstake  rootkit
+[student@uso basics]$ mv ../grotesque/do\ you\ dare?/mipstake ../grotesque/do\ you\ dare?/mistake
+[student@uso basics]$ ls ../grotesque/do\ you\ dare?/
+ascii    dos4fun  elf      hunter   hunting  mistake  rootkit
+</code>
+
 Folosim tot comanda ''mv'' pentru a muta un fișier într-un alt director.
 
 <code bash>
@@ -348,7 +358,7 @@ ascii easy.pdf  brain fuck      echo2           fd              fix.pdf         
 Până a trece mai departe în cadrul acestei secțiuni, trebuie să ne asigurăm că ați înțeles cum funcționează comanda ''mv''. Rezolvați exercițiile următoare până să treceți mai departe. Consultați-vă cu asistentul pentru orice nelămurire.
 
     - Mutați fișierul ''grotesque/asg'' în directorul ''grotesque/do\ you\ dare?/'' din locul în care vă aflați.
-    - Mutați fisierele ''elf'' ''hunter'' ''mipstake'' din directorul ''grotesque/do\ you\ dare?/'' în directorul părinte al acestora.
+    - Mutați fisierele ''elf'' ''hunter'' ''mistake'' din directorul ''grotesque/do\ you\ dare?/'' în directorul părinte al acestora.
     - Navigați către ''hacker-s\ secret/hard'' și mutați-l în directorul home al utilizatorului curent.
     - Plasați-vă în directorul ''toddler-s\ bottle/easy/bof''. Mutați în directorul ''basics'' toate fișierele ale căror nume încep cu ''bof'' și se termină cu ''.txt''. (Hint: wildcards)
 
