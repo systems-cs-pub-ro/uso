@@ -84,7 +84,6 @@ Vom folosi comanda ''pwd''. După aceea, vom lista conținutul
 directorului pentru a-l inspecta.
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/
 student@uso:~/.../01-fs/support/basics$ pwd
 /home/student/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ ls
@@ -110,7 +109,7 @@ asta prin comenzi succesive de tipul ''cd subdirector'' sau putem
 folosi o singură comandă pentru a ne ușura munca.
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/
+student@uso:~/uso.git/labs/01-fs/support$ cd ~/uso.git/labs/01-fs/support/basics/
 student@uso:~/.../01-fs/support/basics$ tree .
 .
 ├── grotesque
@@ -276,7 +275,7 @@ Putem da oricate argumente comenzii ''ls'', fie sub forma ''ls -a -b -c'', fie '
 Pentru a crea un nou director în directorul curent folosim comanda ''mkdir''.
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics
+student@uso:~/.../basics/toddler-s bottle/passcode$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ ls
 grotesque  'hacker-s secret'   rookiss  'toddler-s bottle'
 student@uso:~/.../01-fs/support/basics$ mkdir my-new-folder
@@ -307,7 +306,7 @@ Intrați în primul director creat. Vrem să creăm un fișier cu conținutul "H
 <code bash>
 student@uso:~/.../01-fs/support/basics$ cd w<TAB>
 student@uso:~/.../support/basics/weird directory$ echo "Hello, world" > my_file.txt
-student@uso:$ ls -l
+student@uso:~/.../support/basics/weird directory$ ls -l
 total 4
 -rw-r--r-- 1 student student 13 aug 21 22:59 my_file.txt
 </code>
@@ -323,7 +322,7 @@ Până a trece mai departe, trebuie să vă asigurați că ați înțeles cum pu
 Pentru a redenumi un fișier folosim comanda ''mv''. Comanda ''mv'' are formatul ''mv sursă destinație''. În cazul în care uitați, folosiți pagina de manual a acesteia.
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/toddler-s\ bottle
+student@uso:~/.../basics/toddler-s bottle/third weird directory$ cd ~/uso.git/labs/01-fs/support/basics/toddler-s\ bottle
 student@uso:~/.../support/basics/toddler-s bottle$ ls
 bof         fd     input      random
 collision   flag   passcode  'third weird directory'
@@ -336,7 +335,7 @@ student@uso:~/.../support/basics/toddler-s bottle$ ls
 Bineînțeles, putem redenumi un fișier aflat într-un alt director.
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/toddler-s\ bottle
+student@uso:~/.../support/basics/toddler-s bottle$ cd ~/uso.git/labs/01-fs/support/basics/toddler-s\ bottle
 student@uso:~/.../support/basics/toddler-s bottle$ ls ../grotesque/do\ you\ dare/
 ascii  dos4fun  elf  hunter  hunting  mipstake  rootkit
 student@uso:~/.../support/basics/toddler-s bottle$ mv ../grotesque/do\ you\ dare/mipstake ../grotesque/do\ you\ dare/mistake
@@ -376,7 +375,6 @@ student@uso:~/.../support/basics/toddler-s bottle$ ls ../hacker-s\ secret/
 În cazul în care avem mai multe fișiere de mutat într-un alt (același) director, folosim tot comanda ''mv''.
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/toddler-s\ bottle/
 student@uso:~/.../support/basics/toddler-s bottle$ ls
  bof   fd   input   passcode   random  'third weird directory'
 student@uso:~/.../support/basics/toddler-s bottle$ ls ../rookiss/
@@ -400,7 +398,7 @@ Până a trece mai departe în cadrul acestei secțiuni, trebuie să ne asigură
 Pentru a redenumi un fișier am văzut că folosim comanda ''mv''. În cazul în care vrem ca noul nume să conțină spații, procedăm ca mai devreme (vezi crearea directoarelor).
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics
+student@uso:~/.../toddler-s bottle/bof/easy$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ ls
  bof1.txt   bof4.txt   'hacker-s secret'  'toddler-s bottle'
  bof2.txt   bof5.txt    my-new-folder     'weird directory'
@@ -415,7 +413,6 @@ student@uso:~/.../01-fs/support/basics$ ls
 Putem întâlni sitația în care vrem să redenumim un fișier al cărui nume conține deja spații, acestea trebuie escapate ca mai devreme. Putem scrie numele între ghilimele, însă există riscul să greșim în cazul numelor complicate și lungi. Cel mai sigur și ușor este să abuzăm de tasta <TAB> pentru a fi siguri că nu greșim.
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ mv w<TAB> "weird directory again"
 student@uso:~/.../01-fs/support/basics$ ls
  bof1.txt   bof4.txt   'hacker-s secret'  'toddler-s bottle'
@@ -426,14 +423,14 @@ student@uso:~/.../01-fs/support/basics$ ls
 Până a trece mai departe, trebuie să ne asigurăm că ați reținut cum trebuie lucrat în cazul în care avem de-a face cu nume de fișiere/directoare care conțin spații. Până să treceți la următoarea secțiune, parcurgeți următoarele exerciții și consultați-vă cu asistentul.
 
     - Mutați fișierul ''toddler-s\ bottle/passcode/random-org'' în directorul curent fără a naviga către acel fișier. (Hint: directorul curent este ''.'')
-    - Copiați toate fișierele ale căror nume conțin spații din directorul ''toddler-s\ bottle/bof/hard'' în directorul home al utilizatorului curent. (Hint: ''man cp'')
+    - Copiați toate fișierele ale căror nume conțin spații din directorul ''toddler-s\ bottle/bof/hard'' în directorul home al utilizatorului curent fără a schimba directorul curent. (Hint: ''man cp'')
 
 ==== Ștergerea fișierelor și directoarelor ====
 
-Ne-a rămas o singură comandă de bază despre care nu am vorbit, ștergerea. Pentru a șterge un fișier, folosim comanda ''rm''.
+Ne-a rămas o singură comandă de bază despre care nu am vorbit, ștergerea. Pentru a șterge un fișier, folosim comanda ''rm''. Înainte să
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/grotesque
+student@uso:~/.../01-fs/support/basics$ cd ~/uso.git/labs/01-fs/support/basics/grotesque
  coin2  'do you dare'   elf   hunter   mistake
 student@uso:~/.../support/basics/grotesque$ rm coin2
 student@uso:~/.../support/basics/grotesque$ ls
@@ -443,7 +440,7 @@ student@uso:~/.../support/basics/grotesque$ ls
 Avem posibilitatea de a șterge fișiere multiple folosind o singură comandă. Pentru asta, va trebui să pasăm ca argument comenzii toate fișierele pe care dorim să le ștergem.
 
 <code bash>
-student@uso:~$ ~/uso.git/labs/01-fs/support/basic/toddler-s\ bottle/bof/easy
+student@uso:~/.../support/basics/grotesque$ cd ~/uso.git/labs/01-fs/support/basic/toddler-s\ bottle/bof/easy
 student@uso:~/.../toddler-s bottle/bof/easy$ ls
 bof-bof-bof  can-you-bof  random-bof.txt
 student@uso:~/.../toddler-s bottle/bof/easy$ rm bof-bof-bof can-you-bof
@@ -468,7 +465,7 @@ Dacă directorul pe care vrem să-l ștergem este gol, putem folosi și
 comanda ''rmdir''.
 
 <code bash>
-student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics
+student@uso:~/.../support/basics/grotesque$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ ls
  bof1.txt   bof5.txt           my-new-rookiss      'weird directory again'
  bof2.txt   grotesque          random-org
