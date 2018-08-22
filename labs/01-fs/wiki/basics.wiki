@@ -187,7 +187,7 @@ Pentru a ajunge în directorul home al utilizatorului curent de oriunde ne-am af
 Până a trece mai departe, trebuie să vă asigurați că ați înțeles cum trebuie navigarea printr-o ierarhie de directoare. Pentru asta, parcurgeți următoarele exerciții după care verificați cu asistentul că totul este în regulă.
 
     - Plasați-va în directorul ''hacker-s\ secret/medium''.
-    - Navigați în sistemul de fișiere către directorul ''toddler-s\ bottle/bof/boeasy''  pornind din directorul home al utilizatorului curent.
+    - Navigați în sistemul de fișiere către directorul ''toddler-s\ bottle/bof/easy''  pornind din directorul home al utilizatorului curent.
     - Ajungeți înapoi în directorul home al utilizatorului curent fără a folosi simbolul **tilda**(~).
 
 ==== Listarea fișierelor dintr-un director ====
@@ -370,7 +370,7 @@ Până a trece mai departe în cadrul acestei secțiuni, trebuie să ne asigură
 
     - Mutați fișierul ''grotesque/asg'' în directorul ''grotesque/do\ you\ dare/'' din locul în care vă aflați.
     - Mutați fisierele ''elf'' ''hunter'' ''mistake'' din directorul ''grotesque/do\ you\ dare/'' în directorul părinte al acestora.
-    - Navigați către ''hacker-s\ secret/hard'' și mutați-l în directorul home al utilizatorului curent.
+    - Mutați directorul ''hacker-s\ secret/hard'' în directorul home al utilizatorului curent.
     - Plasați-vă în directorul ''toddler-s\ bottle/bof/easy''. Mutați în directorul ''basics'' toate fișierele ale căror nume încep cu ''bof'' și se termină cu ''.txt''. (Hint: wildcards)
 
 Pentru a redenumi un fișier am văzut că folosim comanda ''mv''. În cazul în care vrem ca noul nume să conțină spații, procedăm ca mai devreme (vezi crearea directoarelor).
