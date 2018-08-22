@@ -1,4 +1,4 @@
-===== Sistemul de fișiere în Linux/Unix =====
+===== Concepte =====
 
 ==== Prezentare generală ====
 
@@ -94,12 +94,11 @@ Caracterul ".." specifică directorul parinte directorului curent.
 Căile absolute se pot folosi indiferent de directorul curent în care se află utilizatorul. Căile relative depind de directorul curent.
 </note>
 
-
-===== Utilizatori și pemisiuni =====
+==== Utilizatori și pemisiuni ====
 
 În Linux există două tipuri de utlizatori:
-* neprivilegiați - nu pot modifica starea sistemului, nu pot realiza modificări ce afectează alți utilizatori
-* privilegiați - au acces total asupra sistemului, de exemplu utilizatorul root
+  * neprivilegiați - nu pot modifica starea sistemului, nu pot realiza modificări ce afectează alți utilizatori
+  * privilegiați - au acces total asupra sistemului, de exemplu utilizatorul root
 
 Utilizatorul root este prezent, în general, pe orice sistem Linux, rolul său fiind de administrare și gestionare a celorlalți utilizatori.
 
@@ -111,14 +110,14 @@ Diferența dintre utilizatorii neprivilegiați și utilizatorii privilegiați es
 Linux folosește permisiuni pentru a dicta ce operații poate să efectueze un utilizator asupra unui fișier sau director.
 
 Permisiunile pot fi aplicate pe trei categorii:
-* utilizator (owner): utilizatorul care este deținătorul fișierului/directorului
-* grup (group): un grup de utilizatori care sunt deținătorii fișierului/directorului
-* ceilalți (others): utilizatorii care nu intră în niciuna dintre categoriile dinainte
+  * utilizator (owner): utilizatorul care este deținătorul fișierului/directorului
+  * grup (group): un grup de utilizatori care sunt deținătorii fișierului/directorului
+  * ceilalți (others): utilizatorii care nu intră în niciuna dintre categoriile dinainte
 
 Pentru fiecare dintre cele trei categorii există trei permisiuni:
-* de citire: utilizatorul poate citi conținutul fișierului respectiv poate lista conținutul directorului
-* de scriere: utilizatorul poate modifica conținutul fișierului/directorului
-* de execuție: utilizatorul poate lansa fișierul în execuție respectiv poate parcurge directorul
+  * de citire: utilizatorul poate citi conținutul fișierului respectiv poate lista conținutul directorului
+  * de scriere: utilizatorul poate modifica conținutul fișierului/directorului
+  * de execuție: utilizatorul poate lansa fișierul în execuție respectiv poate parcurge directorul
 
 Ordinea în care se aplică aceste permisiuni este: dacă utilizatorul este deținătorul fișierului, atunci se aplică permisiunile pentru owner; dacă face parte din grupul deținător, atunci se aplică permisiunile pentru group; dacă niciuna dintre condițiile precedente nu este adevărată, atunci se aplică permisiunile pentru others.
 

@@ -2,7 +2,7 @@
 
 Pentru a începe acest tutorial trebuie să vă asigurați că sunteți în
 directorul potrivit.
-Rulați comanda ''cd ~/uso/labs/01-fs/support/basics/''. 
+Rulați comanda ''cd ~/uso.git/labs/01-fs/support/basics/''. 
 
 ==== Navigarea printr-o ierarhie de directoare ====
 Listarea conținutului directorului curent se face folosind comanda
@@ -84,9 +84,9 @@ Vom folosi comanda ''pwd''. După aceea, vom lista conținutul
 directorului pentru a-l inspecta.
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics/
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/
 student@uso:~/.../01-fs/support/basics$ pwd
-/home/student/uso/labs/01-fs/support/basics
+/home/student/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ ls
 grotesque  'hacker-s secret'   rookiss  'toddler-s bottle'
 </code>
@@ -98,10 +98,10 @@ trebuie.
 
 <code bash>
 student@uso:~/.../01-fs/support/basics$ pwd
-/home/student/uso/labs/01-fs/support/basics
+/home/student/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ cd ..
-student@uso:~/uso/labs/01-fs/support$ pwd
-/home/student/uso/labs/01-fs/support
+student@uso:~/uso.git/labs/01-fs/support$ pwd
+/home/student/uso.git/labs/01-fs/support
 </code>
 
 După folosirea comenzii ''tree'' știm întreaga ierarhie și cunoaștem
@@ -110,7 +110,7 @@ asta prin comenzi succesive de tipul ''cd subdirector'' sau putem
 folosi o singură comandă pentru a ne ușura munca.
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics/
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/
 student@uso:~/.../01-fs/support/basics$ tree .
 .
 ├── grotesque
@@ -170,7 +170,7 @@ student@uso:~/.../01-fs/support/basics$ tree .
 13 directories, 40 files
 student@uso:~/.../01-fs/support/basics$ cd grotesque/do<TAB>
 student@uso:~/.../basics/grotesque/do you dare$ pwd
-/home/student/uso/labs/01-fs/support/basics/grotesque/do you dare
+/home/student/uso.git/labs/01-fs/support/basics/grotesque/do you dare
 </code>
 
 Câteodată vrem să ne plasăm într-un alt subdirector din ierarhia
@@ -180,10 +180,10 @@ poziționa altundeva.
 
 <code bash>
 student@uso:~/.../basics/grotesque/do you dare$ pwd
-/home/student/uso/labs/01-fs/support/basics/grotesque/do you dare
+/home/student/uso.git/labs/01-fs/support/basics/grotesque/do you dare
 student@uso:~/.../basics/grotesque/do you dare$ cd ../../rookiss
 student@uso:~/.../support/basics/rookiss$ pwd
-/home/student/uso/labs/01-fs/support/basics/rookiss
+/home/student/uso.git/labs/01-fs/support/basics/rookiss
 </code>
 
 Până acum ne-am jucat cu ierarhia dată de echipa de USO, dar cum
@@ -218,7 +218,7 @@ că totul este în regulă.
     - Ajungeți înapoi în directorul home al utilizatorului curent fără a folosi simbolul **tilda**(~).
 
 ==== Listarea fișierelor dintr-un director ====
-Plasați-vă din nou în directorul ''/uso/labs/01-fs/support/basics''.
+Plasați-vă din nou în directorul ''/uso.git/labs/01-fs/support/basics''.
 
 După cum am observat mai sus, listarea unui director se poate face folosind comanda ''ls''. Această formă de utilizator nu ne prezintă foarte multe informații despre fișierele din directorul inspectat (dimensiune, drepturi, tip, etc.). Folosind argumentul ''-l'' al lui ''ls'' putem lista conținutul unui director în format lung.
 
@@ -253,10 +253,10 @@ student@uso:~/.../basics/hacker-s secret/really hard$ ls -a
 Câteodată un director poate avea foarte multe intrări, iar noi să dorim inspectăm doar o parte dintre ele. Spre exemplu, vrem să aflăm mai multe informații despre fișierele cu extensia ''.pdf''. Pentru asta, vom folosi **wildcards**.
 
 <code bash>
-student@uso:~/.../basics/hacker-s secret/really hard$ cd ~/uso/labs/01-fs/support/basics
+student@uso:~/.../basics/hacker-s secret/really hard$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ cd rookiss
 student@uso:~/.../support/basics/rookis$ pwd
-/home/student/uso/labs/01-fs/support/basics/rookiss
+/home/student/uso.git/labs/01-fs/support/basics/rookiss
 student@uso:~/.../support/basics/rookis$ ls *.pdf
 'ascii easy.pdf'   fix.pdf   otp.pdf
 </code>
@@ -276,7 +276,7 @@ Putem da oricate argumente comenzii ''ls'', fie sub forma ''ls -a -b -c'', fie '
 Pentru a crea un nou director în directorul curent folosim comanda ''mkdir''.
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ ls
 grotesque  'hacker-s secret'   rookiss  'toddler-s bottle'
 student@uso:~/.../01-fs/support/basics$ mkdir my-new-folder
@@ -323,7 +323,7 @@ Până a trece mai departe, trebuie să vă asigurați că ați înțeles cum pu
 Pentru a redenumi un fișier folosim comanda ''mv''. Comanda ''mv'' are formatul ''mv sursă destinație''. În cazul în care uitați, folosiți pagina de manual a acesteia.
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics/toddler-s\ bottle
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/toddler-s\ bottle
 student@uso:~/.../support/basics/toddler-s bottle$ ls
 bof         fd     input      random
 collision   flag   passcode  'third weird directory'
@@ -336,7 +336,7 @@ student@uso:~/.../support/basics/toddler-s bottle$ ls
 Bineînțeles, putem redenumi un fișier aflat într-un alt director.
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics/toddler-s\ bottle
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/toddler-s\ bottle
 student@uso:~/.../support/basics/toddler-s bottle$ ls ../grotesque/do\ you\ dare/
 ascii  dos4fun  elf  hunter  hunting  mipstake  rootkit
 student@uso:~/.../support/basics/toddler-s bottle$ mv ../grotesque/do\ you\ dare/mipstake ../grotesque/do\ you\ dare/mistake
@@ -376,7 +376,7 @@ student@uso:~/.../support/basics/toddler-s bottle$ ls ../hacker-s\ secret/
 În cazul în care avem mai multe fișiere de mutat într-un alt (același) director, folosim tot comanda ''mv''.
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics/toddler-s\ bottle/
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/toddler-s\ bottle/
 student@uso:~/.../support/basics/toddler-s bottle$ ls
  bof   fd   input   passcode   random  'third weird directory'
 student@uso:~/.../support/basics/toddler-s bottle$ ls ../rookiss/
@@ -400,7 +400,7 @@ Până a trece mai departe în cadrul acestei secțiuni, trebuie să ne asigură
 Pentru a redenumi un fișier am văzut că folosim comanda ''mv''. În cazul în care vrem ca noul nume să conțină spații, procedăm ca mai devreme (vezi crearea directoarelor).
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ ls
  bof1.txt   bof4.txt   'hacker-s secret'  'toddler-s bottle'
  bof2.txt   bof5.txt    my-new-folder     'weird directory'
@@ -415,7 +415,7 @@ student@uso:~/.../01-fs/support/basics$ ls
 Putem întâlni sitația în care vrem să redenumim un fișier al cărui nume conține deja spații, acestea trebuie escapate ca mai devreme. Putem scrie numele între ghilimele, însă există riscul să greșim în cazul numelor complicate și lungi. Cel mai sigur și ușor este să abuzăm de tasta <TAB> pentru a fi siguri că nu greșim.
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ mv w<TAB> "weird directory again"
 student@uso:~/.../01-fs/support/basics$ ls
  bof1.txt   bof4.txt   'hacker-s secret'  'toddler-s bottle'
@@ -433,7 +433,7 @@ Până a trece mai departe, trebuie să ne asigurăm că ați reținut cum trebu
 Ne-a rămas o singură comandă de bază despre care nu am vorbit, ștergerea. Pentru a șterge un fișier, folosim comanda ''rm''.
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics/grotesque
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics/grotesque
  coin2  'do you dare'   elf   hunter   mistake
 student@uso:~/.../support/basics/grotesque$ rm coin2
 student@uso:~/.../support/basics/grotesque$ ls
@@ -443,7 +443,7 @@ student@uso:~/.../support/basics/grotesque$ ls
 Avem posibilitatea de a șterge fișiere multiple folosind o singură comandă. Pentru asta, va trebui să pasăm ca argument comenzii toate fișierele pe care dorim să le ștergem.
 
 <code bash>
-student@uso:~$ ~/uso/labs/01-fs/support/basic/toddler-s\ bottle/bof/easy
+student@uso:~$ ~/uso.git/labs/01-fs/support/basic/toddler-s\ bottle/bof/easy
 student@uso:~/.../toddler-s bottle/bof/easy$ ls
 bof-bof-bof  can-you-bof  random-bof.txt
 student@uso:~/.../toddler-s bottle/bof/easy$ rm bof-bof-bof can-you-bof
@@ -452,7 +452,7 @@ random-bof.txt
 </code>
 
 
-Ne aflăm în directorul ''~/uso/labs/01-fs/support/basics/grotesque'' și vrem să ștergem un fișier dintr-un alt director fără schimba directorul în care ne aflăm. Putem face acest lucru ușor dându-i comenzii ''rm'' calea către acel fișier (fie absolută, fie relativă).
+Ne aflăm în directorul ''~/uso.git/labs/01-fs/support/basics/grotesque'' și vrem să ștergem un fișier dintr-un alt director fără schimba directorul în care ne aflăm. Putem face acest lucru ușor dându-i comenzii ''rm'' calea către acel fișier (fie absolută, fie relativă).
 
 <code bash>
 student@uso:~/.../support/basics/grotesque$ ls
@@ -468,7 +468,7 @@ Dacă directorul pe care vrem să-l ștergem este gol, putem folosi și
 comanda ''rmdir''.
 
 <code bash>
-student@uso:~$ cd ~/uso/labs/01-fs/support/basics
+student@uso:~$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ ls
  bof1.txt   bof5.txt           my-new-rookiss      'weird directory again'
  bof2.txt   grotesque          random-org
