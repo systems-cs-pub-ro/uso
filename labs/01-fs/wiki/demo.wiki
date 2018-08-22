@@ -47,8 +47,12 @@ Astfel, ''$'' a devenit ''#'' ceea ce ne indică faptul că în acest moment sun
 
 ==== 1. Navigare în sistemul de fișiere ====
 
-Deschideți un terminal. Clonați conținutul [[https://github.com/systems-cs-pub-ro/uso|repository-ului oficial uso]] folosind comanda de mai jos: <code bash>
-student@uso:~$ git clone https://github.com/systems-cs-pub-ro/uso 
+Deschideți un terminal. Clonați conținutul [[https://github.com/systems-cs-pub-ro/uso|repository-ului oficial uso]] folosind comanda de mai jos:
+
+<code bash>
+
+student@uso:~$ git clone https://github.com/systems-cs-pub-ro/uso
+ 
 </code> 
 
 Ne propunem să lucrăm cu acele comenzi care ne ajută să parcurgem directoarele din sistemul de fișiere (adică să-l traversăm). Apoi să folosim comenzile pentru listarea conținutului unui director și pentru afișarea conținutului unui fișier.
@@ -220,150 +224,105 @@ chris
 Ne propunem să navigăm rapid în directorul home al utilizatorului cu care suntem logați, indiferend de calea în care ne aflăm în momentul curent.
 
 Rețineți că simbolul ~ (numit tilda) este o prescurtare pentru directorul home al utilizatorului.
-Putem folosi acest simbol împreună cu comanda //TODO cd pentru a duce acest exercițiu la bun sfârșit.
+Putem folosi acest simbol împreună cu comanda ''cd'' pentru a duce acest exercițiu la bun sfârșit.
 
-// Scurtătura -
+student@uso:~/.../support/demo/movies$ cd ~
+student@uso:~$ pwd
+/home/student
+
 
 Un alt simbol bine de reținut - este o prescurtare pentru directorul anterior accesat.
 
-// Demo și aici
+student@uso:~$ cd -
+/home/student/uso.git/labs/01-fs/support/demo/movies
+student@uso:~/.../support/demo/movies$
 
-=== 3. Listarea conținutului unui director recursiv ===
 
-Pentru a lista recursiv conținutul directoarelor se poate folosi utilitarul ''tree'', care afișează conținutul directoarelor într-un format arborescent, fiind ușor de urmărit și înțeles organizarea sistemului de fișiere. De cele mai multe ori este suficientă o simplă comandă ''ls'', dar dacă vrem să vizualizăm și nivelurile inferioare din ierarhia de fișiere și directoare, ''tree'' poate fi foarte util.
-
-Utilizat fără argumente, ''tree'' va lista toate fișiere și directoarele aflate //sub// directorul curent (''.'').
+==== 3. Listarea conținutului unui director recursiv ====
 
 <code bash>
-[student@uso demo]$ tree
+student@uso:~/.../01-fs/support/demo$ tree
 .
-├── ac_dc
-│   ├── angus
-│   ├── bon
-│   ├── brian
-│   ├── chris
-│   ├── cliff
-│   ├── dave
-│   ├── george
-│   ├── malcom
-│   ├── mark
-│   └── phil
-├── cargo
-├── hammerfall
-│   ├── anders
-│   ├── jesper
-│   ├── joacim
-│   ├── magnus
-│   ├── oscar
-│   ├── pontus
-│   └── stefan
-├── iris
-├── nightwish
-├── phoenix
-└── slayer
+├── empty_directory
+└── movies
+    ├── movie0.mkv
+    ├── movie0.srt
+    ├── movie1.mkv
+    ├── movie1.srt
+    ├── movie2.mkv
+    ├── movie2.srt
+    ├── movie3.mkv
+    ├── movie3.srt
+    ├── movie4.mkv
+    └── movie4.srt
 
-2 directories, 22 files
+2 directories, 10 files
+
 </code>
 
-''tree'' poate primi ca argument unul sau mai multe directoare și le va lista, independent, pe fiecare.
-
 <code bash>
-[student@uso demo]$ tree hammerfall ac_dc
-hammerfall
-├── anders
-├── jesper
-├── joacim
-├── magnus
-├── oscar
-├── pontus
-└── stefan
-ac_dc
-├── angus
-├── bon
-├── brian
-├── chris
-├── cliff
-├── dave
-├── george
-├── malcom
-├── mark
-└── phil
 
-0 directories, 17 files
-</code>
-
-În cazul în care dorim să afișăm un director care conține foarte multe fișiere și subdirectoare, putem limita nivelul până la care se face listarea folosind argumentul ''-L''.
-<code bash>
-[student@uso demo]$ tree -L 1
+student@uso:~/.../01-fs/support/demo$ tree -L 1
 .
-├── ac_dc
-├── cargo
-├── hammerfall
-├── iris
-├── nightwish
-├── phoenix
-└── slayer
+├── empty_directory
+└── movies
 
-2 directories, 5 files
+2 directories, 0 files
+
 </code>
 
-<note>De notat faptul că tree poate să nu primească niciun argument sau, dacă primește, acesta trebuie să fie neapărat director, în caz contrar se va afișa o eroare.
-<code bash>
-[student@uso demo]$ tree iris
-iris [error opening dir]
-</code>
-</note>
-==== 3. Pagini de manual ====
-
-În Linux, probabil cea mai folosită formă de documentație o reprezintă paginile de manual. Haideți să vedem care sunt comenzile pe care le folosim pentru a ne documenta în Linux și cum găsim informația utilă.
-
-Căutarea unei comenzi: 
 
 <code bash>
-student@mint ~ $ apropos "remove files"
-student@mint ~ $ apropos "copy files"
+
+student@uso:~/.../01-fs/support/demo$ tree -a
+.
+├── empty_directory
+│   └── .not_really
+└── movies
+    ├── movie0.mkv
+    ├── movie0.srt
+    ├── movie1.mkv
+    ├── movie1.srt
+    ├── movie2.mkv
+    ├── movie2.srt
+    ├── movie3.mkv
+    ├── movie3.srt
+    ├── movie4.mkv
+    └── movie4.srt
+
+2 directories, 11 files
+
 </code>
 
-Localizarea unei comenzi:
+=== 4. Crearea unei ierarhii de fișiere și directoare ====
 
 <code bash>
-student@mint ~ $ which dpkg
+
+
+student@uso:~/.../support/demo/movies$ mkdir -p a/long/chain/of/directories
+student@uso:~/.../support/demo/movies$ tree
+.
+├── a
+│   └── long
+│       └── chain
+│           └── of
+│               └── directories
+├── movie0.mkv
+├── movie0.srt
+├── movie1.mkv
+├── movie1.srt
+├── movie2.mkv
+├── movie2.srt
+├── movie3.mkv
+├── movie3.srt
+├── movie4.mkv
+└── movie4.srt
+
+5 directories, 10 files
+
+
 </code>
 
-Localizare binar, sursă, dar și fișierele de care se folosește pagina de manual:
-
-<code bash>
-student@mint ~ $ whereis ls
-ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
-</code>
-
-<hidden>
-
-continuare output which dpkg
-<code bash>
-/usr/bin/dpkg
-student@mint ~ $ whereis dpkg
-dpkg: /usr/bin/dpkg /etc/dpkg /usr/lib/dpkg /usr/bin/X11/dpkg /usr/share/dpkg /usr/share/man/man1/dpkg.1.gz
-student@mint ~ $ which iptables
-/sbin/iptables
-student@mint ~ $ whereis iptables
-iptables: /sbin/iptables /usr/share/iptables /usr/share/man/man8/iptables.8.gz
-</code>
-  * Evident, vor întreba ce e ''dpkg''. Le explicați despre package management, pe scurt. Apoi le arătați cum își pot instala pachete, cum pot folosi ''apt-cache search'' pentru căutarea unor pachete și cum se face ''update'' la repositories + ''upgrade''. 
-  * Întrebați dacă au idee de ce una e în **''/bin''** și alta în **''/sbin''**. 
-  * Ce știu ei că se află în **''/bin''** de obicei? 
-  * De la ce ar putea veni **''s''** în **''/sbin''**?
-  * Dacă întreabă ce este **''iptables''**, reamintiți-le să folosească **''man''** cu încredere (același lucru pentru detalii cu privire la **''which''** sau **''whereis''**)
-
-</hidden>
-
-==== 4. Crearea unei ierarhii de fișiere și directoare ====
-
-
-touch
-mkdir
-
-mkdir -p
 
 ==== 5. Editarea unui fișier folosind vim ====
 
