@@ -1,0 +1,78 @@
+===== Need to Know =====
+
+==== 1. Lucrul cu Sistemul de Fișiere (X puncte) ====
+//T: Caută un fișier în sistemul de fișiere (locate)
+
+**[1a]** Căutați fișierul **pwd** în ierarhia de fișiere a sistemului curent.
+
+**[1b]** Căutați fișiere cu extensia **.odt** în ierarhia de fișiere a sistemului curent.
+
+//T: Caută cu grep recursiv un string, afișează doar numele fișierelor
+**[1c]** De data aceasta vom căuta în interiorul fișierelor dintr-o ierarhie de fișiere. Folosiți ''grep recursiv'' 
+
+==== 2. Ierarhie de directoare (X puncte) ====
+//T: Crearea ierarhie de directoare cu mkdir -p
+
+**[2a]** Creați o ierarhie de directoare conform celei de mai jos. Frunzele sunt fișiere.
+<code bash>
+[student@uso demo]$ tree .
+.
+|-- ac_dc
+|   |-- angus
+|   |-- bon
+|   |-- brian
+|   |-- chris
+|   |-- cliff
+|   |-- dave
+|   |-- george
+|   |-- malcom
+|   |-- mark
+|   `-- phil
+|-- cargo
+|-- hammerfall
+|   |-- anders
+|   |-- jesper
+|   |-- joacim
+|   |-- magnus
+|   |-- oscar
+|   |-- pontus
+|   `-- stefan
+|-- iris
+|-- metallica
+|-- nightwish
+|-- nirvana
+|-- phoenix
+`-- slayer
+
+</code>
+
+//T: Operații de mutare în ierarhie
+
+**[2b]** În directorul **.** creați un director numit **muzica** și mutați întregul conținut al **.** în **muzica**. Ștergeți directorul **hammerfall**.
+
+**[2c]** Editați fișierul **metallica** cu 5 nume de melodii. Folosiți **vim** 
+
+// tutoriale redirectare comenzii df -h într-un fișier
+**[2d]** Redirectați în fișierul **ierarhie** rezultatul comenzii **tree**. Comanda trebuie executată din vârful ierarhiei.
+
+**[2e]** Repetați redirectarea de mai sus în fișierul **ierarhie_ascii**, dar de data aceasta în format ASCII.
+
+==== 3. Compilare automata - Makefile (X puncte) ====  
+//T: Rulat Makefile și obținut executabil în conținut deja existent (ierarhia dată de noi)
+
+**[3a]** Intrați în directorul ''uso/labs/01-fs/support/need-to-know/''. Rulați executabilul obținut anterior **din directorul curent**. 
+
+**[3b]** Rămâneți în directorul ''uso/labs/01-fs/support/need-to-know/''. Compilați fișierele sursăi ... din acest fișier folosind Makefile. 
+
+**[3c]** Creați un nou director **nu_intrati** și în cadrul acestuia un fișier sursă ''manele_2018.c''. Copiați Makefile-ul folosit anterior și adaptați-l pentru cazul vostru.
+
+
+==== 4. Arhive (X puncte) ====
+//T: Crearea unei arhive zip, tar.gz și tar.bz2 din ierarhia de directoare
+//T: Copiere arhivă, listare și dezarhivare
+
+**[4a]** Folosind ierarhia ''uso/labs/01-fs'' creați arhive de tipul **zip**, **tar.gz** și **tar.bz2**.
+
+**[4b]** Afișați conținutul arhivei.
+
+**[4c]** Dezarhivați arhiva într-un director numit **backup**
