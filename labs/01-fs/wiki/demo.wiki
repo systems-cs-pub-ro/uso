@@ -30,13 +30,20 @@ Este de preferat să întrebați de fiecare dată ce cred ei că va face o coman
 Ne propunem să schimbăm utilizatorul curent cu utilizatorul root.
 Una din metodele existente constă în folosirea comenzii su (abreviere de la en. switch user).
 
-<code>
+<code bash>
 
-TODO
+student@uso:~$ sudo su
+[sudo] password for student: 
+root@uso:/home/student#
 
 </code>
 
-// TODO se observă 
+<note>
+
+Comanda a avut ca rezultat, pe lângă autentificarea ca utilizatorul root, schimbarea prompt-ului.
+Astfel, ''$'' a devenit ''#'' ceea ce ne indică faptul că în acest moment suntem autentificați ca root.
+
+</note>
 
 ==== 1. Navigare în sistemul de fișiere ====
 
