@@ -47,13 +47,7 @@ Astfel, ''$'' a devenit ''#'' ceea ce ne indică faptul că în acest moment sun
 
 ==== 1. Navigare în sistemul de fișiere ====
 
-Deschideți un terminal. Clonați conținutul [[https://github.com/systems-cs-pub-ro/uso|repository-ului oficial uso]] folosind comanda de mai jos:
-
-<code bash>
-
-student@uso:~$ git clone https://github.com/systems-cs-pub-ro/uso
-
-</code>
+Deschideți un terminal.
 
 Ne propunem să lucrăm cu acele comenzi care ne ajută să parcurgem directoarele din sistemul de fișiere (adică să-l traversăm). Apoi să folosim comenzile pentru listarea conținutului unui director și pentru afișarea conținutului unui fișier.
 
@@ -62,9 +56,11 @@ Foarte importantă este distincția între o cale absolută (o cale către un di
 Urmăriți cu atenție secvența de comenzi de mai jos. Dacă vreți să dați și voi comenzile pe stația la care lucrați, __folosiți cât mai des tasta ''**TAB**''__ atunci când dați un parametru comenzii ''ls'' sau ''cd''.
 
 <code bash>
-student@uso: pwd
-/home/student/uso/labs/01-fs/support/demo
-
+student@uso:~$ pwd
+/home/student
+student@uso:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  examples.desktop  uso.git  vm-actions-log.txt
+student@uso:~$ cd uso.git/labs/01-fs/support/demo/
 student@uso:~/.../01-fs/support/demo$ pwd
 /home/student/uso.git/labs/01-fs/support/demo
 student@uso:~/.../01-fs/support/demo$ tree
@@ -117,7 +113,7 @@ ac_dc  cargo  hammerfall
 student@uso:~/.../support/demo/music$ cd ac_dc   # aici am folosit o cale relativă la directorul curent
 student@uso:~/.../demo/music/ac_dc$ ls
 angus  bon  brian  chris  cliff  dave  george  malcom  mark  phil
-student@uso:~/.../demo/music/ac_dc$ cd .. # Am navigat în directorul părinte directorului ac_dc, care este /home/student/uso/labs/01-fs/support/demo/music
+student@uso:~/.../demo/music/ac_dc$ cd .. # Am navigat în directorul părinte directorului ac_dc, care este /home/student/uso.git/labs/01-fs/support/demo/music
 student@uso:~/.../support/demo/music$ ls -R
 .:
 ac_dc  cargo  hammerfall
@@ -166,7 +162,7 @@ student@uso:~/.../demo/music/ac_dc$ ls ../hammerfall/       # ls ../h<TAB>
 Câteva exemple de utilizare a căilor absolute:
 <code bash>
 student@uso:~/.../demo$ ls /
-student@uso:~/.../demo$ tree /home/student/uso/labs/01-fs/support/demo/music/hammerfall
+student@uso:~/.../demo$ tree /home/student/uso.git/labs/01-fs/support/demo/music/hammerfall
 student@uso:~/.../demo$ tree -L 1 ~
 </code>
 
@@ -189,7 +185,7 @@ Citiți cu atenție mesajele erorilor din Bash ori de câte ori o comandă nu fu
 
 <hidden>
 
-Intrați în directorul ''~/uso/lab02/demo''
+Intrați în directorul ''~/uso.git/lab02/demo''
 
   * La eroarea cu ''cd nightwish'' și nu a mers ca nu e director puteți da ''ls -l'' să le arătați că în stânga nu are un ''d'' de la director.
   * Arătați sau precizați efectul comenzilor ''cd'', ''cd ~'', ''cd -''.
@@ -384,7 +380,7 @@ urmărirea tutorialelor puse la dispoziție de utilitarul ''vimtutor''.
 
 ==== 6. Copierea, mutarea și ștergerea din ierarhia de fișiere ====
 
-// TODO
+TODO
 
 ==== 7. Wildcards ====
 
