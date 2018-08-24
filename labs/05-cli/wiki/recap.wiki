@@ -1,0 +1,8 @@
+===== Recapitulare =====
+
+1. În directorul TODO avem fișierul TODO. Compilați-l cu opțiunea ''-Wall'' și rezolvați warning-urile 
+apărute. Creați un Makefile cu 3 reguli: build, run, clean.
+2. La calea TODO se află 2 fișiere C. Compilați-le si linkați-le pentru a obține în final un singur fișier 
+executabil.
+3. În directorul TODO inițializați un repository local de git după care clonați repository-ul TODO. 
+Faceți o modificare asupra oricărui fișier și publicați modificările făcute.

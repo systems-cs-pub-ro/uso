@@ -1,0 +1,211 @@
+Pentru a afișa toate partițiile unui sistem folosim comanda ''fdisk -l''. La rularea acestei comenzi 
+observăm că nu avem dreptul să vedem aceste informații dacă nu suntem logați ca un utilizator privilegiat 
+sau dacă nu folosim contrucția ''sudo''.
+
+<code bash>
+student@uso:~/uso.git/$ fdisk -l
+fdisk: cannot open /dev/loop0: Permission denied
+fdisk: cannot open /dev/loop1: Permission denied
+fdisk: cannot open /dev/loop2: Permission denied
+fdisk: cannot open /dev/loop3: Permission denied
+fdisk: cannot open /dev/loop4: Permission denied
+fdisk: cannot open /dev/loop5: Permission denied
+fdisk: cannot open /dev/loop6: Permission denied
+fdisk: cannot open /dev/loop7: Permission denied
+fdisk: cannot open /dev/sda: Permission denied
+fdisk: cannot open /dev/loop8: Permission denied
+fdisk: cannot open /dev/loop9: Permission denied
+fdisk: cannot open /dev/loop10: Permission denied
+fdisk: cannot open /dev/loop11: Permission denied
+student@uso:~/uso.git/$ sudo !!
+sudo fdisk -l
+[sudo] password for student:
+TODO output
+</code>
+
+<note>
+Fără a mai tasta din nou comanda de mai sus, putem folosi ''!!'' care ține locul ultimei comenzi pe care 
+am dat-o, în cazul nostru ''sudo !!'' expandat înseamnă ''sudo fdisk -l''.
+</note>
+
+Shell-ul operează cu diferite variabile (pentru detalii, reveniți la secțiunea Concepte[TODO link]). Avem 
+posibilitatea să ne definim propriile variabile în shell. Pentru a defini o nouă variabilă procedăm în felul 
+următor:
+
+<code bash>
+student@uso:~/uso.git/$ x=4
+student@uso:~/uso.git/$ echo $x
+4
+</code>
+
+Pentru a inspecta valoarea variabilei ''x'' folosim comanda ''echo''. Deschideți un nou terminal 
+și rulați comanda ''echo $x''.
+
+<code bash>
+student@uso:~/uso.git/$ echo $x
+
+</code>
+
+<note>
+Observați că variabila ''x'' este vizibilă acum doar în cadrul terminalul în care a fost definită.
+</note>
+
+Vom crea acum un scipt care să folosească variabila ''x''. Urmăriți pașii de mai jos pentru a realiza acest 
+lucru. Creați un script cu numele ''script.sh'' care să conțină următoarele linii:
+
+<code bash>
+#!/bin/bash
+
+echo $x
+</code>
+
+Acest script afișează valoarea variabilei ''x'' definită mai devreme. Dați drept de execuție pentru 
+acest script folosind comanda ''chmod'' și asigurați-vă că aveți drept să îl rulați. Pentru a rula 
+script folosim comanda ''./script.sh''.
+
+<code bash>
+student@uso:~/uso.git/$ ./script.sh
+
+</code>
+
+Observăm că deși variabila ''x'' este deifinită din acest terminal, la rulare nu obținem nicio valoare. Acest 
+lucru nu se întâmplă deoarece variabila ''x'', așa cum a fost deinită, nu este vizibilă subproceselor pornite 
+din cadrul acestui terminal. Pentru a face acest lucru posibil, trebuie să o exportăm.
+
+<code bash>
+student@uso:~/uso.git/$ export x=4
+</code>
+
+Rulați din nou scriptul și observați diferențele.
+
+<code bash>
+student@uso:~/uso.git/$ ./script.sh
+4
+</code>
+
+=== Redirectarea datelor de intrare, ieșire și erorile ===
+
+Pentru a urmări acest tutorial, mutați-vă în directorul TODO. Listăm conținutul directorul și observăm 
+că avem un program C și un Makefile. Compilăm programul folosind comanda ''make''. Folosiți comanda 
+''make run'' pentru a rula program și introduceți inputul care vi se cere.
+
+<code bash>
+student@uso:~/uso.git/TODO$ ls 
+simple_prog.c   Makefile
+student@uso:~/uso.git/TODO$ make
+gcc simple_prog.c -o out
+student@uso:~/uso.git/TODO$ make run
+./out
+...
+</code>
+
+Încercați să introduceți și date care nu se potrivesc cerințelor. Programul va produce erori care ne deranjează 
+pe care vrem să le separăm de datele de ieșire standard. Pentru a face acest lucru putem redirecta erorile 
+într-un fișier. Rulați comanda ''make run_redirect_err'' care va redireca eventualele erori apărute în 
+fișierul ''err.txt''.
+
+<code bash>
+student@uso:~/uso.git/TODO$ make run_redirect_err
+./out 2> err.txt
+...
+</code>
+
+<note>
+Uzual, erorile sunt redirectare erorile către fișierul special ''/dev/null''.
+</note>
+
+1. Adăugați o regulă în fișierul ''Makefile'' care să ruleze același program și să redirecteze atât 
+intrările, cât și erorile. Pentru a face acest lucru, creați un fisier numit ''input.txt'' care să 
+conțină informațiile pe care le cere programul. Folosiți operatorul ''<''.
+
+=== Comunicare interprocese ===
+
+Mai devreme am văzut cum putem redirecta intrarea standard astfel încât programul să preia dintr-un 
+fișier datele de care are nevoie. Putem obține același efect folosind operatorul ''|'' (pipe).
+
+<code bash>
+student@uso:~/uso.git/TODO$ cat input.txt | ./out
+TODO output
+</code>
+
+Diferența dintre cele 2 exemple de mai sus o face numărul de procese create. În cazul redirectării, 
+este creat un singur proces, pe când în cel de-al doilea sunt create procese, primul pornit de comanda 
+''cat input.txt'' și ''./out'' care se ocupă de rularea binarului. Este de reținut faptul că **ieșirea** 
+primului proces este servită drept **intrare** pentru ce de-al doilea.
+
+=== Filtre de procesare ===
+
+Să ne amintim de fișierul ''/etc/passwd'' conține informații despre toți utilizatorii din sistem. 
+
+<code bash>
+student@uso:~/uso.git/$ cat /etc/passwd
+TODO output
+</code>
+
+În Linux există filtrul de text ''cut'' prin care putem extrage doar anumite informații dintr-un output. 
+Să zicem că vrem să extragem doar numele utilizatorilor, fără informațiile legate de grupuri sau home directory.
+
+
+<code bash>
+student@uso:~/uso.git/$ cat /etc/passwd | cut -f1 -d:
+TODO output
+</code>
+
+<note>
+Argumentul ''-f1'' specifică faptul că vrem prima coloană, iar argumentul ''-d:'' specifică delimitatorul 
+de coloane, în cazul nostru '':''.
+</note>
+
+1. Pornind de la comanda de mai sus, afișați numele utilizatorilor sortați alfabetic. (Hint: ''man sort'')
+2. Folosind utilitarul ''wc'', obțineți numărul de utilizatori din sistem.
+3. Să afișeze cele mai consumatoare de memorie 10 procese din sistem. (Hint: folosiți ''|'' și ''tail'').
+
+Comanda ''stat'' ne afișează mai multe informații despre un fișier din sistem. Vrem să extragem din outputul 
+acestei comenzi doar data ultimei modificări. Vom folosi utilitaturl grep pentru a extrage linia pe care se 
+află informațiile despre data ultimei modificări.
+
+<code bash>
+student@uso:~/uso.git/$ stat TODO | grep "Modify"
+TODO output
+</code>
+
+1. Folosind filtrul ''cut'' extrageți din ieșirea comenzii anterioare doar data modificării.
+
+Fișierul special ''/dev/urandom'' conține bytes aleatori. Listați conținutul acestui fișier. Folosiți 
+combinația de taste ''CTRL + C'' pentru a opri acest proces.
+
+<code bash>
+student@uso:~/uso.git/$ cat /dev/urandom
+TODO output
+
+^C
+student@uso:~/uso.git/$
+</code>
+
+1. Folosindu-vă de fișierul ''/dev/random'', generați o parolă aleatoare de 32 de caractere (TODO link).
+
+=== Înlănțuirea comenzilor ===
+
+Pentru a înlănțui 2 sau mai multe comenzi folosim operatorul '';''. Cele de procese pornite sunt 
+independente și se vor executa indiferent de finalitatea celei care se execută prima.
+
+<code bash>
+student@uso:~/uso.git/$ cd TODO; ls -l
+</code>
+
+1. Alegeți 2 aplicații de aici (TODO link) și instalați-le folosind o singură comandă.
+
+În continuare, vom folosi comanda ''ping www.google.com'' pentru a testa dacă avem conectivitate la 
+Internet. În cazul în care avem, vrem să deschidem un browser pe pagina ''www.google.com''. Vom folosi 
+operatorul ''&&''.
+
+<code bash>
+student@uso:~/uso.git/$ ping -c 1 www.google.com && firefox www.google.com
+</code>
+
+Acum încercați să înlocuiți ''www.google.com'' cu ''www.random-webiste.xyz'' și ''&&'' cu ''||''. 
+Oservați ce se întâmplă.
+
+1. Mutați-vă la calea TODO și, folosind o singură comandă, compilați și rulați programul TODO. În cazul 
+în care apar erori de compilare, vrem să nu rulăm executabilul. Rezolvați eroarea astfel încât programul 
+să compileze și rulați-l.
