@@ -1,4 +1,3 @@
-
 ===== Recapitulare =====
 
 ==== 1. Navigare și scurtături în mediul Linux (X puncte) ====
@@ -83,9 +82,9 @@ Editorul ''Vim'' este dificil de folosit la început. Dacă pe parcursul folosir
 Contul privilegiat (''root'') este folosit în Linux pentru a realiza acțiuni privilegiate. De exemplu nu putem vedea conținutul fișierului ''/etc/sudoers'' decât ca ''root''. Astfel, dacă rulăm comanda
 <code>
 cat /etc/sudoers
-</node>
+</code>
 vom primi mesajul
-<ode>
+<code>
 cat: /etc/sudoers: Permission denied
 </code>
 pentru că nu avem permisiuni.
@@ -104,15 +103,6 @@ Ca urmare a rulării comenzii ''sudo su'' vom avea acum un prompt nou, numit **p
 
 **[3a]** Deschideți un terminal cu 4 tab-uri. În două tab-uri obțineți prompt de ''root''; în unul din aceste două tab-uri afișați fișierul ''/etc/sudoers'' iar în celălalt fișierul ''/etc/shadow''.
 
-==== 4. Actualizare repository de lucru ====
-
-Lucrul în laborator îl vom face într-un repository. La începutul fiecărui laborator va trebui să actualizăm repository-ul. Pentru acesta, într-un terminal rulați comenzile de mai jos:
-<code>
-cd uso.git
-git pull --rebase
-cd ..
-</code>
-
-Prima comandă schimbă directorul în repository (''uso.git''). A doua comandă actualizează conținutul laboratorului. A treia comandă ne face să revenim în directorul de unde am plecat; șirul ''..'' este o referință către directorul părinte.
-
+----
+\\
 Acum o să lucrăm la partea cea mai vizibilă dintr-un sistem de operare: sistemul de fișiere. Adică vom crea, șterge, modifica și afișa fișiere, directoare, link-uri. Să începem!
