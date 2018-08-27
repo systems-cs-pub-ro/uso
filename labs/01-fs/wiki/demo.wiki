@@ -348,7 +348,83 @@ urmărirea tutorialelor puse la dispoziție de utilitarul ''vimtutor''.
 
 ==== 6. Copierea, mutarea și ștergerea din ierarhia de fișiere ====
 
-TODO
+Dorim să efectuăm o serie de operații (ex. copiere, mutare și ștergere) asupra
+unei ierarhii întregi de fișiere. O să folosim ierarhia de directoare pe
+care am creat-o în secțiunea 6.
+
+Pentru început o sa copiem toată ierarhia din directorul movies în directorul
+părinte al acestuia.
+
+<code bash>
+
+student@uso:~/.../support/demo/movies$ cp -r a ../
+student@uso:~/.../support/demo/movies$ tree ../a  # am folosit o cale relativă
+../a
+└── long
+    └── chain
+        └── of
+            └── directories
+
+4 directories, 0 files
+student@uso:~/.../support/demo/movies$ tree a
+a
+└── long
+    └── chain
+        └── of
+            └── directories
+
+4 directories, 0 files
+
+</code>
+
+În acest moment avem aceeași ierarhie în două locuri. Dorim să ștergem ierarhia
+din directorul ''movies''.
+
+
+<code bash>
+
+student@uso:~/.../support/demo/movies$ rm -r a/
+student@uso:~/.../support/demo/movies$ ls
+movie0.mkv  movie1.mkv  movie2.mkv  movie3.mkv  movie4.mkv
+movie0.srt  movie1.srt  movie2.srt  movie3.srt  movie4.srt
+
+</code>
+
+Am folosit comanda ''rm'' cu opțiunea ''-r'' (en. recursive) pentru a șterge întreaga ierarhie.
+Pentru mai multe opțiune a comenzii ''rm'' consultați maginile de manual (''man rm'').
+
+
+A rămas o singură operație de testat și anume mutarea. Vom folosi comanda
+''mv''.
+Vom muta directorul pe care l-am copiat mai devreme în directorul ''Desktop''
+al utilizatorului curent.
+
+<code bash>
+
+student@uso:~/.../support/demo/movies$ cd ..
+student@uso:~/.../01-fs/support/demo$ mv a ~/Desktop
+student@uso:~/.../01-fs/support/demo$ tree ~/Desktop
+/home/student/Desktop
+└── a
+    └── long
+        └── chain
+            └── of
+                └── directories
+
+5 directories, 0 files
+
+</code>
+
+Observăm că directorul pe care l-am mutat nu se mai află în directorul
+''demo''.
+
+<code bash>
+
+student@uso:~/.../01-fs/support/demo$ ls
+empty_directory  movies  music
+
+</code>
+
 
 ==== 7. Wildcards ====
 
