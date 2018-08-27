@@ -135,7 +135,7 @@ Cum am văzut și mai sus, exemple de folosire a căilor relative sunt:
 
 <code bash>
 student@uso:~/.../support/demo/music$ ls hammerfall/        # ls h<TAB>
-[student@uso demo]$ ls -l .
+student@uso:~/.../support/demo/music$ ls -l .
 student@uso:~/.../support/demo/music$ cd ac_dc/             # cd ./a<TAB>
 student@uso:~/.../demo/music/ac_dc$ ls ../hammerfall/       # ls ../h<TAB>
 </code>
