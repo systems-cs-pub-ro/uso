@@ -412,8 +412,6 @@ total 4
 -rw-r--r-- 1 student student    0 aug 22 10:52 movie3.mkv
 -rw-r--r-- 1 student student    0 aug 22 10:52 movie4.mkv
 drwxr-xr-x 2 student student 4096 aug 22 10:59 subs
-
-
 student@uso:~/demo$ cd subs
 student@uso:~/demo/subs$ ls -l
 total 0
