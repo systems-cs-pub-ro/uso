@@ -164,19 +164,6 @@ Citiți cu atenție mesajele erorilor din Bash ori de câte ori o comandă nu fu
 <note important>În general, orice comandă ''cd'' ar trebui urmată de una ''ls'' sau ''pwd'' în scop de verificare. Cum am văzut mai sus, uneori pot apărea erori, fie directorul nu există, fie nu avem permisiuni să îl accesăm, iar comanda se poate executa fără succes, prin urmare este **foarte important** care orice comandă de modificare/alterare a stării curente să fie urmată de una de verificare. Câteva exemple de comenzi care fac pereche bună sunt: ''cd'' -- ''pwd''; ''touch'', ''mv'', ''rm'' -- ''ls''; ''echo'' -- ''cat'' etc.
 </note>
 
-<hidden>
-
-Intrați în directorul ''~/uso.git/lab02/demo''
-
-  * La eroarea cu ''cd nightwish'' și nu a mers ca nu e director puteți da ''ls -l'' să le arătați că în stânga nu are un ''d'' de la director.
-  * Arătați sau precizați efectul comenzilor ''cd'', ''cd ~'', ''cd -''.
-  * Arătați sau precizați efectul comenzii ''cd<SPACE><TAB>'' --> cum am dat ''ls'' fără a folosi ''ls''
-  * Arătați sau precizați efectul comenzii ''cd me<TAB>''.
-
-<note important>**Insistați pe folosirea <TAB> nu treceți peste asta**</note>
-
-</hidden>
-
 <note important>
 Folosiți tasta ''TAB'' ori de câte ori puteți. De multe ori e suficient să tastăm doar primele 2-3 litere din numele directorului sau fișierului pe care vrem să-l accesăm. Dacă există două sau mai multe directoare/fișiere care au același prefix, putem fie adăuga mai multe litere pentru a elimina ambiguitatea, fie tasta de două ori ''TAB'' pentru a afișa lista de hituri cu același prefix. Putem itera apoi prin lista de potriviri folosind tot tasta ''TAB''.
 </note>
@@ -341,7 +328,7 @@ apăsarea tastei ''esc''.
 Pentru a ieși din fișier și pentru a salva introducem comanda '':wq''
 (: începe comanda nouă, w - write, q - quit).
 
-Inspectăm conținutul curent al fișierului editat folosin comanda ''cat''.
+Inspectăm conținutul curent al fișierului editat folosind comanda ''cat''.
 
 <code bash>
 
