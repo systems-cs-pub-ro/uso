@@ -7,25 +7,6 @@ Avem și un [[uso:resurse:cheatsheet|cheatsheet]] pe care îl putem folosi ca s�
 </note>
 
 Să începem!
-
-<hidden>
-
-<note important>
-Înainte de toate, spuneți-le de [[uso:resurse:cheatsheet|cheatsheet]]!!!!!!
-</note>
-
-
-Începeți cu (pentru că sigur au văzut deja la curs cum arată niște comenzi, să ne lămurim de la început) faptul că exită 3 formate pentru opțiunile unei comenzi:
-  * formatul lung (de exemplu ''%%--help%%'')
-  * formatul GNU (ca în ''ls -l'')
-  * formatul BSD (''ps aux'')
-
-<note tip>
-Este de preferat să întrebați de fiecare dată ce cred ei că va face o comandă înainte de a da ENTER. Vă rog să îi implicați cât mai mult în demo, că altfel vor dormi așa cum o fac la curs.
-</note>
-
-</hidden>
-
 ==== 0. Autentificare cu utilizatorul root ====
 Ne propunem să schimbăm utilizatorul curent cu utilizatorul root.
 Una din metodele existente constă în folosirea comenzii su (abreviere de la en. switch user).
