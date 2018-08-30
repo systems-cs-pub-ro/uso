@@ -211,15 +211,19 @@ trebuie navigarea printr-o ierarhie de directoare. Pentru asta,
 parcurgeți următoarele exerciții după care verificați cu asistentul
 că totul este în regulă.
 
-    - Plasați-va în directorul ''hacker-s\ secret/medium''.
-    - Navigați în sistemul de fișiere către directorul
-    ''toddler-s\ bottle/bof/boeasy''  pornind din directorul home al utilizatorului curent.
+    - Plasați-vă în directorul ''hacker-s\ secret/medium''.
+    - Navigați în sistemul de fișiere către directorul ''toddler-s\ bottle/bof/easy''  pornind din directorul home al utilizatorului curent.
     - Ajungeți înapoi în directorul home al utilizatorului curent fără a folosi simbolul **tilda**(~).
+
+<note tip>
+Dacă vrem să renunțăm la folosirea ghilimelelor în cazul fișierelor ale căror nume conțin spații, putem **escapa** caracterul special ''spațiu'' folosind ''\ ''.
+</note>
 
 ==== Listarea fișierelor dintr-un director ====
 Plasați-vă din nou în directorul ''/uso.git/labs/01-fs/support/basics''.
 
-După cum am observat mai sus, listarea unui director se poate face folosind comanda ''ls''. Această formă de utilizator nu ne prezintă foarte multe informații despre fișierele din directorul inspectat (dimensiune, drepturi, tip, etc.). Folosind argumentul ''-l'' al lui ''ls'' putem lista conținutul unui director în format lung.
+După cum am observat mai sus, listarea conținutului unui director se poate face folosind comanda ''ls''. Această formă de utilizator nu ne prezintă foarte multe informații despre fișierele din directorul inspectat (dimensiune, drepturi, tip, etc.). Folosind argumentul ''-l'' al lui ''ls'' putem lista conținutul unui director în format lung.
+Astfel, putem afla mai multe informații despre fișiere, cum ar fi (în ordine): drepturile asupra fișierului, numărul de linkuri către fișier, numele ownerului, numele grupului owner, dimensiunea fișierului, data ultimei modificări și numerele acestuia.
 
 <code bash>
 student@uso:~/.../01-fs/support/basics$ ls -l
@@ -392,7 +396,7 @@ Până a trece mai departe în cadrul acestei secțiuni, trebuie să ne asigură
 
     - Mutați fișierul ''grotesque/asg'' în directorul ''grotesque/do\ you\ dare/'' din locul în care vă aflați.
     - Mutați fisierele ''elf'' ''hunter'' ''mistake'' din directorul ''grotesque/do\ you\ dare/'' în directorul părinte al acestora.
-    - Navigați către ''hacker-s\ secret/hard'' și mutați-l în directorul home al utilizatorului curent.
+    - Navigați către directorul ''hacker-s\ secret'' și mutați directorul ''hard'' în directorul home al utilizatorului curent.
     - Plasați-vă în directorul ''toddler-s\ bottle/bof/easy''. Mutați în directorul ''basics'' toate fișierele ale căror nume încep cu ''bof'' și se termină cu ''.txt''. (Hint: wildcards)
 
 Pentru a redenumi un fișier am văzut că folosim comanda ''mv''. În cazul în care vrem ca noul nume să conțină spații, procedăm ca mai devreme (vezi crearea directoarelor).
@@ -403,21 +407,21 @@ student@uso:~/.../01-fs/support/basics$ ls
  bof1.txt   bof4.txt   'hacker-s secret'  'toddler-s bottle'
  bof2.txt   bof5.txt    my-new-folder     'weird directory'
  bof3.txt   grotesque   rookiss           'weird directory 2'
-student@uso:~/.../01-fs/support/basics$ mv rookiss/ "my-new-rookiss"
+student@uso:~/.../01-fs/support/basics$ mv rookiss/ "my new rookiss"
 student@uso:~/.../01-fs/support/basics$ ls
  bof1.txt   bof4.txt   'hacker-s secret'  'toddler-s bottle'
  bof2.txt   bof5.txt    my-new-folder     'weird directory'
- bof3.txt   grotesque   my-new-rookiss    'weird directory 2'
+ bof3.txt   grotesque   'my new rookiss'    'weird directory 2'
 </code>
 
-Putem întâlni sitația în care vrem să redenumim un fișier al cărui nume conține deja spații, acestea trebuie escapate ca mai devreme. Putem scrie numele între ghilimele, însă există riscul să greșim în cazul numelor complicate și lungi. Cel mai sigur și ușor este să abuzăm de tasta <TAB> pentru a fi siguri că nu greșim.
+Putem întâlni sitația în care vrem să redenumim un fișier al cărui nume conține deja spații, acestea trebuie escapate ca mai devreme. Putem scrie numele între ghilimele, însă există riscul să greșim în cazul numelor complicate și lungi. Cel mai sigur și ușor este să abuzăm de tasta <TAB> pentru a fi siguri că nu greșim. Vrem să modificăm numele directorului ''weird directory'' în ''weird directory again''.
 
 <code bash>
 student@uso:~/.../01-fs/support/basics$ mv w<TAB> "weird directory again"
 student@uso:~/.../01-fs/support/basics$ ls
  bof1.txt   bof4.txt   'hacker-s secret'  'toddler-s bottle'
  bof2.txt   bof5.txt    my-new-folder     'weird directory 2'
- bof3.txt   grotesque   my-new-rookiss    'weird directory again'
+ bof3.txt   grotesque   'my new rookiss'    'weird directory again'
 </code>
 
 Până a trece mai departe, trebuie să ne asigurăm că ați reținut cum trebuie lucrat în cazul în care avem de-a face cu nume de fișiere/directoare care conțin spații. Până să treceți la următoarea secțiune, parcurgeți următoarele exerciții și consultați-vă cu asistentul.
@@ -449,7 +453,7 @@ random-bof.txt
 </code>
 
 
-Ne aflăm în directorul ''~/uso.git/labs/01-fs/support/basics/grotesque'' și vrem să ștergem un fișier dintr-un alt director fără schimba directorul în care ne aflăm. Putem face acest lucru ușor dându-i comenzii ''rm'' calea către acel fișier (fie absolută, fie relativă).
+Ne aflăm în directorul ''~/uso.git/labs/01-fs/support/basics/grotesque'' și vrem să ștergem un fișier dintr-un alt director fără a schimba directorul în care ne aflăm. Putem face acest lucru ușor dându-i comenzii ''rm'' calea către acel fișier (fie absolută, fie relativă).
 
 <code bash>
 student@uso:~/.../support/basics/grotesque$ ls
@@ -467,7 +471,7 @@ comanda ''rmdir''.
 <code bash>
 student@uso:~/.../support/basics/grotesque$ cd ~/uso.git/labs/01-fs/support/basics
 student@uso:~/.../01-fs/support/basics$ ls
- bof1.txt   bof5.txt           my-new-rookiss      'weird directory again'
+ bof1.txt   bof5.txt           'my new rookiss'      'weird directory again'
  bof2.txt   grotesque          random-org
  bof3.txt  'hacker-s secret'  'toddler-s bottle'
  bof4.txt   my-new-folder     'weird directory 2'
@@ -475,17 +479,17 @@ student@uso:~/.../01-fs/support/basic$ rm -r "weird directory again"
 student@uso:~/.../01-fs/support/basic$ ls
  bof1.txt   bof4.txt   'hacker-s secret'   random-org
  bof2.txt   bof5.txt    my-new-folder     'toddler-s bottle'
- bof3.txt   grotesque   my-new-rookiss    'weird directory 2'
+ bof3.txt   grotesque   'my new rookiss'    'weird directory 2'
 student@uso:~/.../01-fs/support/basic$ rmdir weird\ directory\ 2/
 student@uso:~/.../01-fs/support/basic$ ls
  bof1.txt   bof4.txt   'hacker-s secret'   random-org
  bof2.txt   bof5.txt    my-new-folder     'toddler-s bottle'
- bof3.txt   grotesque   my-new-rookiss
+ bof3.txt   grotesque   'my new rookiss'
 </code>
 
-Pentru a vă asigura că ați înțeles cum se șterg fișierele și directoarele dintr-o ierarhie, parcurgeți următoarele exerciții și consultați-vă cu asistentul în cazul orcărei nelămuriri.
+Pentru a vă asigura că ați înțeles cum se șterg fișierele și directoarele dintr-o ierarhie, parcurgeți următoarele exerciții și consultați-vă cu asistentul în cazul oricărei nelămuriri.
 
-    - Mergeți în directorul ''my-new-rookiss'' și ștergeți fișierul ''syscall''.
+    - Mergeți în directorul ''my new rookiss'' și ștergeți fișierul ''syscall''.
     - În cadrul aceluiaș director, ștergeți fișierele ''loveletter'' și ''input'' folosind o singură comandă.
     - Rămâneți în acest director. Ștergeți fișierul ''random-org'' din directorul părinte.
     - Ștergeți directorul ''really hard'' din ''hacker-s secret''.
