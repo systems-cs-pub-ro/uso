@@ -65,8 +65,6 @@ conecta la ''server''.
 **[6c]** Inversați rolurile și repetați task-ul **[6b]**. (''Hint:'' Nu rămâneți
 prinși în recursivitate).
 
-
-
 ==== 7. Instalarea unui server web Apache2 ====
 
 **[7a]** Asigurați-vă că aveți instalat un server web Apache2.
@@ -74,13 +72,7 @@ prinși în recursivitate).
 **[7c]** Verificați funcționalitatea serverului web utilizând browserul web
 preferat.
 
- ==== 8. Instalarea unei aplicații web ====
+==== 8. Instalarea unei aplicații web ====
 
 **[8a]** Instalați aplicația web ''DokuWiki''. (''Hint:'' https://www.dokuwiki.org/install)
 **[8b]** Testați funcționalitatea.
-
-
-
-
-
-==== 8. sshfs ====
