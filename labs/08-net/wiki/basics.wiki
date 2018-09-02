@@ -2,7 +2,7 @@
 
 Pentru a începe acest tutorial trebuie să vă asigurați că sunteți în directorul potrivit. Rulați comanda ''cd ~/uso.git/labs/08-net/support/basics/''. 
 
-=== 1. Interfețe de rețea ===
+==== 1. Interfețe de rețea ====
 
 ''ifconfig'' este o comandă de Linux folosită pentru a afișa interfețele de rețea disponibile pe sistemul curent de operare. De aici putem afla informații esențiale legate de conectivitatea la internet.
 
@@ -26,7 +26,7 @@ La câmpul inet, putem observa adresa IP ''127.0.0.1''. De obicei, aceasta este 
 
 Dacă dorim să afișăm informațiile unei singure interfețe de rețea, adăugăm după utilitarul **ifconfig**, numele acesteia. Putem observa mai sus interfața **lo0** ce succede **ifconfig**.
 
-== Conectivitatea la internet ==
+=== Conectivitatea la internet ===
 
 Putem verifica conectivitatea la internet folosind utilitarul ''ping''. Acesta transmite pachete către o anumită adresa (dată ca parametru). Acest utilitar ne arată dacă pachetele trimise ajung la destinație și în cât timp. O adresă pe care o putem folosi întotdeauna este ''8.8.8.8'' (Google).
 
@@ -46,7 +46,7 @@ Putem observa ca pachetele noastre au ajuns la destinație în 17ms. De aici put
 1.1 Aflați adresa IP de pe mașina virtuală și dați un ping in ea. Vă răspunde?
 1.2 Aflați adresele IP ale colegilor (minim 2) și dați ping in ele. Vă răspund?
 
-=== 2. Urmărirea pachetelor ===
+==== 2. Urmărirea pachetelor ====
 
 Atunci când apelăm utilitarul ping cu o anumită adresă din internet, se trimit pachete până la aceasta. Dacă acestea nu ajung la destinație, ce concluzie putem trage? Că nu avem interfața configurată corespunzător? Dar dacă providerul de internet (să spunem RDS) are o problemă sau nu ne-am plătit factura la internet? Trebuie să putem afla unde este problema. Care este punctul în care pachetele noastre se pierd. Putem afla această informație folosind utilitarul ''traceroute''
 
@@ -89,4 +89,3 @@ traceroute to google.com (216.58.209.174), 64 hops max, 52 byte packets
 Putem observa că am aflat și adresa publică a site-ului google.com.  
 
 2.1 Afișați calea urmată de mașina virtuală către un site ales de voi. Prin care interfață ies pachetle?
-

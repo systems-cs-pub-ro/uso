@@ -33,35 +33,38 @@ la această adresă: https://www.coindesk.com/api/.
 
 
 ==== 3. Cheie cu permisuni eronate ====
-// TODO
+
+TODO
 
 ==== 4. Montarea/Demontarea unui sistem de fișiere la distanță ====
 
 **[4a]** Instalați pe mașina virtuală ''USO'' utilitarul ''sshfs''.
-**[4b]** Creați un director nou pe mașina virtuală ''USO'' cu denumirea
-''tom_fs''.
-**[4c]** Montați directorul ''/home/student'' de pe mașina virtuală ''tom''
-pe mașina virtuală ''USO'' folosind directorul creat la **[4b]**.
-**[4d]** De pe mașina virtuală ''USO'' adăugați un fișier nou în directorul
-''tom_fs'. Observați apariția fișierului creat pe mașina virtuală ''tom''.
-**[4e]** Demontați sistemul de fișiere. (''Hint:'' comanda ''umount'')
+
+**[4b]** Creați un director nou pe mașina virtuală ''USO'' cu denumirea ''tom_fs''.
+
+**[4c]** Montați directorul ''/home/student'' de pe mașina virtuală ''tom'' pe mașina virtuală ''USO'' folosind directorul creat la **[4b]**.
+
+**[4d]** De pe mașina virtuală ''USO'' adăugați un fișier nou în directorul ''tom_fs''. Observați apariția fișierului creat pe mașina virtuală ''tom''.
+
+**[4e]** Demontați sistemul de fișiere. (**Hint**: comanda ''umount'')
 
 ==== 5. Cheie ssh cu passphrase ====
-//TODO
 
+TODO
 
 ==== 6. Utilizarea VNC între stații ====
-<note>
 
+<note>
 La acest exercițiu veți lucra împreună cu un coleg. Veți juca, pe rând, unul
 dintre rolurile server/client.
-
 </note>
 
 **[6a]** Aflați ambele adrese ale stațiilor pe care lucrați și stabiliți rolurile
 inițiale.
+
 **[6b]** Folosind utilitarul GUI ''Remmina'' din Ubuntu, ''client-ul'' se va
 conecta la ''server''.
+
 **[6c]** Inversați rolurile și repetați task-ul **[6b]**. (''Hint:'' Nu rămâneți
 prinși în recursivitate).
 
