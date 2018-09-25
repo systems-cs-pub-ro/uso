@@ -1,0 +1,106 @@
+===== Basics =====
+
+Pentru a începe acest tutorial trebuie să vă asigurați că sunteți în
+directorul potrivit.
+Rulați comanda ''cd ~/uso.git/labs/03-user/support/basics/''. 
+
+==== Gestiunea utilizatorilor ====
+
+În Linux există un fișier ce stochează informații despre conturile de utilizatori.
+Acest fișier este /etc/passwd, este un fișier text, și conține o listă cu utilizatorii din sistem și informații utile pentru fiecare utilizator, cum ar fi: ''user ID'', ''group ID'', ''home directory'', etc. Astfel, de fiecare dată când adăugăm un nou utilizator, se adaugă automat și o intrare în acest fișier.
+Pentru mai multe detalii puteți accesa pagina de [[https://en.wikipedia.org/wiki/Passwd|Wikipedia]].
+
+<code bash>
+student@uso:~$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+.
+.
+.
+</code>
+
+1. Să se creeze utilizatorii: ''ana'', ''bogdan'' și ''david'' și să se afișeze informații utile despre acești utilizatorii (grupul din care fac parte, directorul home, etc.).
+
+Când ne logăm cu un alt user nu se modifică și directorul în care eram anterior. Pentru a ne loga direct în home-ul utilizatorului adăugam ''-'' la apelul comenzii ''su'':
+
+<code bash>
+student@uso:~$ su - ana
+Password: 
+ana@uso:~$
+</code>
+
+==== Gestiunea grupurilor de utilizatori ====
+
+La crearea unui nou utilizator, se crează în mod automat și un nou grup. Dacă dorim să realizăm o organizare proprie a utilizatorilor, putem să creăm noi grupuri.
+Pentru crearea unui grup se folosește comanda ''addgroup'', iar pentru ștergerea unui grup folosim ''delgroup''.
+
+<code bash>
+student@uso:~$ sudo addgroup studenti
+[sudo] password for student: 
+Sorry, try again.
+[sudo] password for student: 
+Adding group `studenti' (GID 1003) ...
+Done.
+</code>
+
+Pentru a adăuga un user în unul sau mai multe grupuri se foloseste comanda ''usermod'' ca in exemplul de mai jos. 
+Comanda ''id'' a fost apelată înainte și după adăugarea utilizatorului ''bogdan'' în grupul ''studenti'' pentru a vedea că adăugarea a funcționat.
+
+<code bash>
+student@uso:~$ id bogdan
+uid=1002(bogdan) gid=1002(bogdan) groups=1002(bogdan)
+student@uso:~$ sudo usermod bogdan -G studenti
+student@uso:~$ id bogdan
+uid=1002(bogdan) gid=1002(bogdan) groups=1002(bogdan),1003(studenti)
+</code>
+
+2. Adăugați și utilizatorii ''ana'' și ''david'' în grupul ''studenti''.
+
+3. Creați utilizatorii ''dan'' și ''elena'' și grupul ''asistenti'' și adăugați acești utilizatori în noul grup. 
+
+4. Ștergeți grupul ''asistenți'' creat anterior și utilizatorii asociați.
+
+<note info>
+Pentru ștergere folosiți comenzile ''deluser'' și ''delgroup'' urmate de numele utilizatorului, respectiv numele grupului.
+</note>
+
+==== Permisiuni pentru grupuri ====
+
+Pentru orice operație pe care un utilizator dorește să o facă asupra unui fișier sau director, acesta trebuie să aibă permisiunile necesare.
+Atunci când mai mulți utilizatori trebuie să aibă acces de editare asupa unui fișier, se crează un nou grup cu utilizatorii respectivi și se modifică grupul fișierului.
+
+Să luăm următorul exemplu. Utilizatorul ''student'' crează fișierul ''studenti.txt''.
+
+<code bash>
+student@uso:~$ touch student.txt
+student@uso:~$ ls -l student.txt 
+-rw-rw-r-- 1 student student 0 sep 25 21:42 student.txt
+</code>
+
+După ce a fost creat, ownerul fișierului este userul ''student'', iar grupul fișierului este ''student''.
+Dorim ca acest fișier să poată fi editat de utilizatorii ''ana'', ''bogdan'' și ''david''.
+Toți acești utilizatori sunt deja într-un grup comun: ''studenti''. Astfel, tot ce ne rămâne de făcut este să modificam grupul fișierului.
+
+<node info>
+Pentru a modifica grupul fișierului putem folosi atât comanda ''chown'' cât și comanda ''chgrp''.
+</node>
+
+<code bash>
+student@uso:~$ sudo chgrp studenti student.txt 
+student@uso:~$ ls -l student.txt 
+-rw-rw-r-- 1 student studenti 4 sep 25 21:54 student.txt
+</code>
+
+Acum putem verifica că și ceilalți utilizatori pot modifica conținutul fișierului:
+
+<code bash>
+ana@uso:/home/student$ cat > student.txt << EOL
+> Ana
+> EOL
+ana@uso:/home/student$ cat student.txt 
+Ana
+</code>
+
+
