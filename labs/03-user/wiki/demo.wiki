@@ -1,6 +1,6 @@
 ===== Demo =====
 
-În acest demo vrem să ne acomodăm cu cele mai importante comenzi utilizate atunci când lucrăm cu utilizatori, grupurile de utilizatori sau permisiuni în Linux.
+În acest demo vrem să ne acomodăm cu cele mai importante comenzi utilizate atunci când lucrăm cu utilizatori, grupuri de utilizatori sau permisiuni în Linux.
 
 <note tip>
 Să nu uităm de [[uso:resurse:cheatsheet|cheatsheetul]] pe care îl putem folosi ca să ne reamintim cele mai frecvente comenzi.
@@ -37,7 +37,7 @@ No Plan.
 
 În outputul comenzii observăm directorul home al utilizatorului, numele complet, shell-ul de login, etc.
 
-O altă comandă utilă este ''id''. Cum numele sugerează, ne dă id-ul utilizatorului dar și id-urile grupurilor din care face parte utilizatorul curent.
+O altă comandă utilă este ''id''. Cum și numele sugerează, ne dă id-ul utilizatorului dar și id-urile grupurilor din care face parte utilizatorul curent.
 
 <code bash>
 student@uso:~$ id
@@ -108,7 +108,7 @@ Is the information correct? [Y/n] Y
   * se creează un nou grup cu același nume
   * se creează home-ul utilizatorului
   * directorul home va copia structura de fișiere și directoare din directorul ''/etc/skel''
-  * se cere o parolă și celelalte informații care sunt afișate la apelul comenzii ''finger''.
+  * se cere o parolă și alte informații care sunt afișate la apelul comenzii ''finger''.
 
 <code bash>
 bogdan@uso:~$ finger bogdan
@@ -143,7 +143,7 @@ finger: bogdan: no such user.
 
 ==== Schimbarea parolei (passwd) ====
 
-Pentru a schimba parola utilizatorului curent folosim comanda ''passwd'', fără argumente. De asemenea, dacă dorim schimbarea parolei altui utilizator, îi putem oferi comenzii ''passwd'' numele acestuia ca parametru. Mai departe vom vedea un exemplu de cum facem acest lucru.
+Pentru a schimba parola utilizatorului curent folosim comanda ''passwd'', fără argumente.
 
 <code bash>
 student@uso:~$ passwd
@@ -152,6 +152,8 @@ Changing password for student.
 Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
+
+Dacă dorim schimbarea parolei altui utilizator, îi putem oferi comenzii ''passwd'' numele acestuia ca parametru.
 
 root@uso:~# passwd student
 Enter new UNIX password:

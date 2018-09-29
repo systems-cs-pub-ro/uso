@@ -8,7 +8,7 @@ Utilizatorul ''root'' este creat automat la instalarea sistemului de operare Lin
 
   * utilizator obișnuit
 
-Utilizatorii obișnuiți au doar privilegiile necesare pentru a efectua activități standard pe un sistem Linux, cum ar fi rularea aplicațiilor de text, a bazelor de date și a browserelor Web. Aceștia pot stoca fișiere în propriile directoare home. Întrucât utilizatorii obișnuiți nu au, în mod normal, privilegii administrative, nu pot șterge accidental fișierele de configurare critice ale sistemului de operare.
+Utilizatorii obișnuiți au doar privilegiile necesare pentru a efectua activități standard pe un sistem Linux, cum ar fi rularea aplicațiilor text, a bazelor de date și a browserelor Web. Aceștia pot stoca fișiere în propriile directoare home. Întrucât utilizatorii obișnuiți nu au, în mod normal, privilegii administrative, nu pot șterge accidental fișierele de configurare critice ale sistemului de operare.
 
   * utilizatorii creați și folosiți de servicii
 
@@ -35,7 +35,8 @@ Astfel, nici un utilizator nu poate să modifice starea unui fișier dacă el, g
   * file ownership
   * permisiuni
 
-Fiecare fișier este deținut de un singur utilizator și de un singur grup, și are anumite permisiuni. Deci, fiecare utilizator poate să aibă ownership pe unul sau mai multe fișiere.
+Fiecare fișier este deținut de un singur utilizator și de un singur grup, și are anumite permisiuni.
+Fiecare utilizator poate să aibă ownership pe unul sau mai multe fișiere.
 
 Permisiunile se aplică pe trei categorii:
   * utilizator (owner): utilizatorul care este deținătorul fișierului/directorului
