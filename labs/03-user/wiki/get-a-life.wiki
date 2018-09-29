@@ -1,0 +1,53 @@
+===== Get a life =====
+
+1. Să se creeze un nou utilizator și să se adauge automat în directorul home următoare structură de fișiere și directoare:
+
+<code bash>
+.
+├── books
+│   └── to-read.txt
+├── movies
+│   └── movies-list.txt
+</code>
+
+<note tip>
+HINT: skeleton directory
+</note>
+
+2. Să se scrie un script care să creeze utilizatorul ''morty'' din grupul ''rick'', având parola ''rickandmorty''. Scriptul trebuie să fie neinteractiv.
+
+
+==== SUID / GUID ====
+
+Până în acest moment am folosit doar permisiunile ''r'' (read), ''w'' (write) și ''x'' (execute).
+Pe lângă acești biți, mai există un bit ''s'' care poate înlocui bitul ''x'' din permisiunile ownerului sau grupului.
+Când bitul SUID este setat, atunci fișierul respectiv poate fi executat cu permisiunile ownerului.
+Când bitul GUID este setat, fișierul respectiv poate fi executat cu permisiunile grupului din care face parte fișierul.
+
+Pentru a înțelege aceste concepte să luăm ca exemplu comanda ''passwd''.
+După cum ați observat până acum, orice utilizator își poate schimba propria parolă chiar dacă fișierul ''passwd'' este deținut de utilizatorul ''root''.
+Acest lucru se datorează faptului că bitul SUID este setat pentru acest fișier, iar fiecare utilizator poate rula această comandă cu permisiunile ownerului ''root''.
+
+<code bash>
+student@uso:~$ ls -l /usr/bin/passwd
+-rwsr-xr-x 1 root root 59640 ian 25  2018 /usr/bin/passwd
+</code>
+
+3. (SUID) TODO
+
+4. (GUID) TODO
+
+==== Sticky bit ====
+
+''Sticky bit'' (''t'') este folosit doar pentru directoare și restricționează permisiunea de ștergere a fișierelor din directorul respectiv. Când acest bit este setat pe un director, utilizatorul poate șterge doar fișierele asupra cărora este owner.
+
+Dacă un utilizator dorește să creeze sau să șteargă fișiere sau directoare dintr-un director, trebuie să aibă drept de scriere asupra directrului respectiv.
+Directorul ''/tmp'' conține fișiere și directoare temporare, și are permisiuni depline pe toate cele trei categorii (owner, group, others), deoarece orice utilizator trebuie să poată să creeze sau să șteargă fișierele sale temporare. Dar, deoarece utilizatorii au drepturi de scriere, ei pot șterge și fișierele altor utilizatori.
+Folosind ''sticky bit'', oricine poate să creeze noi fișiere/directoare în ''/tmp'', dar poate șterge doar fișierele pe care le deține.
+
+<code bash>
+student@uso:~$ ls -l / | grep tmp
+drwxrwxrwt  13 root root      4096 sep 29 17:27 tmp
+</code>
+
+6. TODO
