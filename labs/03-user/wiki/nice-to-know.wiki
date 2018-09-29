@@ -1,0 +1,53 @@
+===== Nice to know ====
+
+1. Schimbarea homedir-ului altui utilizator
+
+Configurați sistemul astfel încât home directory-ul utilizatorului ''dan'' în loc de ''/home/dan'' să fie ''/home/public/dan''. Creați directorul dacă acesta nu există.
+
+Indicație: Folosim [[http://linux.die.net/man/8/usermod|usermod (modify a user account)]]. Căutați după ''new login directory''.
+
+**Pentru verificare** : Apăsați ''Ctrl+D'' pentru a reveni la terminalul în care erați autentificați ca ''student'' după care încercați comanda ''su - dan''. Dați ''pwd'' și verificați că homedir-ul acestuia e cel configurat cu ''usermod''. Alt mod de a verifica este inspectarea fișierului ''/etc/passwd'' și căutând linia care conține ''dan''.
+
+<note tip>Pentru a ne autentifica cu un anumit utilizator și a ne muta în homedir-ul lui folosim  ''su - dan'' in loc de simplu ''su dan''</note>
+
+==== Permisiuni default - umask ====
+
+Comanda ''umask'' definește permisiunile default care vor fi aplicate pentru fișierele sau directoarele nou create.
+Aceasta funcționează prin aplicarea unei măști formată din trei cifre asupra permisiunilor de bază ale fișierelor și directoarelor.
+Permisiunile de bază pentru fișiere sunt ''666'', iar pentru directoare sunt ''777''.
+
+Pentru a vedea ce mască este aplicată pe sistemul nostru, folosim comanda ''umask'' fără parametrii:
+<code bash>
+student@uso:~$ umask
+0002
+</code>
+
+Pentru a afla permisiunile default, calculăm diferența între valorile de bază și mască, astfel:
+
+  * pentru fișiere:
+
+    666 -
+    002
+    ___
+    664
+
+  * pentru directoare:
+
+    777 -
+    002
+    ___
+    775
+
+2. Verificați că la crearea unui nou fișier sau director sunt aplicate aceste permisiuni.
+
+3. Să se facă realizeze necesare a.î. la crearea unui nou fișier ownerul să aibă drept de citire și scriere, iar grupul și ceilalți să aibă doar drept de citire.
+
+==== Permisiuni pentru executabile ====
+
+4.Se dă urmatorul script din directorul ''executables''. Să se rezolve permisiunile astfel încât să funcționeze următorul run:
+
+<code bash>
+student@uso:~$ ./executables/script.sh
+</code>
+
+5. TODO : ultimele 3 exerciții (need a setup)
