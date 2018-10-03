@@ -13,7 +13,7 @@ De multe ori dorim să salvăm rezultatul afișat de o comandă (//output//) în
 <code>
 ls > out.txt
 </code>
-vom obține în fișierul ''out.txt'' rezultatul rulării comenzii ls. Putem verifica acest lucru cu ajutorul comenzii
+Vom obține în fișierul ''out.txt'' rezultatul rulării comenzii **ls**. Putem verifica acest lucru cu ajutorul comenzii
 <code>
 cat out.txt
 </code>
@@ -38,14 +38,14 @@ write(1, "00-intro  01-fs  02-process  03-"..., 10900-intro  01-fs  02-process  
 Comanda ''strace'' primește ca argument o altă comandă și argumentele aceleia. În cazul de mai sus, a primit ca argument comanda ''ls''. Apoi comanda strace afișează la ieșirea standard (//standard output//) rezultatul comenzii primite ca argument (la noi ''ls'') iar la ieșirea de eroare standard (//standard error//) rezultatul propriu (adică sumarul apelurilor pe care îl face comanda primită ca argument la sistemul de operare).
 
 <note>
-Pe moment nu este nevoie să știți bine cum folosim comanda ''strace''. O folosim ca să demonstrăm aspecte ale redirectării. Și pentru că scenariile pe care le prezentăm sunt practice și utile.
+Pe moment nu este nevoie să știți bine cum folosim comanda ''strace''. O folosim ca să demonstrăm aspecte ale redirectării și pentru că scenariile pe care le prezentăm sunt practice și utile.
 </note>
 
 <note>
 O comandă poate afișa informații la ieșirea standard (//standard output//) și la ieșirea de eroare standard (//standard error//). Ambele informații sunt afișate pe ecranul terminalului. La ieșirea standard sunt mesajele generate util de comandă, în vreme ce la ieșirea de eroare standard sunt mesajele de eroare și avertisment (//warning//) afișate în condiții deosebite.
 </note>
 
-**[1a]** Ne dorim să afișăm la terminal doar rezultatul comenzii ''strace'', adică apelurile realizate de comanda primită ca argument, fără să ne preocupe rezultatul comenzii. Pentru aceasta redirectăm ieșirea standard la ''/dev/null'', adică în acel fișier special **gaură neagră**. Rulăm acum cu redirectare și fără redirectare comenzile de mai jos pentru a investiga fișierele deschise de comanda ''ls'':
+**[1a]** Ne dorim să afișăm la terminal doar rezultatul comenzii ''strace'', adică apelurile realizate de comanda primită ca argument, fără să ne preocupe rezultatul comenzii. Pentru aceasta redirectăm ieșirea standard la ''/dev/null'', adică în acel fișier special **gaură neagră**. Rulăm acum fără redirectare și cu redirectare comenzile de mai jos pentru a investiga fișierele deschise de comanda ''ls'':
 <code>
 student@uso:~/uso.git/labs$ strace -e openat ls
 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
@@ -149,7 +149,7 @@ Observăm că cele două fișiere obținute în urma redirectării (''strace.out
 A nu afișa nimic la terminal înseamnă că trebuie să ignorați rezultatul comenzii ''ps'', adică să folosiți redirectarea către fișierul special ''/dev/null''.
 </note>
 
-**[1e]** Utilitarul ''grep'' este folosit pentru a căuta un șir într-un fișier. De exemplu comanda de mai jos caută șirul ''root'' în fișierul ''/etc/passwd'':
+**[1e]** Utilitarul ''grep'' este folosit pentru a căuta un șir de caractere într-un fișier. De exemplu comanda de mai jos caută șirul ''root'' în fișierul ''/etc/passwd'':
 <code>
 student@uso:~/uso.git/labs$ grep root /etc/passwd
 root:x:0:0:root:/root:/bin/bash
@@ -216,7 +216,7 @@ Observăm în rezultatul comenzii existența fișierului ''wiki/recap.wiki'', de
 
 Putem șterge fișiere dintr-o arhivă ''.zip''. De exemplu, pentru a șterge fișierul ''wiki/get-a-life.wiki'' din arhiva ''01-fs-g.zip'' folosim opțiunea ''-d'' a comenzii ''zip'':
 <code>
-student@uso:~/uso.git/labs/01-fs$ zip -r 01-fs-g.zip wiki/get-a-life.wiki
+student@uso:~/uso.git/labs/01-fs$ zip -d 01-fs-g.zip wiki/get-a-life.wiki
 updating: wiki/get-a-life.wiki (stored 0%)
 </code>
 
@@ -296,7 +296,7 @@ student@uso:~/uso.git/labs/01-fs$ find -type f -name '*.tex'
 </code>
 Observăm că sunt afișate numai fișierele cu extensia ''.tex''.
 
-**[3c]** Putem folosi comanda ''find'' pentru a aplica o altă comandă pe intrările găsite. De exemplu dacă dorim să ștergem toate fișierele cu extensia ''.c'' vom folosi opțoiunea ''-exec'', la fel ca în comanda de mai jos:
+**[3c]** Putem folosi comanda ''find'' pentru a aplica o altă comandă pe intrările găsite. De exemplu dacă dorim să ștergem toate fișierele cu extensia ''.c'' vom folosi opțiunea ''-exec'', la fel ca în comanda de mai jos:
 <code>
 student@uso:~/uso.git/labs/01-fs$ find -type f -name '*.c'
 ./support/nice-to-know/fruits/apple.c
@@ -312,7 +312,7 @@ Contrucția ''-exec rm {} \;'' este mai complicată și nu o vom explica în det
   * ''-exec'' este opțiunea care dictează comenzii ''find'' să execute comanda primită ca argument
   * ''rm'' este comanda rulată pentru fiecare fișier găsit, adică acea comandă care șterge fișierul
   * ''{}'' este o construcție specifică opțiunii ''-exec'' care înlocuiește numele fișierului; practic înseamnă că rulăm ''rm <nume-fisier>'' pentru fiecare fișier descoperit
-  * ''\;'' este un terminator de comandă, spunând că aici se încheie comanda transmisă argument opțiunii ''-exec''
+  * ''\;'' este un terminator de comandă, spunând că aici se încheie comanda transmisă ca argument opțiunii ''-exec''
 
 </note>
 
@@ -349,9 +349,9 @@ Comenzile pe care le rulăm au la bază fișiere executabile în sistemul de fi�
 ls
 /bin/ls
 </code>
-Similar, comanda ''find'' foloseșt executabilul ''/usr/bin/find'', comanda ''zip'' folosește executabilul ''/usr/bin/zip'' și așa mai departe.
+Similar, comanda ''find'' folosește executabilul ''/usr/bin/find'', comanda ''zip'' folosește executabilul ''/usr/bin/zip'' și așa mai departe.
 
-Directoarele în care caută shell-ull executabilele aferente unei comenzi se găsesc într-o construcție de tip variabilă de mediu numită ''PATH''. Vom vorbi mai multe despre variabile și variabile de mediu la un laborator viitor. Pe moment, este suficient să știm că pentru a afișa valoarea variabilei ''PATH'' folosim comanda
+Directoarele în care caută shell-ul executabile aferente unei comenzi se găsesc într-o construcție de tip variabilă de mediu numită ''PATH''. Vom vorbi mai multe despre variabile și variabile de mediu la un laborator viitor. Pe moment, este suficient să știm că pentru a afișa valoarea variabilei ''PATH'' folosim comanda
 <code>
 student@uso:~/uso.git/labs/01-fs$ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -369,7 +369,7 @@ student@uso:~/uso.git/labs/01-fs$ which zip
 </code>
 În rulările celor trei comenzi ''which'' de mai sus am obținut calea către fișierele executabilele aferente respectiv comenzilor ''ls'', ''find'' și ''zip''.
 
-Putem verifica faptul că acele fișiere sunt executabile prin folosirea comenzii ''file'' urmată de calea către fișierul executabil, cal mai jos:
+Putem verifica faptul că acele fișiere sunt executabile prin folosirea comenzii ''file'' urmată de calea către fișierul executabil, ca mai jos:
 <code>
 student@uso:~/uso.git/labs/01-fs$ file /bin/ls
 /bin/ls: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=9567f9a28e66f4d7ec4baf31cfbf68d0410f0ae6, stripped
@@ -378,7 +378,7 @@ student@uso:~/uso.git/labs/01-fs$ file /usr/bin/find
 student@uso:~/uso.git/labs/01-fs$ file /usr/bin/zip
 /usr/bin/zip: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=c828586e6e7cf929500a5b9c04faece9eceed5cc, stripped
 </code>
-În rezultatul rulării celor trei comenzi ''file'' de mai sus vedem că apare informația ''ELF'', ''dynamically linked''. Fără a intra în detalii, acest lucru este indiciul că aceste fișiere sunt, într-adevăr fișiere executabile.
+În rezultatul rulării celor trei comenzi ''file'' de mai sus vedem că apare informația ''ELF'', ''dynamically linked''. Fără a intra în detalii, acest lucru este indiciul că aceste fișiere sunt, într-adevăr, fișiere executabile.
 
 **[6a]** Găsiți fișierele executabilele aferente comenzilor ''useradd'', ''iotop'', ''tar'', ''gzip''. Verificați că cele patru fișiere indicate sunt fișiere executabile.
 
