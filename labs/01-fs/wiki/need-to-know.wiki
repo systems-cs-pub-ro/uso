@@ -41,9 +41,9 @@ Example: grep -i 'hello world' menu.h main.c
 </code>
 Cuvântul cheie **grep** urmat de opțiuni și de cuvântul cheie pe care îl căutam.
 Putem afla aceste opțiuni prin folosirea comenzii **man grep** sau **grep --help** la fel ca la utilitarul **locate**.
-Astfel, putem observa că există opțiunea **-r** cu care putem căuta recursiv intr-o ierarhie de fișiere.
+Astfel, putem observa că există opțiunea **-r** cu care putem căuta recursiv într-o ierarhie de fișiere.
 
-Vrem să căutam apariția ''int main()'' in ierarhia de fișiere ''~/uso.git''. Mergem în această ierarhie folosind **cd ~/uso.git**.
+Vrem să căutăm apariția ''int main()'' in ierarhia de fișiere ''~/uso.git''. Mergem în această ierarhie folosind **cd ~/uso.git**.
 
 <code bash>
 student@uso:~/uso.git$ grep -r "int main()"
@@ -110,9 +110,9 @@ drwxr-xr-x 2 student student 4096 aug 22 23:38 alt_director
 drwxr-xr-x 2 student student 4096 aug 22 23:39 un_al2lea_director
 </code>
 
-**[2a]** Creați o ierarhie de directoare conform celei de mai jos. Frunzele sunt fișiere.
+**[2a]** Creați o ierarhie de directoare în directorul curent conform celei de mai jos. ''Hint: Frunzele sunt fișiere, nu directoare (nu se termină în /)''.
 <code bash>
-[student@uso demo]$ tree .
+student@uso$ tree .
 .
 |-- ac_dc
 |   |-- angus
@@ -165,7 +165,7 @@ Am folosit utilitarul **rmdir** pentru a sterge un director (remove directory). 
 
 **[2b]** În directorul **.** (conform ierarhiei de mai sus) creați un director numit **muzica** și mutați întregul conținut al **.** în **muzica**. Ștergeți directorul **hammerfall**.
 
-**[2c]** Editați fișierul **metallica** cu 5 nume de melodii. Folosiți **vim** 
+**[2c]** Editați fișierul **metallica** cu 5 nume de melodii. Pentru rezolvarea acestui exercițiu va trebui să folosiți **vim**.
 
 
 == Redirectare ==
@@ -205,7 +205,7 @@ tmpfs           200M   28K  200M   1% /run/user/1000
 Bineînteles, am verificat că redirectarea a avut succes prin afișarea conținutului fișierului în care am redirectat.
 
 
-**[2d]** Redirectați în fișierul ''ierarhiei.txt'' rezultatul comenzii **tree**. Comanda trebuie executată din vârful ierarhiei.
+**[2d]** Redirectați în fișierul ''ierarhie.txt'' rezultatul comenzii **tree**. Comanda trebuie executată din vârful ierarhiei.
 
 **[2e]** Repetați redirectarea de mai sus în fișierul **ierarhie_ascii**, dar de data aceasta în format ASCII.
 
@@ -214,18 +214,18 @@ Bineînteles, am verificat că redirectarea a avut succes prin afișarea conțin
 În directorul ''~/uso.git/labs/01-fs/support/need-to-know/3-compile'' avem 2 fișiere: Makefile si hello_world.c. Rolul fișierului Makefile este de a compila sursa hello_word.c. Putem compila și executa fișierul obținut astfel:
 
 <code bash>
-student@uso:~/uso.git$ make
+student@uso:~/.../support/need-to-know/3-compile$ make
 gcc -o hello_world hello_world.c
-student@uso:~/uso.git$ ./hello_world 
+student@uso:~/.../support/need-to-know/3-compile$ ./hello_world 
 Hello, World!
 </code>
 
 
-**[3a]** Intrați în directorul ''uso/labs/01-fs/support/need-to-know/''. Rulați executabilul din calea ''3-compile'' obtinut anterior **din directorul curent**. Hint: puteti vedea opțiunile utilitarului **make** folosint **man make** sau **make --help** la fel ca utilitarele folosite precedent.
+**[3a]** Intrați în directorul ''uso/labs/01-fs/support/need-to-know/''. Rulați executabilul din calea ''3-compile'' obtinut anterior **din directorul curent**. Hint: puteti vedea opțiunile utilitarului **make** folosind **man make** sau **make --help** la fel ca utilitarele folosite precedent.
 
 **[3b]** Rămâneți în directorul ''uso/labs/01-fs/support/need-to-know/''. Copiați ''3-compile/Makefile'' in directorul curent, rulați Makefile și executați binarul obținut.
 
-**[3c]** Creați un nou director numit ''nu_intrati'' și în cadrul acestuia un fișier sursă ''manele_2018.c'' în care să afișați un text la alegere. Copiați Makefile-ul folosit anterior și adaptați-l pentru cazul vostru. Compilați executabilul folosind Makefile și rulați executabilul.
+**[3c]** Creați un nou director numit ''nu_intrati'' și în cadrul acestuia un fișier sursă ''manele_2018.c'' în care să afișați un text la alegere. Copiați Makefile-ul folosit anterior și adaptați-l pentru cazul vostru. Compilați executabilul folosind Makefile și rulați executabilul. ''Hint: Pentru a crea un fișier puteți folosi utilitarul vim care primește ca argument un nume de fișier/o cale. În cazul în care fișierul există, se continuă editarea acestuia din starea în care se află, altfel este creat un nou fișier cu acel nume.''
 
 
 ==== 4. Arhive (X puncte) ====
@@ -264,7 +264,7 @@ TW Warhammer/Greenskins/Grimgor Ironhide/
 
 Putem observa rezultatul:
 <code bash>
-student@uso:~/uso.git$ ll
+student@uso:~/uso.git$ ls -l
 total 91124
 drwxr-xr-x 15 student student     4096 aug 23 00:58  ./
 drwxr-xr-x 21 student student     4096 aug 23 00:58  ../
@@ -276,10 +276,10 @@ drwxr-xr-x  4 student student     4096 aug 20 20:57 'TW Warhammer'/
 -rw-r--r--  1 student student 31187418 aug 23 00:52  backup.zip
 </code>
 
-Utilitarele **zip** și **tar** au diferite opțiuni pentru arhivare și dezarhivare. Acestea se pot vedea folosind **man tar**/**man zip** sau **tar --help**/**zip --help**
+Utilitarele **zip** și **tar** au diferite opțiuni pentru arhivare și dezarhivare. Acestea se pot vedea folosind **man tar** / **man zip** sau **tar --help** / **zip --help**
 
 **[4a]** Folosind ierarhia ''uso/labs/01-fs'' creați arhive de tipul **zip**, **tar.gz** și **tar.bz2** ce vor conține întreaga ierarhie. Un exemplu de arhiva este ''01-fs.zip''.
 
 **[4b]** Afișați conținutul arhivei.
 
-**[4c]** Dezarhivați arhiva într-un director numit **backup**
+**[4c]** Dezarhivați arhiva într-un director numit **backup**.
