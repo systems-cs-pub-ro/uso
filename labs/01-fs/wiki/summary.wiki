@@ -11,7 +11,7 @@ ls /etc/*.conf
 </code>
   * Copiere/ștergere recursivă a directoarelor care nu sunt goale: ''rm -r my_dir'', ''cp -r my_dir''
   * ''rmdir'' vs. ''rm'' vs. ''rm -rf''
-  * Afișarea conținutului unor fișiere: ''cat file''. Semnificația ''cat'' este de concatenare a fișierelr primite ca argument de intrare și de afișare la ieșirea standard a conținutului: ''cat file1 file2 file3 ... ''. Dacă nici un fișier nu e dat ca argument de intrare, atunci ''cat'' va aștepta date de la intrarea standard (tastatură) până când este apăsata combinația de taste ''CTRL+d''.
+  * Afișarea conținutului unor fișiere: ''cat file''. Semnificația ''cat'' este de concatenare a fișierelor primite ca argument de intrare și de afișare la ieșirea standard a conținutului: ''cat file1 file2 file3 ... ''. Dacă nici un fișier nu e dat ca argument de intrare, atunci ''cat'' va aștepta date de la intrarea standard (tastatură) până când este apăsata combinația de taste ''CTRL+d''.
   * Căutarea în sistemul de fișiere: ''locate''
   * Editarea de fișiere text: ''vim''
   * Arhivare/dezarhivare: ''tar'', ''zip''
