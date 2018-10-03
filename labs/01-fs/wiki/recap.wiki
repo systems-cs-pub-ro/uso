@@ -4,7 +4,7 @@
 
 Așa cum am discutat în laboratorul trecut, în mediul Linux folosim adesea linia de comandă și scurtături de taste pentru a naviga în/între aplicații.
 
-Pentru a deschide o aplicație grafică în Linux putem folosi butoanele și meniurile puse la dispoziție de mediul grafic sau putem folosi combinația de taste 'Alt+F2'. Cu această combinație de taste se deschide un prompt în care tastăm numele aplicației pe care o vrem deschisă.
+Pentru a deschide o aplicație grafică în Linux putem folosi butoanele și meniurile puse la dispoziție de mediul grafic sau putem folosi combinația de taste ''Alt+F2''. Cu această combinație de taste se deschide un prompt în care tastăm numele aplicației pe care o vrem deschisă.
 
 Apăsați combinația de taste ''Alt+F2'' și apoi tastați la prompt șirul ''gedit'' și apoi apăsați tasta ''Enter''. Vi se deschide editorul ''gedit'' cu care puteți crea și modifica fișiere. Puteți închide fereastra aplicației grafice folosind combinația de taste ''Alt+F4''.
 
@@ -14,7 +14,7 @@ Combinația de taste ''Alt+F2'' este similară combinației de taste ''Windows+r
 
 **[1a]** Porniți în mod similar browser-ul web ''Firefox'' tastând la prompt șirul ''firefox''.
 
-În anumite aplicații grafice precum browserele, putem deschide tab-uri (subferestre). Pentru aceasta folosiți în ''Firefox'' combinația de taste ''Ctrl+t''. Pentru a închide un tab de browser folosiți combinația de taste ''Ctrl+w''. Atunci când aveți deschise mai multe tab-uri navigați între ele, respectiv, cu ''Alt+1'', ''Alt+2'', ''Alt+3'' etc. Pentru a accesa din taste bara de adrese unde să tastați adresa unui site, folosiți combinația de taste ''Ctrl+l''.
+În anumite aplicații grafice precum browserele, putem deschide tab-uri (subferestre). Pentru aceasta, folosiți în ''Firefox'' combinația de taste ''Ctrl+t''. Pentru a închide un tab de browser folosiți combinația de taste ''Ctrl+w''. Atunci când aveți deschise mai multe tab-uri navigați între ele, respectiv, cu ''Alt+1'', ''Alt+2'', ''Alt+3'' etc. Pentru a accesa din taste bara de adrese unde să tastați adresa unui site, folosiți combinația de taste ''Ctrl+l''.
 
 **[1b]** Deschideți 3 tab-uri în ''Firefox'' cu care accesați trei site-uri diferite la alegere. Apoi închideți primul și al treilea tab. Apoi închideți toată aplicația.
 
@@ -26,19 +26,19 @@ Pentru dechidere de tab-uri noi, folosiți combinația de taste ''Ctrl+Shift+t''
 
 **[1d]** Deschideți ''Firefox'' cu 3 tab-uri într-un workspace. Deschideți un terminal cu 3 tab-uri în alt workspace. Deschideți o aplicație ''gedit'' cu tab-uri în alt workspace. Apoi navigați între workspace-uri. Apoi aduceți aplicația terminal și aplicația ''gedit'' în același workspace cu ''Firefox''.
 
-Atunci când folosim terminal-ul, dorim adesea să căutăm comenzi pe care le-am folosit anterior. Pentru aceasta, în terminal, folosim combinația de taste ''Ctrl+r''. În acel moment se schimbă prompt-ul și se cere introducerea unui șir de caractere. Acel șir este căutat în comenzile anterioare și sunt identificate. Funcționalitatea poartăm numele de //reverse history search//.
+Atunci când folosim terminalul, dorim adesea să căutăm comenzi pe care le-am folosit anterior. Pentru aceasta, în terminal, folosim combinația de taste ''Ctrl+r''. În acel moment se schimbă prompt-ul și se cere introducerea unui șir de caractere. Acel șir este căutat în comenzile anterioare și sunt identificate. Funcționalitatea poartă numele de //reverse history search//.
 
-**[1e]** Folosind ''Ctrl+r'' căutați în istoricul de comenzi ale shell-ului comenzi care conțineau șirul ''man'' (de la //manual//). Dupa prima comandă găsită în istorie, dacă apăsați ''Ctrl+r'' din nou vă va găsi următoarea comandă, și tot așa.
+**[1e]** Folosind ''Ctrl+r'' căutați în istoricul de comenzi ale shell-ului comenzi care conțineau șirul ''man'' (de la //manual//). După prima comandă găsită în istorie, dacă apăsați ''Ctrl+r'' din nou vă va găsi următoarea comandă, și tot așa.
 
 ==== 2. Lucrul cu fișiere (X puncte) ====
 
-Adesea în mediul din linia de comandă dorim să vedem conținut de fișiere. Pentru aceasta folosim comanda ''cat'' urmată de numele fișierului.
+Adesea, în mediul din linia de comandă, dorim să vedem conținut de fișiere. Pentru aceasta folosim comanda ''cat'' urmată de numele fișierului.
 
 Tastați la promptul unui terminal comanda
 <code>
 cat /etc/passwd
 </code>
-și apăsați ''Enter''. Ca urmare a tastării comenzii ni se afișează pe ecran conținutul fișierului ''/etc/passwd''.
+și apăsați ''Enter''. Ca urmare a tastării comenzii, ni se afișează pe ecran conținutul fișierului ''/etc/passwd''.
 
 <note tip>
 Puteți naviga în sus sau în jos în afișarea terminalului folosind, respectiv, combinațiile de taste ''Shift+PgUp'', respectiv ''Shift+PgDn''.
@@ -79,7 +79,7 @@ Editorul ''Vim'' este dificil de folosit la început. Dacă pe parcursul folosir
 
 ==== 3. Contul root (X puncte) ====
 
-Contul privilegiat (''root'') este folosit în Linux pentru a realiza acțiuni privilegiate. De exemplu nu putem vedea conținutul fișierului ''/etc/sudoers'' decât ca ''root''. Astfel, dacă rulăm comanda
+Contul privilegiat (''root'') este folosit în Linux pentru a realiza acțiuni privilegiate. De exemplu, nu putem vedea conținutul fișierului ''/etc/sudoers'' decât ca ''root''. Astfel, dacă rulăm comanda
 <code>
 cat /etc/sudoers
 </code>
@@ -89,7 +89,7 @@ cat: /etc/sudoers: Permission denied
 </code>
 pentru că nu avem permisiuni.
 
-Pentru a rula ca utilizatorul ''root'' prefixăm comanda de mai sus cu altă comandă, anume ''sudo''. Comanda ''sudo'' rulează comanda de după ea cu permisiuni de ''root''. Astfel, comanda de mai jos va reuși și va afișa conținutul fișierului ''/etc/sudoers'':
+Pentru a rula ca utilizatorul ''root'', prefixăm comanda de mai sus cu altă comandă, anume ''sudo''. Comanda ''sudo'' rulează comanda de după ea cu permisiuni de ''root''. Astfel, comanda de mai jos va reuși și va afișa conținutul fișierului ''/etc/sudoers'':
 <code>
 sudo cat /etc/sudoers
 </code>
@@ -100,6 +100,7 @@ Dacă vrem să obținem un prompt în care orice comandă rulează ca root vom f
 sudo su
 </code>
 Ca urmare a rulării comenzii ''sudo su'' vom avea acum un prompt nou, numit **prompt de root**, identificabil prin faptul că acum promptul se închide în simbolul ''#'' (//diez//) în loc de ''$'' (//dollar//).
+Pentru a reveni înapoi la utilizatorul **student** vom folosi comanda ''exit''.
 
 **[3a]** Deschideți un terminal cu 4 tab-uri. În două tab-uri obțineți prompt de ''root''; în unul din aceste două tab-uri afișați fișierul ''/etc/sudoers'' iar în celălalt fișierul ''/etc/shadow''.
 
