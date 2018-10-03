@@ -80,7 +80,7 @@ student@uso:~/.../01-fs/support/demo$ tree
         ├── pontus
         └── stefan
 
-10 directories, 27 files
+6 directories, 27 files
 
 </code>
 
@@ -161,7 +161,7 @@ bash: cd: /home/student/uso.git/labs/01-fs/support/demo/music/scorpions: No such
 Citiți cu atenție mesajele erorilor din Bash ori de câte ori o comandă nu funcționează. Oferă suficiente indicii despre rădăcina erorii.
 </note>
 
-<note important>În general, orice comandă ''cd'' ar trebui urmată de una ''ls'' sau ''pwd'' în scop de verificare. Cum am văzut mai sus, uneori pot apărea erori, fie directorul nu există, fie nu avem permisiuni să îl accesăm, iar comanda se poate executa fără succes, prin urmare este **foarte important** care orice comandă de modificare/alterare a stării curente să fie urmată de una de verificare. Câteva exemple de comenzi care fac pereche bună sunt: ''cd'' -- ''pwd''; ''touch'', ''mv'', ''rm'' -- ''ls''; ''echo'' -- ''cat'' etc.
+<note important>În general, orice comandă ''cd'' ar trebui urmată de una ''ls'' sau ''pwd'' în scop de verificare. Cum am văzut mai sus, uneori pot apărea erori, fie directorul nu există, fie nu avem permisiuni să îl accesăm, iar comanda se poate executa fără succes, prin urmare este **foarte important** ca orice comandă de modificare/alterare a stării curente să fie urmată de una de verificare. Câteva exemple de comenzi care fac pereche bună sunt: ''cd'' -- ''pwd''; ''touch'', ''mv'', ''rm'' -- ''ls''; ''echo'' -- ''cat'' etc.
 </note>
 
 <note important>
@@ -199,7 +199,7 @@ student@uso:~/.../support/demo/movies$ pwd
 
 ==== 3. Listarea conținutului unui director recursiv ====
 
-Ca să putem lista recursiv conținutul unui director putem folosi unul dintre
+Ca să putem lista recursiv conținutul unui director, putem folosi unul dintre
 utilitarele ''tree'' sau ''ls'' (cu opțiunea ''-R'').
 
 Vom folosi utilitarul ''tree''.
@@ -280,7 +280,7 @@ Crearea unei ierarhii de directoare poate părea anevoioasă. Până acum cunoa�
 comenzile ''mkdir'' și ''cd''.
 
 Opțiunea ''-p'' a comenzii ''mkdir'' reduce semnificativ efortul pentru a crea
-o ierarhie de driectoare:
+o ierarhie de directoare:
 
 <code bash>
 
@@ -318,7 +318,7 @@ student@uso:~/.../support/demo/movies$ vim movie0.srt
 
 </code>
 
-Pentru a insera caractere in fisierul pe care l-am deschis trebuie să intrăm
+Pentru a insera caractere în fisierul pe care l-am deschis trebuie să intrăm
 în modul de inserare. Pentru a intra în modul de inserare se folosește tasta
 ''i''.
 
