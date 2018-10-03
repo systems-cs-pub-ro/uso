@@ -11,33 +11,33 @@ Link-urile sunt legături între două puncte ale sistemului de fișiere. În ge
 
 Sistemul de fișiere este folosit pentru a organiza ierarhic toate datele stocate pe un sistem.
 
-În Linux, acesta are urmatoarea structura arborescenta, ce poate fi vizualizată folosind comanda ''tree'':
+În Linux, acesta are următoarea structură arborescentă, ce poate fi vizualizată folosind comanda ''tree'':
 
 {{ :uso-ac:laboratoare:fs-tree.png?600 |}}
 
 Un director poate conține mai multe fișiere și directoare, iar directoarele la rândul lor pot conține alte fișiere și directoare.
 
-În Linux, întreaga structură de directoare pornește din directorul root reprezentat de un singur slash "/".
+În Linux, întreaga structură de directoare pornește din directorul root reprezentat de un singur slash ''/''.
 Directorul root conține numeroase alte directoare ce stochează diferite tipuri de informații:
-  * /bin conține fișiere executabile, utilitare fundamentale cum ar fi cp, ls
-  * /boot conține toate fișierele necesare pentru bootarea cu succes a sistemului
-  * /etc conține fișiere de configurare
-  * /root este directorul home al utilizatorului privilegiat root
-  * /home conține directoarele home pentru toți utilizatorii din sistem
+  * ''/bin'' conține fișiere executabile, utilitare fundamentale cum ar fi ''cp'', ''ls''
+  * ''/boot'' conține toate fișierele necesare pentru bootarea cu succes a sistemului
+  * ''/etc'' conține fișiere de configurare
+  * ''/root'' este directorul home al utilizatorului privilegiat ''root''
+  * ''/home'' conține directoarele ''home'' pentru toți utilizatorii din sistem
 
-În directorul home al unui utilizator se găsesc fișiere personale, ce nu pot fi accesate de alți utilizatori.
+În directorul ''home'' al unui utilizator se găsesc fișiere personale, ce nu pot fi accesate de alți utilizatori.
 
 <note important>
-A nu se confunda root-ul sistemului de fișiere și utilizatorul root.
+A nu se confunda root-ul sistemului de fișiere și utlizatorul ''root''.
 </note>
 
 ==== Stocarea datelor ====
 
 După cum am spus la începutul laboratorului, datele sunt stocate pe un disk (hard-disk, SSD, CD-ROM).
-În Linux, există numeroase formate de stocare a datelor, numite și tipuri de sisteme de fisiere: ''ext4'', ''ext3'', ''ext2'', ''ZFS'', ''XFS''. Acestea specifică modul în care datele sunt stocate și ulterior accesate de pe disk. Forma cea mai comună de stocare a datelor este ''ext4''.
+În Linux, există numeroase formate de stocare a datelor, numite și tipuri de sisteme de fișiere: ''ext4'', ''ext3'', ''ext2'', ''ZFS'', ''XFS''. Acestea specifică modul în care datele sunt stocate și ulterior accesate de pe disk. Forma cea mai comună de stocare a datelor este ''ext4''.
 
-Ca o comparație între Windows și Linux, după cum știm Windows are disk-uri A, B, C, D, etc., în Linux trebuie ca disk-ul să fie legat la sistemul de fișiere într-un director ales.
-Această operație se numește montare și se realizează folosind comanda ''mount''. Folosită fără niciun argument ne va spune ce sisteme de fișiere sunt montate și în ce directoare sunt montate.
+Ca o comparație între Windows și Linux, după cum știm Windows are disk-uri ''A'', ''B'', ''C'', ''D'', etc., în Linux trebuie ca disk-ul să fie legat la sistemul de fișiere într-un director ales.
+Această operație se numește montare și se realizează folosind comanda ''mount''. Folosită fără niciun argument, ne va spune ce sisteme de fișiere sunt montate și în ce directoare sunt montate.
 
 
 ==== Căi absolute/relative ====
@@ -46,8 +46,8 @@ Pentru accesarea unui fișier sau director sunt posibile două moduri, în func�
   * căi absolute: pornesc din directorul root
   * căi relative: pornesc din directorul curent
 
-Directorul curent este directorul in care utilizatorul se află la momentul actual. Acesta poate fi aflat folosind comanda ''pwd''.
-Pentru schimbarea directorului curent se folosește comanda ''cd''.
+Directorul curent este directorul în care utilizatorul se află la momentul actual. Directorul curent se afișează la apelul comanzii ''pwd'' (print working directory).
+Pentru schimbarea directorului curent se folosește comanda ''cd'' (change director), urmată de numele directorului în care dorim să ajungem.
 
 Să luăm ca exemplu următoarea structură de fișiere și directoare din laboratorul introductiv:
 
@@ -56,28 +56,26 @@ $ cd ~/uso.git/labs
 $ tree
 .
 ├── 00-intro
-│   ├── support
-│   └── wiki
-│       ├── basics.wiki
-│       ├── concepts.wiki
-│       ├── demo.wiki
-│       ├── get-a-life.wiki
-│       ├── need-to-know.wiki
-│       ├── nice-to-know.wiki
-│       └── recap.wiki
+│   ├── support
+│   └── wiki
+│       ├── basics.wiki
+│       ├── concepts.wiki
+│       ├── demo.wiki
+│       ├── get-a-life.wiki
+│       ├── need-to-know.wiki
+│       ├── nice-to-know.wiki
+│       └── recap.wiki
 ├── 01-fs
-│   ├── support
-.
-.
-.
+│   ├── support
+...
 </code>
 
-Dacă dorim să afișăm fișierul concepts.wiki folosind o cale absolută vom folosi comanda ''ls'', astfel:
+Dacă dorim să afișăm fișierul ''concepts.wiki'' folosind o cale absolută vom folosi comanda ''ls'', astfel:
 <code bash>
 $ ls /home/student/uso.git/labs/00-intro/wiki/concepts.wiki 
 </code>
 
-Dacă ne aflăm curent în directorul labs, putem să folosim o cale relativă:
+Dacă ne aflăm curent în directorul ''labs'', putem să folosim o cale relativă:
 <code bash>
 $ ls ./00-intro/wiki/concepts.wiki
 </code>
@@ -89,16 +87,16 @@ $ ls 00-intro/wiki/concepts.wiki
 </code>
 
 <note important>
-Caracterul "." specifică directorul curent. Acesta poate fi omis, după cum se vede în exemplul anterior.
+Caracterul ''.'' specifică directorul curent. Acesta poate fi omis, după cum se vede în exemplul anterior.
 </note>
 
-Dacă ne aflăm în directorul 01-fs, putem să folosim de asemenea o cale relativă, astfel:
+Dacă ne aflăm în directorul ''lab-01'', putem să folosim de asemena o cale relativă, astfel:
 <code bash>
 $ ls ../00-intro/wiki/concepts.wiki
 </code>
 
 <note important>
-Caracterul ".." specifică directorul părinte directorului curent.
+Caracterul ''..'' specifică directorul părinte directorului curent.
 </note>
 
 <note important>
@@ -110,12 +108,12 @@ Căile absolute se pot folosi indiferent de directorul curent în care se află 
 
 În Linux există două tipuri de utlizatori:
   * neprivilegiați - nu pot modifica starea sistemului, nu pot realiza modificări ce afectează alți utilizatori
-  * privilegiați - au acces total asupra sistemului, de exemplu utilizatorul root
+  * privilegiați - au acces total asupra sistemului, de exemplu utilizatorul ''root''
 
-Utilizatorul root este prezent, în general, pe orice sistem Linux, rolul său fiind de administrare și gestionare a celorlalți utilizatori.
+Utilizatorul ''root'' este prezent, în general, pe orice sistem Linux, rolul său fiind de administrare și gestionare a celorlalți utilizatori.
 
 <note warning>
-Nu este recomandat să folosiți sistemul cu acest utilizator decât pentru strictul necesar. De multe ori este suficientă utilizarea comenzii sudo, care permite unui alt utilizator să execute comenzi ca un superuser (utilizator privilegiat).
+Nu este recomandat să folosiți sistemul cu acest utilizator decât pentru strictul necesar. De multe ori este suficientă utilizarea comenzii ''sudo'', care permite unui alt utilizator să execute comenzi ca un superuser (utilizator privilegiat).
 </note>
 
 Diferența dintre utilizatorii neprivilegiați și utilizatorii privilegiați este dată de drepturile pe care aceștia le au.
@@ -124,12 +122,15 @@ Linux folosește permisiuni pentru a dicta ce operații poate să efectueze un u
 Permisiunile pot fi aplicate pe trei categorii:
   * utilizator (owner): utilizatorul care este deținătorul fișierului/directorului
   * grup (group): un grup de utilizatori care sunt deținătorii fișierului/directorului
-  * ceilalți (others): utilizatorii care nu intră în niciuna dintre categoriile dinainte
+  * ceilalți (others): utilizatorii care nu intră în niciuna dintre categoriile anterioare
 
 Pentru fiecare dintre cele trei categorii există trei permisiuni:
-  * de citire: utilizatorul poate citi conținutul fișierului respectiv, poate lista conținutul directorului
+  * de citire: utilizatorul poate citi conținutul fișierului, respectiv poate lista conținutul directorului
   * de scriere: utilizatorul poate modifica conținutul fișierului/directorului
   * de execuție: utilizatorul poate lansa fișierul în execuție respectiv poate parcurge directorul
 
-Ordinea în care se aplică aceste permisiuni este: dacă utilizatorul este deținătorul fișierului, atunci se aplică permisiunile pentru owner; dacă face parte din grupul deținător, atunci se aplică permisiunile pentru group; dacă niciuna dintre condițiile precedente nu este adevărată, atunci se aplică permisiunile pentru others.
+Ordinea în care se aplică aceste permisiuni este:
+  -  dacă utilizatorul este deținătorul fișierului, atunci se aplică permisiunile pentru owner
+  - dacă face parte din grupul deținător, atunci se aplică permisiunile pentru group
+  - dacă niciuna dintre condițiile precedente nu este adevărată, atunci se aplică permisiunile pentru others
 
