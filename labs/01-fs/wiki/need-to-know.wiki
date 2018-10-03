@@ -248,7 +248,7 @@ README.md
 TW Warhammer/
 TW Warhammer/.gitignore
 TW Warhammer/Greenskins/
-[...]
+[...] 
 </code>
 
 Pentru arhiva.tar.bz2:
