@@ -2,7 +2,7 @@
 
 ==== 1. Lucrul cu fișiere speciale (X Karma points) ====
 
-**[1a]** Intrați în directorul ''uso/labs/01-fs/support/get-a-life/1-to_delete''. Folosind linia de comandă, ștergeți fișierul ''-to_delete''.
+**[1a]** Intrați în directorul ''~/uso.git/labs/01-fs/support/get-a-life/1-to_delete''. Folosind linia de comandă, ștergeți fișierul ''-to_delete''.
 
 **[1b]** Creați și ștergeți un fișier cu **Enter** în nume, folosind linia de comandă.
 
@@ -16,7 +16,7 @@
 
 **[3a]** Intrați în directorul ''uso/labs/01-fs/support/get-a-life/3-template''. Creați fișierele ''laborator-01.wiki'' ... ''laborator-12.wiki'' care au același conținut că și ''template.wiki'', cu excepția primei linii în care se va modifica numărul laboratorului.
 
-**[3b]** Intrați în directorul ''uso/labs/01-fs/support/get-a-life/4-rename''. Redenumiți fișierele ''1.text'' ... ''20.tex'' în ''01.tex'', ''02.tex'', ... , ''20.tex''.
+**[3b]** Intrați în directorul ''uso/labs/01-fs/support/get-a-life/4-rename''. Redenumiți fișierele ''1.tex'', ''2.tex'', ... ''20.tex'' în ''01.tex'', ''02.tex'', ... , ''20.tex''.
 
 **[3c]** Creați o arhivă zip cu toate fișierele cu extensia ''.conf'' din ierarhia ''/etc/''. (Hint: find)
 
@@ -28,6 +28,6 @@
 
 ==== 5. Întrebări (X Karma points) ====
 
-**[5a]** De ce useradd este vizibil doar pentru root (cu which) dar nu și pentru utilizatorul obișnuit?
+**[5a]** De ce useradd este vizibil doar pentru root (cu ''which'') dar nu și pentru utilizatorul obișnuit?
 
-**[5b]** De ce comanda cd sau exit nu este vizibilă cu which?
+**[5b]** De ce comanda cd sau exit nu este vizibilă cu ''which''?
