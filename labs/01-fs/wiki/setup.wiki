@@ -5,13 +5,13 @@
 Pentru a deschide un terminal nou:
 
 ^ Scurtătură             ^ Descriere                                          ^
-| **''Ctrl+Alt+t''**   | pentru a o nouă fereastră de terminal              |
+| **''Ctrl+Alt+t''**   | pentru a deschide o nouă fereastră de terminal              |
 
 Puteți folosi următoarele scurtături în terminal:
 
 ^ Scurtătură             ^ Descriere                                          ^
 | **''Ctrl+Shift+t''**   | pentru a deschide un nou tab                       |
-| **''Ctrl+PageDown''**  | pentru a merge la tab-ul urmator                   |
+| **''Ctrl+PageDown''**  | pentru a merge la tab-ul următor                   |
 | **''Ctrl+PageUp''**    | pentru a merge la tab-ul precedent                 |
 | **''Alt+<index>''**    | pentru a sări direct la un tab                     |
 | **''Ctrl+d''**         | pentru a închide un tab (sau comanda **''exit''**) |
@@ -38,7 +38,7 @@ De exemplu, pentru a afișa informații despre comanda ''echo'' (comandă ce afi
 student@uso:~$ man echo
 </code>
 
-Paginile de manual sunt adesea de mari dimensiuni și avem nevoie să le parcurgem rapid (să navigăm prin ele). Pentru aceasta, după ce deschidem pagina de manual a unei comenzi, putem folosi combinațiile de taste de mai jos pentru a nagiva în pagină:
+Paginile de manual sunt adesea de mari dimensiuni și avem nevoie să le parcurgem rapid (să navigăm prin ele). Pentru aceasta, după ce deschidem pagina de manual a unei comenzi, putem folosi combinațiile de taste de mai jos pentru a naviga în pagină:
 
 ^ Tastă                                  ^ Scurtă descriere                                          ^
 | /string_to_search                      | ''/'' (adică tasta //slash//) e folosită pentru a căuta **''string_to_search''** în pagina de manual |
