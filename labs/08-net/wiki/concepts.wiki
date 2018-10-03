@@ -87,7 +87,7 @@ va avea cel mai probabil o adresă IP diferită față de cea anterioară (se po
 Internet nu se face prin această adresă IP privată, această problemă fiind rezolvată de router.
 
 <note tip>
-Exemplele date anterior sunt pentru protocolul IPv4, însă discuția pentru protocolul IPv6 este aceeași.
+IPv4 începe să devină insuficient și el, așa că ușor, ușor, se face trecerea spre protocolul IPv6.
 </note>
 
 ==== Conectarea la Internet ====
@@ -201,8 +201,8 @@ este navigatorul care face o cerere către un server și așteaptă în schimb p
 == Protocolul HTTPS ==
 Secure Hyper Text Transfer Protocol (HTTPS) nu este decât o îmbunătățire a protocolului HTTP, prin care datele 
 transmise sunt criptate, astfel conexiunea la server este sigură. Să ne gândim la plățile online pe care le efectuăm
-cu toții tot mai des. Întotdeauna vrem ca plata să se efectueze cu succes și să nu ajungă altundeva decât unde ne 
-dorim, deci cu siguranță vrem ca acele website-uri să folosească protocolul HTTPS în defavoarea HTTP.
+cu toții tot mai des. Întotdeauna vrem ca datele noastre să nu fie expuse altor persoane în afara companiei către care 
+efectuăm plata, deci cu siguranță vrem ca acele website-uri să folosească protocolul HTTPS în defavoarea HTTP.
 
 == Browser web == 
 Un navigator web (sau browser) este un program care ne permite să accesăm pagini din WWW. Majoritatea browserelor 
