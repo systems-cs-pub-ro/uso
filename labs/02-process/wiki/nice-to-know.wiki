@@ -1,6 +1,6 @@
 ===== Nice to Know =====
 
-=== Valori de eroare ===
+==== Valori de eroare ====
 
 Putem verifica dacă comanda executată anterior s-a executat cu succes folosind **$?**:
 
@@ -20,11 +20,11 @@ student@uso:~/uso$ echo $?
 
 Atunci când valoarea este **0**, procesul s-a executat cu succes. Orice diferit de 0 este o eroare.
 
-=== Exerciții ===
-    - Încercați să afișați un fișier ce nu există. Ce cod de eroare primiți?
-    - Încercați să rulați o comandă cu parametri aleatori (ex: ps -ewqgew). Ce cod de eroare primiți?
+**Exerciții**
+  - Încercați să afișați un fișier ce nu există. Ce cod de eroare primiți?
+  - Încercați să rulați o comandă cu parametri aleatori (ex: ps -ewqgew). Ce cod de eroare primiți?
 
-=== Structura arborescentă a proceselor ===
+==== Structura arborescentă a proceselor ====
 
 Afișăm toate procesele din sistem cu atributele PID, PPID, CMD:
 
@@ -53,8 +53,6 @@ student@uso:~/uso$ ps ax -o pid,ppid,cmd
 
 Putem observa că părintele comenzii executate de noi este **bash**; are PID-ul 22101.
 
-== Exerciții ==
-    - Pornind de la tutorialul de mai sus, urmăriți PID-ul și PPID-ul procesului ''ps'', **recursiv**
-    - Faceți asta cu 2-3 procese. Unde se opresc toate procesele?
-
-
+**Exerciții**
+  - Pornind de la tutorialul de mai sus, urmăriți PID-ul și PPID-ul procesului ''ps'', **recursiv**
+  - Faceți asta cu 2-3 procese. Unde se opresc toate procesele?

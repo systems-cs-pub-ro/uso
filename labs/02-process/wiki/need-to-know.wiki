@@ -1,9 +1,8 @@
 ===== Need to Know =====
 
-=== Foreground & Background (&, fg, bg, jobs) ===
+==== Foreground & Background (&, fg, bg, jobs) ====
 
 Vom folosi ca exemplu programul bg-proc.sh. Acesta afișează în fiecare secundă câte un mesaj "Tick" sau "Tock". Pornim programul:
-
 
 <code bash>
 student@uso:~/uso/lab04$ ./bg-proc.sh 
@@ -13,7 +12,7 @@ Tick!
 ^C
 </code>
 
-L-am terminatt cu **Ctrl+C**:
+L-am terminat cu **Ctrl+C**:
 
 Îl pornim din nou și de data asta îl oprim cu **Ctrl+Z**. Ce observăm?
 
@@ -40,8 +39,8 @@ student  23601  0.0  0.1  46012  3784 pts/0    R+   09:53   0:00 ps aux
 </code>
 
 Pentru a reporni procesul avem 2 variante:
-    - Pornim procesul în mod **interactiv** folosind comanda **bg**. Asta înseamnă că noi putem da comenzi, chiar dacă în fundal este un proces care afișează text
-    - Pornim procesul în mod **neinteractiv** folosind comanda **fg**. Asta înseamnă că procesul oprit anterior a revenit în prim-plan în terminal. Nu vom putea da alte comenzi.
+  - Pornim procesul în mod **interactiv** folosind comanda **bg**. Asta înseamnă că noi putem da comenzi, chiar dacă în fundal este un proces care afișează text
+  - Pornim procesul în mod **neinteractiv** folosind comanda **fg**. Asta înseamnă că procesul oprit anterior a revenit în prim-plan în terminal. Nu vom putea da alte comenzi.
 
 <code bash>
 student@uso:~/uso/lab04$ ./bg-proc.sh
@@ -66,14 +65,13 @@ Tock!
 
 Puteți observa că am încercat să termin programul folosind **Ctrl+C**. Acest lucru nu a fost posibil pentru că acesta rula în fundal. Pentru asta trebuie să aducem procesul în prim-plan și să îl terminăm sau să îi aflăm PID-ul și să-l terminăm folosind utilitarul **kill**.
 
-== Exerciții ==
-    - Porniți programul **bg-proc.sh**.
-    - Treceți-l în starea ''foreground'' și apoi în background.
-    - Terminați procesul cu **Ctrl+C** și cu utilitarul **kill**
-    - Faceți același lucru și cu programul **it-s-a-trap.sh**
+**Exerciții**
+  - Porniți programul **bg-proc.sh**.
+  - Treceți-l în starea ''foreground'' și apoi în background.
+  - Terminați procesul cu **Ctrl+C** și cu utilitarul **kill**
+  - Faceți același lucru și cu programul **it-s-a-trap.sh**
 
-
-=== Redirectare ===
+==== Redirectare ====
 
 Pentru a redirecta lista proceselor într-un fișier, folosim următoarea comandă:
 
@@ -98,7 +96,7 @@ a3a linie din fisier
 
 Putem observa că la a3a linie am folosit **>** în loc de **>>** și am șters conținutul anterior al fișierului.
 
-=== Comunicare interprocese, folosind | ===
+==== Comunicare interprocese, folosind | ====
 
 Putem căuta după un anumit proces din sistem astfel:
 
@@ -135,6 +133,6 @@ lrwxrwxrwx 1 student student  7 sep 10 12:25 hello_from_the_other_side.h -> hell
 
 Am afișat recursiv (-R) directorul **uso** și am transmis rezultatul către utilitarul **grep** pentru a căuta fișierele ce conțin cuvântul ''hello''.
 
-== Exerciții ==
-    - Afișați recursiv toate fișierele și directoarele din **uso.git**, redirectând totul într-un fișier. Înspectați fișierul pentru verificare.
-    - Înlănțuiți comanda precedentă cu **grep** pentru a căuta în **uso.git** fișierele ce conțin cuvântul **lab**
+**Exerciții**
+  - Afișați recursiv toate fișierele și directoarele din **uso.git**, redirectând totul într-un fișier. Înspectați fișierul pentru verificare.
+  - Înlănțuiți comanda precedentă cu **grep** pentru a căuta în **uso.git** fișierele ce conțin cuvântul **lab**.

@@ -1,6 +1,5 @@
 ===== Concepte =====
 
-
 ==== Vizualizarea proceselor din sistem (ps, pstree, top, htop) ====
 
 Ierarhia de procese în Linux este sub formă arborescentă; putem vizualiza folosind pstree (similar cu tree de la sistemul de fișiere)

@@ -1,8 +1,6 @@
 ===== Get a Life =====
 
-== Exerciții ==
-
-**1.** Procese detașate de terminal
+==== Procese detașate de terminal ====
 
 Pentru acest exercițiu avem nevoie de pachetul **transmission-cli**. Îl putem instala folosind comanda:
 
@@ -24,10 +22,7 @@ Deschideți din nou un terminal, dar de data folosiți-vă de comanda **nohup** 
 
 **1.2** Ce fel de semnal se generează atunci când închidem terminalul și pe care a doua oară procesul transmission-gtk îl ignoră?
 
-
-
-
-**2.** Trimiterea de semnale unui proces
+==== Trimiterea de semnale unui proces ====
 
 Mergeți în directorul ''support'' aferent laboratorului unde găsiți scriptul ''batman.sh''.
 
@@ -56,6 +51,3 @@ Rulați-l. Procesul interceptează toate semnalele cu indecși de la 1 la 13, ma
 </columns>
 
 **2.1** Într-un alt terminal aflați pid-ul procesului și trimiteți-i semnale astfel încât procesul să afișeze pe ecran șirul de caractere ''uso rullz''. 
-
-
-

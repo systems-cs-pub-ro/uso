@@ -1,6 +1,6 @@
 ===== Basics =====
 
-=== Vizualizarea proceselor din sistem (ps, pstree, top, htop) ===
+==== Vizualizarea proceselor din sistem (ps, pstree, top, htop) ====
 
 Folosind ''ps'' fără nici un parametru vizualizăm procesele din shell-ul curent asociate utilizatorului curent.
 
@@ -25,7 +25,7 @@ root     22151  0.0  0.3  25656  6260 ?        S    19:40   0:00 /sbin/dhclient
 student  22191  0.0  0.1  46012  3656 pts/0    R+   19:48   0:00 ps aux
 </code>
 
-=== Atributele unui proces ===
+==== Atributele unui proces ====
 
 Pentru a selecta doar procesele pornite de utilizatorul student folosim **-u**:
 
@@ -47,7 +47,7 @@ student@uso:~$ ps -ax -o ppid,pid,cmd
 [...]
 </code>
 
-Până a trece mai departe, trebuie să vă asigurați că ați înțeles cum trebuie navigarea printr-o ierarhie de directoare. Pentru asta, parcurgeți următoarele exerciții după care verificați cu asistentul că totul este în regulă.
-     - Afișați toate procesele din sistem care să conțină date legate de PID, PID-ul părintelui, user-ul care deține procesul și comanda care a pornit procesul
-     - Filtrați procesele după utilizatorul curent (student)
-     - Afișați procesele în mod interactiv (folosind top/htop)
+Până a trece mai departe, trebuie să vă asigurați că ați înțeles cum trebuie navigarea printr-o ierarhie de procese. Pentru asta, parcurgeți următoarele exerciții după care verificați cu asistentul că totul este în regulă.
+  - Afișați toate procesele din sistem care să conțină date legate de PID, PID-ul părintelui, user-ul care deține procesul și comanda care a pornit procesul
+  - Filtrați procesele după utilizatorul curent (student)
+  - Afișați procesele în mod interactiv (folosind top/htop)

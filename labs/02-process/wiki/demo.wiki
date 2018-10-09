@@ -1,6 +1,6 @@
-===== Basics =====
+===== Demo =====
 
-=== Vizualizarea proceselor din sistem (ps, pstree, top, htop) ===
+==== Vizualizarea proceselor din sistem (ps, pstree, top, htop) ====
 
 Folosind ''ps'' fără nici un parametru vizualizăm procesele din shell-ul curent asociate utilizatorului curent.
 
@@ -31,7 +31,7 @@ Un utilitar echivalent lui Windows Task Manager pentru vizualizarea în timp rea
 student@uso:~$ htop
 </code>
 
-=== Atributele unui proces ===
+==== Atributele unui proces ====
 
 În mod implicit, când afișăm procesele, ni se arată următoarele atribute:
 <code bash>
@@ -61,8 +61,7 @@ student    901   900  0 11:10 ?        00:00:00 (sd-pam)
 [...]
 </code>
 
-
-=== Foreground & Background (&, fg, bg, jobs) ===
+==== Foreground & Background (&, fg, bg, jobs) ====
 
 Vom folosi ca exemplu utilitarul ''sleep''. Trebuie să știm dacă procesul nostru rulează sau nu. Pentru a verifica acest lucru, dintr-un alt terminal, ne folosim de utilitarul ''ps'':
 
@@ -101,7 +100,7 @@ student@uso:~$ jobs
 
 Am folosit utilitarul ''jobs'' pentru a vedea ce procese sunt active în terminalul curent. De aici putem folosi **bg** (background) pentru a porni procesul în mod interactiv sau **fg** (foreground) pentru a porni procesul în mod neinteractiv. Mai simplu, la ''bg'' putem da alte comenzi în timp ce programul nostru rulează, iar la ''fg'' nu putem să dăm alte comenzi.
 
-=== Semnale (kill) ===
+==== Semnale (kill) ====
 
 Vom folosi în continuare comanda **kill** pentru a trimite semnale proceselor. Această comandă nu omoară neapărat procesul, în ciuda numelui.
 
@@ -126,8 +125,7 @@ student@uso:~$ jobs
 
 Am transmis semnalul 9 (SIGKILL) procesului 22286, iar acesta a fost terminat instant.
 
-
-=== Redirectare ===
+==== Redirectare ====
 
 Pentru a redirecta lista proceselor într-un fișier, folosim următoarea comandă:
 
@@ -144,7 +142,7 @@ student@uso:~$ ps aux > procese.txt
 
 Vom avea în fișierul ''procese.txt'' afișat de 2 ori ieșirea comenzii.
 
-=== Comunicare interprocese, folosind | ===
+==== Comunicare interprocese, folosind | ====
 
 Operatorul **|** este foarte important și uzual folosit. Acesta ia rezultatul primei comenzi și îl oferă ca intrare la a2a comandă. Câteva exemple:
 
