@@ -1,4 +1,4 @@
-===== Nice to know ====
+===== Nice to know =====
 
 1. Schimbarea homedir-ului altui utilizator
 
@@ -9,6 +9,29 @@ Indicație: Folosim [[http://linux.die.net/man/8/usermod|usermod (modify a user 
 **Pentru verificare** : Apăsați ''Ctrl+D'' pentru a reveni la terminalul în care erați autentificați ca ''student'' după care încercați comanda ''su - dan''. Dați ''pwd'' și verificați că homedir-ul acestuia e cel configurat cu ''usermod''. Alt mod de a verifica este inspectarea fișierului ''/etc/passwd'' și căutând linia care conține ''dan''.
 
 <note tip>Pentru a ne autentifica cu un anumit utilizator și a ne muta în homedir-ul lui folosim  ''su - dan'' in loc de simplu ''su dan''</note>
+
+==== Permisiuni pentru executabile ====
+
+2.Se dă următorul script din directorul ''executables''. Să se rezolve permisiunile astfel încât să funcționeze următoarea execuție:
+
+<code bash>
+student@uso:~$ ./executables/script.sh
+</code>
+
+3. Înainte de a începe acest exercițiu trebuie să pregătiți setup-ul rulând următoarea comandă: ''./runme''
+În acest moment la rularea comenzii ''ls'' ar trebui să primiți următorul mesaj de eroare:
+
+<code bash>
+student@uso:~$ ls
+bash: /bin/ls: Permission denied
+</code>
+
+Investigați de ce nu mai merge comanda ''ls'' și faceți-o să mergă din nou.
+
+4. Directorul music conține mai multe fișiere și directoare.
+Intrați în directorul ''music'': ''cd music'', iar apoi în directorul ''ac_dc'': ''cd ac_dc''.
+Listați conținutul directorului ''ac_dc''.
+Mergeți inapoi în directorul ''music'' (''cd ..'') și listați conținutul. După cum ați observat primiți o eroare. Totuși ați putut accesa și vizualiza directorul ''ac_dc'', de ce nu puteți vizualiza și conținutul directorului ''music''?
 
 ==== Permisiuni default - umask ====
 
@@ -38,16 +61,6 @@ Pentru a afla permisiunile default, calculăm diferența între valorile de baz�
     ___
     775
 
-2. Verificați că la crearea unui nou fișier sau director sunt aplicate aceste permisiuni.
+5. Verificați că la crearea unui nou fișier sau director sunt aplicate aceste permisiuni.
 
-3. Să se facă realizeze necesare a.î. la crearea unui nou fișier ownerul să aibă drept de citire și scriere, iar grupul și ceilalți să aibă doar drept de citire.
-
-==== Permisiuni pentru executabile ====
-
-4.Se dă urmatorul script din directorul ''executables''. Să se rezolve permisiunile astfel încât să funcționeze următorul run:
-
-<code bash>
-student@uso:~$ ./executables/script.sh
-</code>
-
-5. TODO : ultimele 3 exerciții (need a setup)
+6. Să se facă modificările necesare a.î. la crearea unui nou fișier ownerul să aibă drept de citire și scriere, iar grupul și ceilalți să aibă doar drept de citire.
