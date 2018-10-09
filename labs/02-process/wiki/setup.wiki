@@ -67,7 +67,6 @@ Informațiile despre laboratorul de USO se găsesc în [[https://github.com/syst
 Pentru a pregăti infrastructura de laborator rulați comenzile de mai jos într-un terminal deschis în mașina virtuală. Deschideți un terminal folosind combinația de taste ''Ctrl+Alt+t''. În listarea de mai jos ''student@uso:~$'' este promptul unde introduceți comenzile, pe acela nu-l tastați. Recomandăm să **nu** folosiți //copy-paste// ca să vă acomodați cu linia de comandă:
 <code>
 student@uso:~$ cd uso.git/
-student@uso:~/uso.git$ git rm --cached -r .
 student@uso:~/uso.git$ git reset --hard
 student@uso:~/uso.git$ git clean -f -d
 student@uso:~/uso.git$ git fetch origin
