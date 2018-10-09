@@ -72,6 +72,7 @@ Puteți observa că am încercat să termin programul folosind **Ctrl+C**. Acest
     - Porniți programul **bg-proc.sh**.
     - Treceți-l în starea ''foreground'' și apoi în background.
     - Terminați procesul cu **Ctrl+C** și cu utilitarul **kill**
+    - Faceți același lucru și cu programul **it-s-a-trap.sh**
 
 
 === Redirectare ===
@@ -135,3 +136,7 @@ lrwxrwxrwx 1 student student  7 sep 10 12:25 hello_from_the_other_side.h -> hell
 </code>
 
 Am afișat recursiv (-R) directorul **uso** și am transmis rezultatul către utilitarul **grep** pentru a căuta fișierele ce conțin cuvântul ''hello''.
+
+== Exerciții ==
+    - Afișați recursiv toate fișierele și directoarele din **uso.git**, redirectând totul într-un fișier. Înspectați fișierul pentru verificare.
+    - Înlănțuiți comanda precedentă cu **grep** pentru a căuta în **uso.git** fișierele ce conțin cuvântul **lab**
