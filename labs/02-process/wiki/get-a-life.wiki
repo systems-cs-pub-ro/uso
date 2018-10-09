@@ -17,11 +17,12 @@ student@midgard:~$ transmission-cli ~/Downloads/ubuntu-17.04-desktop-amd64.iso.t
 </code>
 
 Dintr-un alt terminal determinați PID-ul acestui proces. Închideți terminalul din interfața grafică (X din colțul din dreapta sus). Căutați din nou procesul după identificator.
-    - Ce s-a întâmplat cu procesul nostru transmission-cli tocmai creat? Care credeți că este cauza?
+
+**1.1** Ce s-a întâmplat cu procesul nostru transmission-cli tocmai creat? Care credeți că este cauza?
 
 Deschideți din nou un terminal, dar de data folosiți-vă de comanda **nohup** (man nohup) pentru a lansa procesul ''transmission-cli'' pentru descărcarea imaginii de Ubuntu. Închideți din nou terminalul din interfața grafică. Observați că procesul rămâne în viață. Determinați PID-ul acestui proces.
 
-    - Ce fel de semnal se generează atunci când închidem terminalul și pe care a doua oară procesul transmission-gtk îl ignoră?
+**1.2** Ce fel de semnal se generează atunci când închidem terminalul și pe care a doua oară procesul transmission-gtk îl ignoră?
 
 
 
@@ -53,7 +54,8 @@ Rulați-l. Procesul interceptează toate semnalele cu indecși de la 1 la 13, ma
 | 13          |  l       |
 
 </columns>
- Într-un alt terminal aflați pid-ul procesului și trimiteți-i semnale astfel încât procesul să afișeze pe ecran șirul de caractere ''uso rullz''. 
+
+**2.1** Într-un alt terminal aflați pid-ul procesului și trimiteți-i semnale astfel încât procesul să afișeze pe ecran șirul de caractere ''uso rullz''. 
 
 
 

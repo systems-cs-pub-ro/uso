@@ -4,10 +4,6 @@
 
 Vom folosi ca exemplu programul bg-proc.sh. Acesta afișează în fiecare secundă câte un mesaj "Tick" sau "Tock". Pornim programul:
 
-<code bash>
-</code>
-
-Îl terminăm cu **Ctrl+C**:
 
 <code bash>
 student@uso:~/uso/lab04$ ./bg-proc.sh 
@@ -16,6 +12,8 @@ Tock!
 Tick!
 ^C
 </code>
+
+L-am terminatt cu **Ctrl+C**:
 
 Îl pornim din nou și de data asta îl oprim cu **Ctrl+Z**. Ce observăm?
 
@@ -41,7 +39,7 @@ student  23600  0.0  0.0  16116   780 pts/0    T    09:53   0:00 sleep 1
 student  23601  0.0  0.1  46012  3784 pts/0    R+   09:53   0:00 ps aux
 </code>
 
-Pentru a porni procesul avem 2 variante:
+Pentru a reporni procesul avem 2 variante:
     - Pornim procesul în mod **interactiv** folosind comanda **bg**. Asta înseamnă că noi putem da comenzi, chiar dacă în fundal este un proces care afișează text
     - Pornim procesul în mod **neinteractiv** folosind comanda **fg**. Asta înseamnă că procesul oprit anterior a revenit în prim-plan în terminal. Nu vom putea da alte comenzi.
 
@@ -100,7 +98,7 @@ a3a linie din fisier
 
 Putem observa că la a3a linie am folosit **>** în loc de **>>** și am șters conținutul anterior al fișierului.
 
-=== Comunicare interprocese, folosind **|** ===
+=== Comunicare interprocese, folosind | ===
 
 Putem căuta după un anumit proces din sistem astfel:
 
