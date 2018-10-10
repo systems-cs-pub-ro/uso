@@ -1,26 +1,22 @@
 ===== Need to know =====
 
+**1. Adăugarea de noi utilizatori și grupuri**
 
-1. Adăugarea de noi utilizatori și de grupuri
+Ca administratori ai infrastructurii IT a facultății de care răspundeți ați primit următorul [[https://docs.google.com/spreadsheets/d/15LxIrhz0JTdLgWJqyHwj4hfVOg_uW6TyRnUbKqEtB8Y/edit#gid=0|fișier excel]] cu nume de
+ utilizatori și grupuri din care trebuie să facă parte fiecare, conform cu politica școlii.
 
-Ca administratori ai infrastructurii IT a școlii de care răspundeți ați primit [[https://docs.google.com/spreadsheets/d/15LxIrhz0JTdLgWJqyHwj4hfVOg_uW6TyRnUbKqEtB8Y/edit#gid=0|următorul excel]] cu nume de utilizatori și grupuri din care trebuie să facă parte, conform cu politica școlii.
-
-Sarcina voastră este să adăugați în sistem grupurile și apoi utilizatorii, utilizatorii să îi înscrieți în grupuri conform cu excelul primit.
+Sarcina voastră este să adăugați în sistem grupurile și utilizatorii, după care să înscrieți utilizatorii în grupuri conform cu tabelul primit.
 
 De asemenea, trebuie să configurați următoarele parole:
   * Studenții vor avea parola ''student''
   * Profesorii vor avea parola ''profesor007''
-  * Adminii vor avea parola ''admin1234''
+  * Administratorii vor avea parola ''admin1234''
 
-Pentru cei care sunt în mai multe grupuri simultan alegeți parola mai dificilă (să conțină cifre diferite).
+Pentru cei care sunt în mai multe grupuri simultan alegeți parola mai dificilă (să conțină caractere/cifre diferite).
 
-<note>Pentru **verificarea** adăugării utilizatorilor în sistem trebuie să inspectăm fișierele: ''/etc/passwd'' și pentru grupuri ''/etc/group''. De asemenea, pentru a vedea grupurile din care face parte un anumit utilizator (să zicem ''dan'') și totodată existența sa în sistem mai putem folosi comanda:
+<note>Pentru **verificarea** adăugării trebuie să inspectăm fișierul ''/etc/passwd'' pentru utilizatori și ''/etc/group'' pentru grupuri. De asemenea, pentru a vedea grupurile din care face parte un anumit utilizator și totodată existența sa în sistem mai putem folosi comanda ''id''.
 
-<code bash>
-student@uso~$ id dan
-</code>
-
-De asemenea, pentru a nu căuta in fisierele ''/etc/passwd'' sau ''/etc/group'' putem folosi comanda [[http://man7.org/linux/man-pages/man1/getent.1.html|getent]] ca mai jos pentru verificarea directă a setarilor pentru un user sau un grup:
+Pentru a nu inspecta manual fișierele ''/etc/passwd'' sau ''/etc/group'', putem folosi comanda [[http://man7.org/linux/man-pages/man1/getent.1.html|getent]] pentru verificarea setarilor pentru un user sau grup:
 
 <code bash>
 student@uso~$ getent passwd dan
@@ -31,7 +27,7 @@ gdm:x:42:
 </code>
 </note>
 
-2. Editarea unui fișier de către mai mulți utilizatori
+**2. Editarea unui fișier de către mai mulți utilizatori**
 
 Pentru sesiunea de prezentări din cadrul facultății, studenții trebuie să se înscrie într-un fișier precum cel de mai jos.
 
@@ -43,25 +39,26 @@ $ cat proiecte.txt
 3. elena - mihai - proiect3
 </code>
 
-Acest fișier este creat de utilizatorul ''student''. Pentru a putea fi editat, utilizatorii trebuie să aibă acest drept.
+Acest fișier este creat de utilizatorul ''student''. Pentru a îl putea edita, studenții trebuie să aibă drept de scriere asupra lui.
 Acest fișier trebuie să poată fi editat atât de utilizatorii studenți cât și de utilizatorii profesori.
 
 Creați un nou grup care să conțina utilizatorii necesari și permiteți acces asupra acestui fișier.
 
-3. Schimbarea ownership-ului unui fișier
+**3. Schimbarea ownership-ului unui fișier**
 
-Să se modifice owner-ul fișierului ''proiecte.txt'' cu utilizatorul din grupul ''admin''.
-
+Să se modifice owner-ul fișierului ''proiecte.txt'' cu un utilizator din grupul ''admin''.
 
 ==== Comanda ''sudo'' ====
 
-După cum ați aflat și la începutul laboratorului, putem rula comenzi administrative fie folosind utilizatorul ''root'', fie folosind comanda ''sudo''.
-Denumirea de ''sudo'' vine de la 'substitute user do' sau 'super user do'.
+După cum ați aflat și în prima parte a laboratorului, putem rula comenzi administrative fie folosind utilizatorul ''root'', fie folosind comanda ''sudo''.
+
+Denumirea de ''sudo'' vine de la //substitute user do// sau //super user do//.
 Comanda ''sudo'' permite unui utilizator să ruleze comenzi cu privilegiile de acces ale altui utilizator, în general ca utilizatorul ''root''.
+
 În mod implicit, la prima rulare a comenzii ''sudo'' se cere parola utilizatorului care va fi păstrată intr-un cache timp de 5 min.
 Se poate configura astfel încât parola să fie cerută o singură dată, sau să nu se ceară deloc.
 
-Nu toți utilizatorii au implicit drept de ''sudo''. Pentru a verifica dacă un utilizator are drept de ''sudo'', puteți rula orice comanda doriți folosind ''sudo''.
+Nu toți utilizatorii au implicit drept de ''sudo''. Pentru a verifica dacă un utilizator are acest drept, puteți rula orice comanda doriți folosind ''sudo''.
 
 <code bash>
 corina@uso:~$ sudo -v
@@ -69,7 +66,7 @@ Sorry, user corina may not run sudo on uso.
 </code>
 
 
-4. Drepturi de sudo pentru un utilizator
+**4. Drepturi de sudo pentru un utilizator**
 
 Suntem autentificați ca utilizatorul ''corina'' și vrem să instalăm un pachet. Observăm totuși că nu avem permisiuni.
 
@@ -80,7 +77,7 @@ corina is not in the sudoers file.  This incident will be reported.
 </code>
 
 <note tip>
-Pentru a acorda //drepturi de sudo// unui utilizator se folosește comanda ''visudo''. Reveniți la shellul utilizatorului ''student'' (''Ctrl+D'') și tastați comanda:
+Pentru a acorda //drepturi de sudo// unui utilizator se folosește comanda ''visudo'', care modifică fișierul de configurare ''/etc/sudoers''. Reveniți la shell-ul utilizatorului ''student'' (''Ctrl+D'' sau ''exit'') și tastați comanda:
 
 <code bash>
 student@midgard:~$ sudo visudo
@@ -91,19 +88,17 @@ Dați drepturi utilizatorului ''corina'' de a instala pachete in sistem, fără 
 
 <note>**Verificare:** Reautentificați-vă drept ''corina'' și încercați din nou să rulați o comandă de instalare de pachete în sistem folosind ''sudo''.</note>
 
-
-5. Drepturi de sudo pentru un grup
-
+**5. Drepturi de sudo pentru un grup**
 
 În același mod configurați sistemul astfel încât utilizatorii din grupul ''profesor'' să aibă drepturi depline de ''sudo'' în sistem.
 
-Autentificați-vă în sistem ca ''alex'' și ca ''mihai'' și **verificați** că funcționează comanda:
+Autentificați-vă în sistem ca ''alex'' și ca ''mihai'' și verificați că funcționează comanda:
 
 <code bash>
 alex@uso:~$ sudo apt-get install rig
 </code>
 
-Asigurați-vă că nu apare eroarea (dacă apare înseamnă că ați greșit configurația din ''visudo''):
+Asigurați-vă că nu apare eroarea următoare (dacă apare înseamnă că ați greșit configurația din ''visudo''):
 
 <code bash>
 (...)
@@ -111,8 +106,3 @@ alex is not in the sudoers file. This incident will be reported.
 (...)
 </code>
 
-6. Să se realizeze modificările necesare a.î. la apelarea unei comenzi cu ''sudo'' să nu se ceară parola.
-
-<note info>
-HINT: Trebuie să alterați configurația din ''/etc/sudoers''.
-</note>
