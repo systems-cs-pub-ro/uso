@@ -1,5 +1,8 @@
 ===== Nice to know =====
 
+Înainte de a începe această secțiune trebuie să vă asigurați că sunteți în directorul potrivit.
+Rulați comanda ''cd ~/uso.git/labs/03-user/support/nice-to-know/''.
+
 **1. Schimbarea homedir-ului unui utilizator**
 
 Configurați sistemul astfel încât home directory-ul utilizatorului ''dan'', în loc de ''/home/dan'', să fie ''/home/public/dan''. Creați directorul dacă acesta nu există.
@@ -12,13 +15,13 @@ Indicație: Folosim [[http://linux.die.net/man/8/usermod|usermod (modify a user 
 
 **2. Permisiuni pentru executabile**
 
-2.1 Se dă următorul script din directorul ''executables''. Să se rezolve permisiunile astfel încât să funcționeze următoarea lansare în execuție:
+2.1 Se dă următorul script din directorul ''executable''. Să se rezolve permisiunile astfel încât să funcționeze următoarea lansare în execuție:
 
 <code bash>
-student@uso:TODO$ ./executables/script.sh
+student@uso:~/.../03-user/support/nice-to-know$ ./executable/script.sh
 </code>
 
-2.2 Înainte de a începe acest exercițiu trebuie să pregătiți setup-ul rulând următoarea comandă: TODO
+2.2 Înainte de a începe acest exercițiu trebuie să pregătiți setup-ul rulând următoarea comandă: ''./runme''.
 În acest moment, la rularea comenzii ''ls'' ar trebui să primiți următorul mesaj de eroare:
 
 <code bash>
