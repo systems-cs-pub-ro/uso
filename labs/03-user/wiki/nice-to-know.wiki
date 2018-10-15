@@ -15,14 +15,12 @@ Indicație: Folosim [[http://linux.die.net/man/8/usermod|usermod (modify a user 
 
 **2. Permisiuni pentru executabile**
 
-2.1 Se dă următorul script din directorul ''executable''. Să se rezolve permisiunile astfel încât să funcționeze următoarea lansare în execuție:
+<note important>
+Înainte de a începe următoarele trei exerciții trebuie să pregătiți setup-ul rulând următoarea comandă: ''./runme''.
+Exercițiul 2.1 trebuie să fie rezolvat primul.
+</note>
 
-<code bash>
-student@uso:~/.../03-user/support/nice-to-know$ ./executable/script.sh
-</code>
-
-2.2 Înainte de a începe acest exercițiu trebuie să pregătiți setup-ul rulând următoarea comandă: ''./runme''.
-În acest moment, la rularea comenzii ''ls'' ar trebui să primiți următorul mesaj de eroare:
+2.1 În acest moment, la rularea comenzii ''ls'' ar trebui să primiți următorul mesaj de eroare:
 
 <code bash>
 student@uso:~$ ls
@@ -30,6 +28,13 @@ bash: /bin/ls: Permission denied
 </code>
 
 Investigați de ce nu mai funcționează comanda ''ls'' și reparați problema.
+
+
+2.2 Se dă următorul script din directorul ''executable''. Să se rezolve permisiunile astfel încât să funcționeze următoarea lansare în execuție:
+
+<code bash>
+student@uso:~/.../03-user/support/nice-to-know$ ./executable/script.sh
+</code>
 
 2.3 Directorul ''music'' conține mai multe fișiere și directoare.
 Intrați în directorul ''music'' (''cd music''), iar apoi în directorul ''ac_dc''.
