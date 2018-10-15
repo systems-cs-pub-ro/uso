@@ -39,7 +39,7 @@ $ cat proiecte.txt
 3. elena - mihai - proiect3
 </code>
 
-Acest fișier este creat de utilizatorul ''student''. Pentru a îl putea edita, studenții trebuie să aibă drept de scriere asupra lui.
+Creați acest fișier logați ca utilizatorul ''student''. Pentru a îl putea edita, studenții trebuie să aibă drept de scriere asupra lui.
 Acest fișier trebuie să poată fi editat atât de utilizatorii studenți cât și de utilizatorii profesori.
 
 Creați un nou grup care să conțina utilizatorii necesari și permiteți acces asupra acestui fișier.
