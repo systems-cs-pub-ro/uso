@@ -1,7 +1,6 @@
 ===== Basics =====
 
-Înainte de a începe acest tutorial trebuie să vă asigurați că sunteți în directorul potrivit.
-Rulați comanda ''cd ~/uso.git/labs/03-user/support/basics/''. 
+Înainte de a începe exercițiile nu uitați să rulați comenzile de ''Git'' din secțiunea [[http://ocw.cs.pub.ro/courses/uso/laboratoare/new/03-user?&#folosire_git_pentru_laborator|Folosire Git pentru laborator]].
 
 ==== Gestiunea utilizatorilor ====
 
@@ -100,3 +99,5 @@ ana@uso:/home/student$ cat student.txt
 Ana
 </code>
 
+**Exerciții**
+  - Să se creeze fișierul ''shared'' de către utilizatorul ''student''. Faceți modificările necesare a.î. utilizatorul ''student'' să poată modifica fișierul, utilizatorii ''bogdan'' și ''david'' să poată vizualiza conținutul fișierului, iar oricine altcineva să nu aibă niciun drept (testați cu utilizatorul ''ana'').
