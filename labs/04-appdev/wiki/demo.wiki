@@ -1,0 +1,171 @@
+===== Demo =====
+
+In aceasta sectiune vom urmari sa obtinem o mai buna intelegere asupra
+procesului compilarii precum si asupra utilitatii si utilizarii makefile-urilor.
+
+==== Compilarea codului in C/C++ ====
+
+Dupa cum a fost precizat si inainte, compilatorul cel mai folosit pentru programele
+scrise in C este gcc, iar pentru C++, g++.
+
+Sa presupunem ca avem urmatorul fisier sursa, print.c; in urma rularii comenzii
+gcc print.c, procesul de compilare trece prin toate cele patru faze intermediare
+rezultand fisierul executabil a.out.
+
+<code bash>
+root@ebp:~/Documents/uso/lab_04/support# ls
+print.c
+root@ebp:~/Documents/uso/lab_04/support# gcc print.c
+root@ebp:~/Documents/uso/lab_04/support# ls
+a.out  print.c
+root@ebp:~/Documents/uso/lab_04/support#
+</code>
+
+''a.out'' este denumirea default in situatia in care nu este specificat care sa fie
+numele executabilului. Pentru aceasta folosim parametrul [-o outputFileName]
+la rularea comenzii. Parametrul poate sa se gaseasca la orice pozitie in cadrul
+comenzii, dar este obligatoriu sa fie urmat intotdeauna de numele dorit.
+
+<code bash>
+root@ebp:~/Documents/uso/lab_04/support# gcc print.c -o print
+root@ebp:~/Documents/uso/lab_04/support# ls
+a.out  print  print.c
+root@ebp:~/Documents/uso/lab_04/support#
+</code>
+
+Procesul de compilare are patru etape: preprocesare, compilare, asamblare si
+link-editare. La o rulare normala a comenzii gcc se trece prin toate aceste faze,
+insa exista si posibilitatea de a intrerupe procesul la finalul uneia anume.
+  * folosirea parametrului -c spune compilatorului sa se opreasca dupa faza de
+    asamblare, insa sa nu linkeze codul.
+
+<code bash>
+root@ebp:~/Documents/uso/lab_04/support# gcc -c print.c
+root@ebp:~/Documents/uso/lab_04/support# ls
+print.c  print.o
+root@ebp:~/Documents/uso/lab_04/support# cat print.o
+ELF>�@@
+UH��H�=��]�USO Rules! <3GCC: (Debian 8.2.0-7) 8.2.0zRx
+R                                                         �A�C
+ ��	$print.cmain_GLOBAL_OFFSET_TABLE_puts��������
+                                                                   
+                                                                    �������� .symtab.strtab.shstrtab.rela.text.data.bss.rodata.comment.note.GNU-stack.rela.eh_frame @@0
+&WW1W90eB�W�R@@
+� 
+       	�)Xaroot@ebp:~/Documents/uso/lab_04/support#
+</code>
+    Se observa ca rezultatul final este un fisier cu cod obiect.
+  * folosirea parametrului -S instruieste compilatorul sa nu asambleze codul.
+<code bash>
+root@ebp:~/Documents/uso/lab_04/support# gcc -S print.c
+root@ebp:~/Documents/uso/lab_04/support# ls
+print.c  print.s
+root@ebp:~/Documents/uso/lab_04/support# cat print.s
+	.file	"print.c"
+	.text
+	.section	.rodata
+.LC0:
+	.string	"USO Rules! <3"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB5:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	leaq	.LC0(%rip), %rdi
+	call	puts@PLT
+	movl	$0, %eax
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5:
+	.size	main, .-main
+	.ident	"GCC: (Debian 8.2.0-7) 8.2.0"
+	.section	.note.GNU-stack,"",@progbits
+root@ebp:~/Documents/uso/lab_04/support#
+</code>
+  * folosirea parametrului -E opreste procesul de compilare dupa faza de preprocesare.
+
+(HINT: man gcc)
+
+==== Makefile ====
+
+Utilitarul de automatizare cel mai folosit pentru aplicațiile C/C++ este make.
+In general numele unui fisier makefile este Makefile, insa te poti afla in
+situatia in care ai nevoie de mai multe astfel de fisiere, moment in care
+pentru a alege unul dintre ele putem rula comanda make cu parametrul -f, urmat
+de numele makefile-ului pe care dormi sa il folosim.
+Exemplu: make -f makefile.win
+
+<note>
+Formatul unui fisier makefile este urmatorul:
+
+Regula: dependinte
+<TAB> comanda
+
+Fisierul poate sa contina una sau mai multe astfel de linii.
+</note>
+
+<code bash>
+root@ebp:~/Documents/uso/lab_04/support# cat Makefile
+rule1: print.c
+	gcc -Wall print.c -o print
+
+clean:
+	rm print
+root@ebp:~/Documents/uso/lab_04/support#
+root@ebp:~/Documents/uso/lab_04/support#
+root@ebp:~/Documents/uso/lab_04/support# make
+gcc -Wall print.c -o print
+root@ebp:~/Documents/uso/lab_04/support# ls
+Makefile  print  print.c
+root@ebp:~/Documents/uso/lab_04/support#
+</code>
+
+Regula reprezintă numele unei instrucțiuni. La simpla rulare a comenzii make prima
+regulă din fișier este cea care va fi executată. În schimb, dacă vom scrie make raccoon,
+se va executa comanda aferentă regulii raccoon.
+
+Dependintele pot sa lipseasca sau nu. Ele reprezinta de fapt fisiere si/sau reguli
+necesare pentru a putea rula o alta regula. Practic, la rularea unei reguli se verifică
+dacă fișierul din dependință există. Dacă acesta există, putem rula regula, dacă nu,
+se caută o altă regulă cu acel nume și se va rula acea regulă (dacă dependințele ei
+sunt îndeplinite, dacă nu, se continuă lanțul de dependințe).
+Sa consideram urmatorul makefile:
+
+<code bash>
+build: utils.o hello.o help.o
+        gcc utils.o help.o hello.o -o hello
+
+all:
+        gcc simple_hello.c -o simple
+
+utils.o: utils.c
+        gcc -c utils.c
+
+hello.o: hello.c
+        gcc -c hello.c
+
+help.o: help.c
+        gcc -c help.c
+
+clean:
+        rm -f *.o hello
+</code>
+
+Prima regula care va fi rulata este "build". Cand se incearca rularea ei se verifica
+existenta fisierelor obiect utils.o, hello.o si help.o. Cum ele nu au fost inca
+generate se cauta in fisier o regula cu numele lor. Dupa cum se observa, aceste
+reguli vor fi descoperite mai jos in makefile si vor fi executate deoarece ele
+au ca dependinte doar fisiere cod sursa (despre care stim deja ca exista), comenzile
+aferente lor generand codul obiect necesar rularii regulii "build".
+
+De retinut este si faptul ca make verifica daca o dependinta a fost sau nu modificata
+dupa momentul in care a fost creata. In caz afirmativ, atunci aceasta va fi regenerata,
+altfel, pentru eficientizare, aceasta va fi reutilizata.
