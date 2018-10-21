@@ -1,8 +1,9 @@
 ===== Need to know =====
 // TODO update link
-În [[http://ocw.cs.pub.ro/courses/uso/laboratoare/new/04 | secțiunea anterioară]]
+<!-- În [[http://ocw.cs.pub.ro/courses/uso/laboratoare/new/04 | secțiunea anterioară]] am observat că putem genera octeți cu ajutorul dispozitivelor virtuale. -->
 
 ==== Generarea de fișiere de dimensiune fixă folosind dispoztivie virtuale (dd) ====
+Generarea unor fișiere de dimensiune fixă consituie primul pas în construirea unui fișier de tip imagine (''.iso/.img''). De asemenea putem șterge urme de informație rămasă pe suportul secund de stocare (HDD/SSD) prin umplerea zonelor libere cu zero-uri sau cu informație cu caracter aleator.
 
 În Linux putem folosi dispozitivele virtuale (ex. ''/dev/urandom'', ''/dev/random'', ''/dev/zero'') pentru a genera conținutul unui fișer nou.
 
@@ -15,9 +16,14 @@ student@uso:~$ ls -lh dump
 
 Comenzile de mai sus au avut ca efect generarea unui fișier cu conținut aleator (vezi ''/dev/urandom''), însă nu am putut controla dimensiunea noului fișier generat. Dimensiune fișierului generat variază în funcție de mai mulți parametri (ex. timp, viteză de scriere hdd/ssd, etc.).
 
-Pentru a combate acest neajuns putem să folosim comanda ''dd''. ''dd'' poate primi un fișier de intrare (''in=<FILE>'') și un fișier de ieșire (''of=<FILE>''). De asemenea putem să controlăm dimensiunea fișierului pe care vrem să îl gemerăm cu ajutorum parametrilor ''bs=<BYTES>'' și ''count=<BLOCKS>''.
+Pentru a combate acest neajuns putem să folosim comanda ''dd''.
+ ''dd'' poate primi un fișier de intrare (''in=<FILE>'') și un fișier de ieșire (''of=<FILE>''). De asemenea putem să controlăm dimensiunea fișierului pe care vrem să îl gemerăm cu ajutorum parametrilor ''bs=<BYTES>'' și ''count=<BLOCKS>''.
+  * ''if'' - input file; dacă nu este specificat, se va folosi ''stdin'';
+  * ''of'' - output file; dacă nu este specificat, se va folosi ''stdout'';
+  * ''count'' - numărul de blocuri din fișierul input ce vor fi copiate;
+  * ''bs'' - numărul de octeți dintr-un bloc.
 
-Astfel, dacă dorim să generăm un fișier cu dimensiunea de 100MB care să doar octeți egali cu zero, putem să folosim comanda:
+Următorul apel al comenzii ''dd'' va umple fișierul **dump** cu 100MB (1024M * 100) de informație, conținând numai octeți cu valoarea zero.
 
 <code bash>
 student@uso:~$ dd if=/dev/zero of=dump bs=1M count=100
@@ -27,6 +33,14 @@ student@uso:~$ dd if=/dev/zero of=dump bs=1M count=100
 student@uso:~$ ls -lh dump 
 -rw-r--r-- 1 student student 100M oct 21 14:07 dump
 </code>
+
+Generarea unui fișier de 32MB cu date aleatoare:
+
+<code bash>
+student@uso:~$ dd if=/dev/zero of=~/myfile.bin bs=4M count=8
+</code>
+
+Comanda ''dd'' mai poate fi folosită și pentru a obține backup-uri ale sistemului sau pentru a formata un sistem de fișiere virtual.
 
 **Exerciții**
   - Să se genereze un fișier de dimensiune fixă (42 MB) care să conțină octeți aleatori. Dimensiunea unui block în cadrul comenzii ''dd'' trebuie să fie de 512 KB.
