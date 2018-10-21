@@ -6,6 +6,7 @@ Prima parte a laboratorului își propune să urmărească identificarea compone
 ==== Informații despre procesor și arhitectură (lscpu, arch) ====
 
 Cunoașterea informațiilor despre arhitectura unui procesor ne poate ajuta să scriem programe mai eficiente.
+// TODO Update narativ 
 
 Pentru a afla informații despre procesor putem folosi comanda ''lscpu'':
 
@@ -98,4 +99,6 @@ crw-rw-rw- 1 root root 1, 5 oct 15 16:10 /dev/zero
 </code>
 
 **Exerciții**
-  - Să se afișeze conținutul fișierului ''/dev/urandom'' în terminal. 
+  - Afișați conțiunutul conținutul fișierului ''/dev/urandom'' în terminal. 
+  - Afișați conținutul fișierului ''/dev/zero'' folosind comanda ''cat''. Ce observați? 
+  - Afișați, pe rând, conținutul fișierelor de mai sus în format hexazecimal. (hint: ''xxd'' sau ''hexdump'')
