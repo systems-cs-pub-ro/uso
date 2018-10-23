@@ -69,6 +69,10 @@ După cum este explicat pe larg mai sus, pentru orice operație pe care un utili
 
 Atunci când mai mulți utilizatori trebuie să aibă anumite permisiuni asupra unui fișier (citire, scriere, execuție), se crează un nou grup cu utilizatorii respectivi și se setează acest grup ca grupul ce deține fișierul.
 
+<note>
+Înainte să trecem la un exemplu, rulați comanda ''umask 0022''. Vom clarifica la secțiunea ''Nice to know'' ce face ea.
+</note>
+
 Să luăm exemplul următor. Utilizatorul ''student'' crează fișierul ''studenti.txt''.
 
 <code bash>
