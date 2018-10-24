@@ -1,0 +1,11 @@
+===== Basics =====
+
+Înainte de a începe să rezolvați laboratorul asigurați-vă că ați parcurs și
+înțeles noțiunile prezentate în sectiuniile ''Concepte'' și ''Demo''. \\ Exerciții:
+
+  - Folosind editorul de text preferat scrieți un program C, care să afișeze la stdout mesajul "USO RULES".\\
+  - Compilați programul scris la exercițiul anterior astfel încât să fie optimizat din punct de vedere al timpului de execuție. (Hint: man gcc)
+  - Recompilati programul precedent astfel încât executabilul rezultat să se numească main.out și să conțină simboluri de debugging.
+
+Observați că atunci când nu este specificat numele executabilului, acesta va fi numit automat a.out.
+

@@ -2,21 +2,21 @@
 
 
 ==== Intro ====
-Toate dispozitivele electronice pe care le folosim in viata de zi cu zi, de la
-latopuri sau calculatoare personale, pana la telefoane mobile sau smart watch-uri,
-toate au in comun un lucru: ruleaza software. Avand in vedere cat de variate
-sunt sistemele pe care ruleaza aplicatiile, este important sa se cunoasca principalii
-factori care influenteaza deciziile luate in vederea crearii uneia.
-De exemplu, daca aplicatia noastra este gandita pentru un ceas inteligent, atunci
-trebuie avut in vedere faptul ca resursele vor fi limitate; apare astfel o constrangere
+Toate dispozitivele electronice pe care le folosim în viața de zi cu zi, de la
+latopuri sau calculatoare personale, până la telefoane mobile sau smart watch-uri,
+toate au în comun un lucru: rulează software. Având în vedere cât de variate
+sunt sistemele pe care rulează aplicațiile, este important să se cunoască principalii
+factori care influențează deciziile luate în vederea creării uneia.
+De exemplu, dacă aplicația noastră este gândită pentru un ceas inteligent, atunci
+trebuie avut în vedere faptul că resursele vor fi limitate; apare astfel o constrângere
 din punctul de vedere al memoriei disponibile.
-Este important de retinut ca atunci cand scriem o aplicatie trebuie luata in
-considerarea atat partea software cat si hardware. Cea din urma depaseste scopul
-laboratorului curent si va fi reluata in cursurile viitoare.
+Este important de reținut că atunci când scriem o aplicație trebuie luată în
+considerarea atât partea software cât și hardware. Cea din urmă depășește scopul
+laboratorului curent și va fi reluată în cursurile viitoare.
 
-Astfel, principalele elemente pe care le vom analiza in continuare sunt:
+Astfel, principalele elemente pe care le vom analiza în continuare sunt:
   * alegerea limbajului de programare potrivit
-  * scrierea si compilarea codului sursa
+  * scrierea și compilarea codului sursă
   * depanarea programelor
   * versionarea codului
 
@@ -30,14 +30,14 @@ fi rulat oricând. Pe de altă parte, un limbaj interpretat este executat direct
 intermediul unui interpretor. Interpretorul este cel care ia fiecare instrucțiune, o
 transformă în cod mașină iar aceasta este executată imediat.
 
-In functie de scopul aplicatiei noastre, trebuie sa stim sa alegem limbajul de
+În funcție de scopul aplicației noastre, trebuie să știm să alegem limbajul de
 programare adecvat; de exemplu, limbajele compilate (precum C/C++) au avantajul
-timpului de executie mai rapid, pe cand cele interpretate (PHP/Perl) au mai multa
-portabilitate, interpretorul fiind cel care transforma codul sursa in cod masina
+timpului de execuție mai rapid, pe când cele interpretate (PHP/Perl) au mai multă
+portabilitate, interpretorul fiind cel care transformă codul sursă în cod mașină
 specific procesorului.
 
-Exista si o a treia categorie de limbaje si anume limbajele hibride, care incapsuleaza
-elemente de compilare cu elemente de incapsulare.
+Există și o a treia categorie de limbaje și anume limbajele hibride, care încapsulează
+elemente de compilare cu elemente de interpretare.
 Pentru că principalul dezavantaj al programelor interpretate este timpul mare de execuție,
 una din îmbunătățirile aduse interpretoarelor este posibilitatea de a transforma
 codul sursă într-un cod intermediar, care se numește bytecode, care va fi apoi interpretat.
@@ -52,113 +52,124 @@ Un astfel de limbaj este Python/Java/C#.
 
 === Scrierea codului ===
 
-Dezvoltarea unei aplicatii consta in scrierea efectiva a codului sursa, adica in
-crearea si editarea fisierelor.
-Exista o mare varietate de editoare de text, de la unele foarte simple, pana la
-unele foarte complexe, care ofera o multitudine de functionalitati precum:
-indentarea automata a codului, syntax-highlighting, semnalarea erorilor etc.
+Dezvoltarea unei aplicații constă în scrierea efectivă a codului sursă, adică în
+crearea și editarea fișierelor.
+Există o mare varietate de editoare de text, de la unele foarte simple, până la
+unele foarte complexe, care oferă o multitudine de funcționalități precum:
+indentarea automată a codului, syntax-highlighting, semnalarea erorilor etc.
 Ținând cont de numărul mare de limbaje de programare existente, fiecare cu
-particularitățile sale, este imposibil ca un editor să cuprinsă toate aspectele
+particularitățile sale, este imposibil ca un editor să cuprindă toate aspectele
 fiecărui limbaj. De aceea, majoritatea acestor editoare permit instalarea de extensii
-care aduc funcționalități în plus sau aduc funcționalități specifice pentru un anumit limbaj.
-Printre cele mai populare editoare de text se numara Vim, Sublime, Atom, Visual Studio Code.
-Pe langa editoare de text avansate putem utiliza un mediu integrat de dezvoltare (IDE).
-IDE-urile au anumite functionalitati  avansate, multe dintre ele fiind adaptate
-unui singur limbaj de programare, iar in plus ele au integrat un compilator/interpretor
-pentru limbajul suportat. Astfel, la o simpla apasare de buton programul este rulat.
-Printre IDE-urile preferate se numara: Microsoft Visual Studio, Eclipse, IntelliJ, XCode.
+care aduc functionalităti în plus, sau aduc functionalităti specifice pentru un anumit limbaj.
+Printre cele mai populare editoare de text se numără Vim, Sublime, Atom, Visual Studio Code.
+Pe lângă editoare de text avansate putem utiliza un mediu integrat de dezvoltare (IDE).
+IDE-urile au anumite funcționalități  avansate, multe dintre ele fiind adaptate
+unui singur limbaj de programare, iar în plus ele au integrat un compilator/interpretor
+pentru limbajul suportat. Astfel, la o simplă apăsare de buton programul este rulat.
+Printre IDE-urile preferate se număra: Microsoft Visual Studio, Eclipse, IntelliJ, XCode.
 
 === Compilarea ===
 
-Procesul de compilare presupune obtinerea unui executabil din codul sursa.
-Acesta are urmatoarele etape intermediare:
-  1. Preprocesare: operatiile care au loc in aceasta faza sunt prelucrarea directivelor
-  de preprocesare (liniile care încep cu caracterul #): expandarea macrodefinitiilor
-  si includerea fisierelor.
-  Rezultatul este un fisier cu extensia .i.
-  2. Compilare: codul preprocesat este transformat in cod limbaj de asamblare.
-  Rezultatul este un fisier cu extensia .s.
-  3. Asamblare: codul din limbaj de asamblare este transformat in cod obiect.
-  Rezultatul este un fisier cu extensia .o.
-  4. Link-editare: "leaga" intre ele mai multe fisiere obiect si creeaza fisierul
-  executabil.
+Procesul de compilare presupune obținerea unui executabil din codul sursă.
+Acesta are următoarele etape intermediare:
+  - Preprocesare: operațiile care au loc în această fază sunt prelucrarea directivelor de preprocesare (liniile care încep cu caracterul #): expandarea macrodefinițiilor și includerea fișierelor. Rezultatul este un fișier cu extensia .i.
+  - Compilare: codul preprocesat este transformat în cod limbaj de asamblare. Rezultatul este un fișier cu extensia .s.
+  - Asamblare: codul din limbaj de asamblare este transformat în cod obiect. Rezultatul este un fișier cu extensia .o.
+  - Link-editare: "leagă" între ele mai multe fișiere obiect și creează fișierul executabil.
 
  <note>
-Sectiunea urmatoare se refera la dezvoltarea in C/C++, acestea fiind limbajele
-pe care le veti utiliza si in cadrul cursurilor din facultate.
+ Secțiunea următoare se referă la dezvoltarea în C/C++, acestea fiind limbajele
+ pe care le veți utiliza și în cadrul cursurilor din facultate.
  </note>
 
  Compilatorul cel mai folosit pentru C/C++ este gcc/g++.
- La simpla rulare a comenzii gcc, se trece prin toate etapele mentionate,
- obtinandu-se la final executabilul, insa exista optiuni pentru a intrerupe procesul
- dupa un anumit pas al compilarii. (man gcc)
+ La simpla rulare a comenzii gcc, se trece prin toate etapele menționate,
+ obținându-se la final executabilul, însă există opțiuni pentru a întrerupe procesul
+ după un anumit pas al compilării. (man gcc)
 
- De exemplu, urmatoarea comanda va genera executabilul ''main''.
+ De exemplu, următoarea comandă va genera executabilul ''main''.
 
- <code bash>
+<code bash>
 gcc main.c -o main
 </code>
 
-La fiecare modificare adusa programului sursa, toate comenzile de compilare trebuie
-rulate din nou, lucru ce poate sa devina obositor/problematic atunci cand este
-vorba de un proiect complex. Astfel, au aparut makefile-urile, fisiere care
-contin aceste comenzi si le pot rula pe toate printr-un singur apel.
-In concluzie, scopul makefile-urilor este de a automatiza procesul de compilare.
+La fiecare modificare adusă programului sursă, toate comenzile de compilare trebuie
+rulate din nou, lucru ce poate să devină obositor/problematic atunci când este
+vorba de un proiect complex. Astfel, au apărut makefile-urile, fișiere care
+conțin aceste comenzi și le pot rula pe toate printr-un singur apel.
+În concluzie, scopul makefile-urilor este de a automatiza procesul de compilare.
 
 <note>
-Mai multe informatii despre makefile-uri vor fi prezentate in sectiunea ''Demo''.
+Mai multe informații despre makefile-uri vor fi prezentate în secțiunea ''Demo''.
 </note>
 
 === Depanarea programelor ===
 
-Foarte rar se va intampla sa compilati codul cu succes din prima sau, in cazul fericit
-in care reusiti asta, in urma rularii acesta sa functioneze asa cum va doriti.
-De cele mai multe ori va veti lovi de warning-uri sau erori de compilare, iar atunci
-cand reusiti sa le rezolvati pe acestea, sirul nefericit al evenimentelor va continua
-si veti obtine rezultate eronate, segfault-uri etc.
-Este important sa fim constienti ca o mare parte din timpul dezvoltarii unei aplicatii
-va fi dedicata depanarii programului, de aceea este important sa fim eficienti in
+Foarte rar se va întâmpla să compilați codul cu succes din prima sau, în cazul fericit
+în care reușiți asta, în urma rulării acesta să funcționeze așa cum vă doriți.
+De cele mai multe ori vă veți lovi de warning-uri sau erori de compilare, iar atunci
+când reușiți să le rezolvați pe acestea, șirul nefericit al evenimentelor va continuă
+și veți obține rezultate eronate, segfault-uri etc.
+Este important să fim conștienți că o mare parte din timpul dezvoltării unei aplicații
+va fi dedicată depanării programului, de aceea este important să fim eficienți în
 descoperirea erorilor.
 
-Cea mai simpla metoda pentru a depana un program este aceea de a afisa mesaje pe
-parcursul executiei, astfel putem sa urmarim exact rezultatele intermediare obtinute
-sau putem sa descoperim partea din cod ce creeaza probleme.
-Aceasta este cea mai usoara si intuitiva metoda, insa pentru un program cu sute/mii
-de linii de cod este foarte ineficienta.
-Astfel au aparut debugger-ele, programe speciale cu o varietate de functionalitati;
-  * iti permit sa opresti programul in anumite puncte ale executiei si sa
-analizezi valorile variabilelor.
+Cea mai simplă metodă pentru a depana un program este aceea de a afișa mesaje pe
+parcursul execuției, astfel putem să urmărim exact rezultatele intermediare obținute
+sau putem să descoperim partea din cod ce creează probleme.
+Aceasta este cea mai ușoară și intuitivă metodă, însă pentru un program cu sute/mii
+de linii de cod este foarte ineficientă.
+Astfel au apărut debugger-ele, programe speciale cu o varietate de funcționalități;
+  * îți permit să oprești programul în anumite puncte ale execuției și să analizezi valorile variabilelor.
   * rularea programului pas cu pas
-  * modificarea starii programului in timpul rularii
+  * modificarea stării programului în timpul rulării
 
-Unul dintre cele mai cunoscute utilitare pentru depanare este ''gdb''; el suporta
-toate operatiile mentionate mai sus. (pentru o mai buna vizulizare a informatiei
-folositi gdb-peda)
+Unul dintre cele mai cunoscute utilitare pentru depanare este ''gdb''; el suportă
+toate operațiile menționate mai sus. (pentru o mai bună vizulizare a informației
+folosiți gdb-peda)
 
-Good practice este sa nu scrieti blocuri mari de cod fara a le verifica pe parcurs;
-testati functionarea corecta a programului pe parcursul dezvoltarii acestuia, altfel
-va va fi mult mai dificil sa detetctati erorile.
+Good practice este să nu scrieți blocuri mari de cod fără a le verifica pe parcurs;
+testați funcționarea corectă a programului pe parcursul dezvoltării acestuia, altfel
+vă va fi mult mai dificil să detetctați erorile.
 
-=== Managementul si versionarea codului ===
+=== Managementul și versionarea codului ===
 
-In cadrul unui proiect complex o sa lucrati intr-o echipa si veti ajuta
-la dezvoltarea doar a anumitor parti din programul final. In aceasta situatie
-fiecare membru o sa creeze/va modifica fisiere cu cod sursa in paralel cu alte persoane.
-Apare astfel necesitatea unei modalitati de a imparti codul si de a urmari in acelasi
-timp cine ce modificari a adus programului.
+În cadrul unui proiect complex o să lucrați într-o echipă și veți ajuta
+la dezvoltarea doar a anumitor părți din programul final. În această situație
+fiecare membru o să creeze/va modifica fișiere cu cod sursă în paralel cu alte persoane.
+Apare astfel necesitatea unei modalități de a împarți codul și de a urmări în același
+timp cine ce modificări a adus programului.
 
-Git este un sistem de management și versionare a codului sursă care permite aceasta
-partajare dorita. Proiectul este stocat într-un repository. Repository-ul conține
+Gît este un sistem de management și versionare a codului sursă care permite această
+partajare dorită. Proiectul este stocat într-un repository. Repository-ul conține
 fișierele efective ale proiectului și informații despre acesta.
-Fiecare lucreaza la o versiune proprie a programului pe care o urca apoi online
-si este integrata automat in proiect.
+Fiecare lucrează la o versiune proprie a programului pe care o urcă apoi online
+și este integrată automat în proiect.
 
-Operatiile de baza ce pot fi efectuate asupra unui repository sunt:
-  * clone: se copiaza local intreg repository-ul; practic se creeaza pe sistemul
-      vostru un director cu toate fisierele puse online la momentul clonarii.
-  * commit:se salvează toate modificările aduse proiectului; starea actuală este
-      salvată local. Daca modificarile nu sunt facute publice, atunci ceilalti
-      colaboratori nu le vor putea vedea.
-  * push: pentru publicarea modificarilor salvate prin commit.
-  * pull: se descarca local ultimele modificari aduse de colaboratori in cadrul
-      proiectului.
+Operațiile de bază ce pot fi efectuate asupra unui repository sunt:
+  * init: pentru a inițializa un repo de git local.
+  * clone: se copiază local întreg repository-ul; practic se creează pe sistemul vostru un director cu toate fișierele puse online la momentul clonării.
+  * commit:se salvează toate modificările aduse proiectului; starea actuală este salvată local. Dacă modificările nu sunt făcute publice, atunci ceilalți colaboratori nu le vor putea vedea.
+  * push: pentru publicarea modificărilor salvate prin commit.
+  * pull: se descarcă local ultimele modificări aduse de colaboratori în cadrul proiectului.
+ 
+====Biblioteci=====
+
+O bibliotecă este o colecție de funcții precompilate. În momentul în care un program are nevoie de o funcție neinclusă în fișiere sursă proprii, linker-ul va apela respectiva funcție din bibliotecă. Numele fișierului reprezentând biblioteca trebuie să aibă prefixul **lib**: 
+
+<code bash>
+student@midgard$ ls -l /usr/lib/libm.*
+-rw-r--r-- 1 root root 496218 2010-01-03 15:19 /usr/lib/libm.a
+lrwxrwxrwx 1 root root     14 2010-01-14 12:17 /usr/lib/libm.so -> /lib/libm.so.6
+</code>
+
+Biblioteca matematică este denumită ''libm.a'' sau ''libm.so''. În Linux bibliotecile sunt de două tipuri:
+    * **statice** - au, de obicei, extensia ''.a'' sub Linux (''.lib'' în Windows)
+    * **partajate** - au extensia ''.so'' sub Linux (''.dll'' în Windows) 
+
+ Pentru a putea lega un program cu o bibliotecă, aceasta trebuie să fie prezentă în sistem. Pe sistemele Linux (și nu numai) sunt două modalități de a realizarea legarea unei biblioteci la un set de module obiect. Prima metodă este denumită legare statică (static linking). Când se folosește legarea statică, codul obiect al funcțiilor folosite este ''cuplat'' în fișierul executabil al aplicației. Acest lucru generează programe executabile de dimensiune mare și irosește memoria dacă mai multe instanțe ale aceluiași program sunt rulate în același timp (fiecare are o copie proprie a funcțiilor utilizate). 
+  
+Cealaltă metodă este legarea dinamică (dynamic linking). Legarea dinamică utilizează biblioteci care permit programatorului să refere funcții din cadrul aplicației, fără însă a lega codul funcțiilor în fișierul executabil. Bibliotecile dinamice sunt apelate de sistemul de operare și pot fi partajate de mai multe programe. În sistemele Linux acestea sunt biblioteci shared-object (cu extensia .so).
+
+Legarea se face folosind opțiunea ''-l'' transmisă comenzii ''gcc''. Astfel, dacă se dorește folosirea unor funcții din ''math.h'', trebuie legată biblioteca matematică.
+
