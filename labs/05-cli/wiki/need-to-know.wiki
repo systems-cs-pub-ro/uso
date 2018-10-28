@@ -208,3 +208,22 @@ Oservați ce se întâmplă.
 1. Mutați-vă la calea TODO și, folosind o singură comandă, compilați și rulați programul TODO. În cazul 
 în care apar erori de compilare, vrem să nu rulăm executabilul. Rezolvați eroarea astfel încât programul 
 să compileze și rulați-l.
+
+=== Aliasuri ===
+
+În shell, un **alias** este un șir de caractere ce poate ține locul oricărei comenzi. Putem vedea ce 
+aliasuri sunt deja create în sistem dacă inspectăm fișierul ''~/.bashrc''. De regulă, ele se află la 
+sfârșitul fișierului sau sunt definite separat în fișierul ''~/.bash_aliases''. Inspectați ambele 
+fișiere.
+
+<code bash>
+student@uso:~/uso.git/$ cat ~/.bashrc
+... TODO output
+</code>
+
+<code bash>
+student@uso:~/uso.git/$ cat ~/.bash_aliases
+... TODO output
+</code>
+
+1. Creați-vă propriul alias și verificați că funcționează așa cum vă așteptați.(TODO link rerun script).
