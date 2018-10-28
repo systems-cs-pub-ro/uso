@@ -31,13 +31,11 @@ ssh -p 2222 root@localhost
 </note>
 
 ** 2. Stick bootabil UDPCast **
-http://www.udpcast.linux.lu/usb.html
+Creați un stick bootabil cu UDPCast urmărind acest [[http://www.udpcast.linux.lu/usb.html|link]].
 
 
 ** 3. Stick bootabil cu distrbuție de Linux **
-
 Folosiți următoarele utilitare:
     * ''dd'' - pentru ștergerea tabelei de partiții
     * ''gparted'' - pentru crearea partițiilor noi
     * ''UNetbootin'' - pentru crearea Live USB drive
-    

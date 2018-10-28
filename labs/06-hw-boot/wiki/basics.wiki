@@ -6,9 +6,7 @@ Prima parte a laboratorului își propune să urmărească identificarea compone
 ==== Informații despre procesor și arhitectură (lscpu, arch) ====
 
 Cunoașterea informațiilor despre arhitectura unui procesor ne poate ajuta să scriem programe mai eficiente.
-// TODO Update narativ 
-
-Pentru a afla informații despre procesor putem folosi comanda ''lscpu'':
+De exemplu, pentru a afișa informații despre procesor putem să folosim comanda ''lscpu''.
 
 <code bash>
 student@uso:~$ lscpu
@@ -61,8 +59,8 @@ cache size	: 12288 KB
 </code>
 
 ** Exerciții **
-  - Să se afișeze infromații despre procesor în format JSON. (hint: ''man lscpu'')
-  - Să se afișeze doar arhitectura sistemului curent folosind comanda ''lscpu''. (hint: ''grep'')
+  - Să se afișeze doar frecvența procesorului curent folosind comanda ''lscpu''. (hing: grep)
+  - Să se afișeze doar arhitectura procesorului curent folosind comanda ''lscpu''. (hint: ''grep'')
   - Să se afișeze numele modelului procesorului curent folosind ''procfs''.
 
 ====  Informații despre starea curentă a memoriei (free) ====

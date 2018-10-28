@@ -1,5 +1,6 @@
 ===== Nice to know =====
-Înainte de a începe această secțiune trebuie să vă asigurați că sunteți în directorul potrivit. Rulați comanda cd ~/uso.git/labs/06-hw-boot/support/nice-to-know.
+Înainte de a începe această secțiune trebuie să vă asigurați că sunteți în directorul potrivit. Rulați comanda
+cd ~/uso.git/labs/06-hw-boot/support/nice-to-know.
 
 ==== Adăugarea unui serviciu nou în sistem ====
 În secțiunea anterioară am învățat cum să afișăm serviciile disponibile în sistem și să aflăm statusul curent al unui serviciu.

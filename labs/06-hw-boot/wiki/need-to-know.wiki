@@ -2,7 +2,56 @@
 // TODO update link
 <!-- În [[http://ocw.cs.pub.ro/courses/uso/laboratoare/new/04 | secțiunea anterioară]] am observat că putem genera octeți cu ajutorul dispozitivelor virtuale. -->
 
+==== Informații despre toate componentele hardware (lshw) ====
+În secțiunea //TODO link [[ | basics]] am învațat că putem afla informații despre componenta hardware a sistemului folosind
+''lscpu'' (informații despre procesor), ''free'' (informații despre memoria sistemului) sau inspectând fișierele din cadrul ''procfs''.
+
+Alternativ, pentru a afla informații despre componenta hardware a sistemului putem folosi comanda ''lshw''.
+
+<code bash>
+student@uso:~$ sudo lshw
+[sudo] password for student:
+uso
+    description: Computer
+    product: VirtualBox
+    vendor: innotek GmbH
+    version: 1.2
+    serial: 0
+    width: 64 bits
+    capabilities: smbios-2.5 dmi-2.5 vsyscall32
+    configuration: family=Virtual Machine uuid=9FDEC515-C96C-47D8-AC70-C6BB8619EF02
+  *-core
+       description: Motherboard
+       product: VirtualBox
+       vendor: Oracle Corporation
+       physical id: 0
+       version: 1.2
+       serial: 0
+     *-firmware
+          description: BIOS
+          vendor: innotek GmbH
+          physical id: 0
+          version: VirtualBox
+          date: 12/01/2006
+          size: 128KiB
+          capabilities: isa pci cdboot bootselect int9keyboard int10video acpi
+     *-memory
+          description: System memory
+          physical id: 1
+          size: 1993MiB
+[...]
+</code>
+
+**Exerciții**
+  - Afișați următoarele atribute ale interfeței de rețea: ''product'', ''vendor'', ''capacity'' folosind comanda ''lshw''.
+  - Scrieți un script Bash care culege următoarele informații despre hardware-ul curent:
+     * informații despre procesor (model, frecvență) 
+     * versiunea de sistem de operare/distribuție (hint: ''uname'')
+     * versiune de kernel (hint: ''uname'')
+     * pachete instalate  (hint: ''dpkg-query'')
+
 ==== Generarea de fișiere de dimensiune fixă folosind dispoztivie virtuale (dd) ====
+
 Generarea unor fișiere de dimensiune fixă consituie primul pas în construirea unui fișier de tip imagine (''.iso/.img''). De asemenea putem șterge urme de informație rămasă pe suportul secund de stocare (HDD/SSD) prin umplerea zonelor libere cu zero-uri sau cu informație cu caracter aleator.
 
 În Linux putem folosi dispozitivele virtuale (ex. ''/dev/urandom'', ''/dev/random'', ''/dev/zero'') pentru a genera conținutul unui fișer nou.
@@ -102,7 +151,6 @@ sig_hashalgo:   md4
 
 **Exerciții**
   - Identificați un modul ce implementează o interfață de rețea și afișați detalii despre acesta. (hint: ''e1000'').
-
 
 ==== Identificarea serviciilor ce rulează într-un sistem ====
 
