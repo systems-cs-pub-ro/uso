@@ -25,13 +25,13 @@ WantedBy=multi-user.target
 Fișierul de configurare de mai sus este organizat în secțiuni:
 [Unit], [Service], [Install].
 
-* ''Description'' - Descrierea componentei
-* ''ExecStart'' - Comanda Bash care pornește serviciul
-* ''Type'' - tipul serviciului, mai multe detalii [[https://wiki.archlinux.org/index.php/systemd#Service_types|aici]]
-* ''User'' - utilizatorul asociat cu procesul serviciului
-* ''Group'' - grupul asociat cu procesul serviciului
-* ''WorkingDirectory'' - directorul asociat cu procesul serviciului
-* ''WantedBy'' - este folosit pentru a specifica dacă serviciul este sau nu activat.
+  * ''Description'' - Descrierea componentei
+  * ''ExecStart'' - Comanda Bash care pornește serviciul
+  * ''Type'' - tipul serviciului, mai multe detalii [[https://wiki.archlinux.org/index.php/systemd#Service_types|aici]]
+  * ''User'' - utilizatorul asociat cu procesul serviciului
+  * ''Group'' - grupul asociat cu procesul serviciului
+  * ''WorkingDirectory'' - directorul asociat cu procesul serviciului
+  * ''WantedBy'' - este folosit pentru a specifica dacă serviciul este sau nu activat.
 
 Mai multe informații se pot găsi [[https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files | aici]].
 
@@ -69,13 +69,13 @@ Ne dorim să realizăm diferite acțiuni în cadrul sistemului la anumite moment
 student@uso:~$ ps -f $(pidof cron)
 UID        PID  PPID  C STIME TTY      STAT   TIME CMD
 root       563     1  0 07:47 ?        Ss     0:00 /usr/sbin/cron -f
-<code>
+</code>
 
 Daemonul ''cron'' poate executa, la anumite momente de timp, programe sau script-uri configurate de un utilizator. Pentru configurarea listelor folosite de daemonul ''cron'' vom folosi utilitarul ''crontab''.
 
 Sintaxa folosită pentru a configura daemon-ul ''cron'' urmărește următoarea sintaxă:
 
-//TODO image here
+**TODO** Cron image here
 
 Pentru a configura un program să se execute la un anumit interval de timp folosim comanda:
 
@@ -100,4 +100,6 @@ De fiecare dată când se deschide un nou shell ''bash'' se execută script-ul '
 
 **Exerciții**
   - Aduceți modificările necesare fișierului ''.bashrc'' pentru a afișa la deschiderea unui nou shell următorul mesaj:
+  <code bash>
    "Salut, '<user>'. Data curenta este: '<data_curenta>'"
+  </code>
