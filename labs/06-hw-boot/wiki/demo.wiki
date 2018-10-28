@@ -78,7 +78,7 @@ crw-rw-rw- 1 root root 1, 5 oct 15 16:10 /dev/zero
 
 
 ==== Informații despre toate componentele hardware (lshw) ====
-În secțiunea //TODO link [[ | basics]] am învațat că putem afla informații despre componenta hardware a sistemului folosind
+În secțiunea link [[https://ocw.cs.pub.ro/courses/uso/laboratoare/new/06-hw-boot/basics | basics]] am învațat că putem afla informații despre componenta hardware a sistemului folosind
 ''lscpu'' (informații despre procesor), ''free'' (informații despre memoria sistemului) sau inspectând fișierele din cadrul ''procfs''.
 
 Alternativ, pentru a afla informații despre componenta hardware a sistemului putem folosi comanda ''lshw''.
