@@ -1,6 +1,4 @@
 ===== Need to know =====
-// TODO update link
-<!-- În [[http://ocw.cs.pub.ro/courses/uso/laboratoare/new/04 | secțiunea anterioară]] am observat că putem genera octeți cu ajutorul dispozitivelor virtuale. -->
 
 ==== Informații despre toate componentele hardware (lshw) ====
 **Exerciții**
