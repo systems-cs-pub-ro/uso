@@ -34,3 +34,23 @@ Pe lângă dispozitivele fizice, în cadrul sistemului Linux, avem și dispoziti
     * /dev/null - la scriere, preia toate caracterele și le șterge (un coș de gunoi)
 
 ==== Servicii ====
+
+După ce nucleul și driverele sunt încărcate și sistemul de opeare este inițializat, trebuie pornite primele procese. Primul proces pornit este ''init'', care apoi pornește la rândul său alte procese. Astefl, ''init'' este în vârful ierarhiei proceselor având rolul de a crea primele procese în cadrul sistemului de operare și adoptarea proceselor orfane.
+
+Implementarea procesului ''init'' cea mai răspândită, la acest moment este ''systemd'', cu executabilul aflat în ''/lib/systemd/systemd/'':
+
+<code bash>
+student@uso:~$ ls -l /sbin/init
+lrwxrwxrwx 1 root root 20 Aug  6 17:34 /sbin/init -> /lib/systemd/systemd
+</code>
+
+Serviciile sunt procese dedicate, de obicei procese daemon, care oferă funcționalități suplimentare sistemului sau care gestionează buna funcționare a acestuia. Serviciile sunt în general pornite și gestionate de ''systemd''.
+
+În systemd, serviciile, împreună cu alte componente, sunt numite units. Pentru a vizualiza toate unitățile systemd, folosimd comanda:
+
+<code bash>
+systemctl   list-unit-files --type=service
+</code>
+
+Dacă dorim adăugarea de servicii în sistem putem să le adăugăm în configurarea ''systemd''. Acest proces va fi detaliat ulterior în secțiunea Nice to know.
+
