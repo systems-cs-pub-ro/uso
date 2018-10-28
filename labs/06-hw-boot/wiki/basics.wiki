@@ -1,7 +1,8 @@
 ===== Basics =====
+
 Prima parte a laboratorului își propune să urmărească identificarea componentelor hardware și atributelor acestora pentru un sistem existent.
-//TODO  Update: Link
-Înainte de a începe exercițiile nu uitați să rulați comenzile de ''Git'' din secțiunea [[http://ocw.cs.pub.ro/courses/uso/laboratoare/new/03-user?&#folosire_git_pentru_laborator|Folosire Git pentru laborator]].
+
+Înainte de a începe exercițiile nu uitați să rulați comenzile de ''Git'' din secțiunea [[http://ocw.cs.pub.ro/courses/uso/laboratoare/new/06-hw-boot?&#folosire_git_pentru_laborator|Folosire Git pentru laborator]].
 
 ==== Informații despre procesor și arhitectură (lscpu, arch) ====
 
