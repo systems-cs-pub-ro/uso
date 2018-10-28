@@ -98,5 +98,6 @@ Dacă vrem să adăugăm data curentă la sfârșitul fișierului ''date_logs.lo
 ==== Personalizare shell-ului ====
 De fiecare dată când se deschide un nou shell ''bash'' se execută script-ul ''.bashrc'' din directorul ''home'' al utilizatorului curent.
 
-Aduceți modificările necesare fișierului ''.bashrc'' pentru a afișa la deschiderea unui nou shell următorul mesaj:
+**Exerciții**
+  - Aduceți modificările necesare fișierului ''.bashrc'' pentru a afișa la deschiderea unui nou shell următorul mesaj:
    "Salut, '<user>'. Data curenta este: '<data_curenta>'"

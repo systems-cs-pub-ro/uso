@@ -3,45 +3,6 @@
 <!-- În [[http://ocw.cs.pub.ro/courses/uso/laboratoare/new/04 | secțiunea anterioară]] am observat că putem genera octeți cu ajutorul dispozitivelor virtuale. -->
 
 ==== Informații despre toate componentele hardware (lshw) ====
-În secțiunea //TODO link [[ | basics]] am învațat că putem afla informații despre componenta hardware a sistemului folosind
-''lscpu'' (informații despre procesor), ''free'' (informații despre memoria sistemului) sau inspectând fișierele din cadrul ''procfs''.
-
-Alternativ, pentru a afla informații despre componenta hardware a sistemului putem folosi comanda ''lshw''.
-
-<code bash>
-student@uso:~$ sudo lshw
-[sudo] password for student:
-uso
-    description: Computer
-    product: VirtualBox
-    vendor: innotek GmbH
-    version: 1.2
-    serial: 0
-    width: 64 bits
-    capabilities: smbios-2.5 dmi-2.5 vsyscall32
-    configuration: family=Virtual Machine uuid=9FDEC515-C96C-47D8-AC70-C6BB8619EF02
-  *-core
-       description: Motherboard
-       product: VirtualBox
-       vendor: Oracle Corporation
-       physical id: 0
-       version: 1.2
-       serial: 0
-     *-firmware
-          description: BIOS
-          vendor: innotek GmbH
-          physical id: 0
-          version: VirtualBox
-          date: 12/01/2006
-          size: 128KiB
-          capabilities: isa pci cdboot bootselect int9keyboard int10video acpi
-     *-memory
-          description: System memory
-          physical id: 1
-          size: 1993MiB
-[...]
-</code>
-
 **Exerciții**
   - Afișați următoarele atribute ale interfeței de rețea: ''product'', ''vendor'', ''capacity'' folosind comanda ''lshw''.
   - Scrieți un script Bash care culege următoarele informații despre hardware-ul curent:
@@ -52,57 +13,11 @@ uso
 
 ==== Generarea de fișiere de dimensiune fixă folosind dispoztivie virtuale (dd) ====
 
-Generarea unor fișiere de dimensiune fixă consituie primul pas în construirea unui fișier de tip imagine (''.iso/.img''). De asemenea putem șterge urme de informație rămasă pe suportul secund de stocare (HDD/SSD) prin umplerea zonelor libere cu zero-uri sau cu informație cu caracter aleator.
-
-În Linux putem folosi dispozitivele virtuale (ex. ''/dev/urandom'', ''/dev/random'', ''/dev/zero'') pentru a genera conținutul unui fișer nou.
-
-<code bash>
-student@uso:~$ cat /dev/urandom > dump
-^C          # am oprit procesul corespunzător comenzii de mai sus trimițând semnalul SIGINT (Ctrl + c)
-student@uso:~$ ls -lh dump
--rw-r--r-- 1 student student 281M oct 21 13:48 here
-</code>
-
-Comenzile de mai sus au avut ca efect generarea unui fișier cu conținut aleator (vezi ''/dev/urandom''), însă nu am putut controla dimensiunea noului fișier generat. Dimensiune fișierului generat variază în funcție de mai mulți parametri (ex. timp, viteză de scriere hdd/ssd, etc.).
-
-Pentru a combate acest neajuns putem să folosim comanda ''dd''.
- ''dd'' poate primi un fișier de intrare (''in=<FILE>'') și un fișier de ieșire (''of=<FILE>''). De asemenea putem să controlăm dimensiunea fișierului pe care vrem să îl gemerăm cu ajutorum parametrilor ''bs=<BYTES>'' și ''count=<BLOCKS>''.
-  * ''if'' - input file; dacă nu este specificat, se va folosi ''stdin'';
-  * ''of'' - output file; dacă nu este specificat, se va folosi ''stdout'';
-  * ''count'' - numărul de blocuri din fișierul input ce vor fi copiate;
-  * ''bs'' - numărul de octeți dintr-un bloc.
-
-Următorul apel al comenzii ''dd'' va umple fișierul **dump** cu 100MB (1024M * 100) de informație, conținând numai octeți cu valoarea zero.
-
-<code bash>
-student@uso:~$ dd if=/dev/zero of=dump bs=1M count=100
-100+0 records in
-100+0 records out
-104857600 bytes (105 MB, 100 MiB) copied, 0,0832762 s, 1,3 GB/s
-student@uso:~$ ls -lh dump 
--rw-r--r-- 1 student student 100M oct 21 14:07 dump
-</code>
-
-Generarea unui fișier de 32MB cu date aleatoare:
-
-<code bash>
-student@uso:~$ dd if=/dev/zero of=~/myfile.bin bs=4M count=8
-</code>
-
-Comanda ''dd'' mai poate fi folosită și pentru a obține backup-uri ale sistemului sau pentru a formata un sistem de fișiere virtual.
-
 **Exerciții**
   - Să se genereze un fișier de dimensiune fixă (42 MB) care să conțină octeți aleatori. Dimensiunea unui block în cadrul comenzii ''dd'' trebuie să fie de 512 KB.
   - Să se genereze un fișier de dimensiune fixă (54 MB) care să conțină octeți aleatori. Numărul de block-uri în cadrul comenzii ''dd'' trebuie să fie egal cu 270.
 
 ==== Generarea de șiruri aleatoare folosind dispozitive virtuale  ====
-
-Dispozitivele virtuale pot fi folosite pentru a genera parole aleatoare de dimensiune fixă.
-
-<code bash>
-student@uso:~$ head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo ''
-P2wVwebdFFfcd
-</code>
 
 Am văzut, în cadrul exercițiilor anterioare, că putem genera octeți aleatori prin simpla citire a fișierului ''/dev/random''. Pentru a filtra caracterele nedorite am folosit comanda ''tr''(translate) alături de ''-dc'' (d - delete, c - complement). Comanda ''echo'' de la final are rolul de a afișa caracterul ''newline - \n''.
 
@@ -110,44 +25,6 @@ Am văzut, în cadrul exercițiilor anterioare, că putem genera octeți aleator
   - Generați o parolă formată doar din cifre cu lungimea de 14 caractere folosind dispoozitivele virtuale.
 
 ==== Identificare driverelor ====
-În lumea Linux, implementarea unui driver (device driver) se face sub forma unei entități cu denumire de ''modul''. Un ''modul'' oferă posibilitatea de a adăuga diferite funcționalități peste kernelul unui OS (ex. folosirea unui dispozitiv specializat pentru calcul grafic - GPU). Astfel, un driver rulează în cadrul unui kernel, având acces la modul privilegiat și putând fi încărcat la cerere.
-
-Pentru a identifica toate modulele din cadrul unui kernel Linux putem să folosim comanda ''lsmod''.
-
-<code bash>
-student@uso:~$ lsmod
-Module                  Size  Used by
-btrfs                1126400  0
-zstd_compress         163840  1 btrfs
-xor                    24576  1 btrfs
-raid6_pq              114688  1 btrfs
-ufs                    77824  0
-qnx4                   16384  0
-hfsplus               106496  0
-hfs                    57344  0
-minix                  32768  0
-[...]
-</code>
-
-Pentru a afla mai multe informații de spre un modul putem folosi comanda ''modinfo''
-
-<code bash>
-student@uso:~$ modinfo ip_tables
-filename:       /lib/modules/4.15.0-34-generic/kernel/net/ipv4/netfilter/ip_tables.ko
-description:    IPv4 packet filter
-author:         Netfilter Core Team <coreteam@netfilter.org>
-license:        GPL
-srcversion:     E73E003BA6D5C96B0DD463D
-depends:        x_tables
-retpoline:      Y
-intree:         Y
-name:           ip_tables
-vermagic:       4.15.0-34-generic SMP mod_unload 
-signat:         PKCS#7
-signer:         
-sig_key:        
-sig_hashalgo:   md4
-</code>
 
 **Exerciții**
   - Identificați un modul ce implementează o interfață de rețea și afișați detalii despre acesta. (hint: ''e1000'').
@@ -168,7 +45,6 @@ apache-htcacheclean@.service               disabled
 apache2.service                            enabled
 [...]
 </code>
-
 
 Pentru a afla statusul unui serviciu putem folosi:
 
