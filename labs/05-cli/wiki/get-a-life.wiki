@@ -1,16 +1,19 @@
 ===== Get a life =====
 
-1. Să scrie un script în care trebuie să schimbe directorul de lucru. (Hint: source(TODO link))
+1. Să scrie un script în care trebuie să schimbe directorul de lucru. (Hint: ''source'')
 
-2. Mutați-vă la calea TODO și rulați scriptul TODO. Continuați să folosiți comenzile de bază (ls, cat, 
-cd). Observați ce se întâmplă și rezolvați problema.
+2. Mutați-vă la calea ''~/uso.git/labs/05-cli/support/get-a-life/ex2/'' și rulați 
+scriptul ''just_regular_updates_here.sh''. Continuați să folosiți comenzile de bază 
+(ls, cat, cd). Observați ce se întâmplă și rezolvați problema.
 
-3. La calea TODO se află fișierul TODO. Inspectați tipul fișierului. Scopul acestui exercițiu este să 
-aflați un mesaj secret.
+3. La calea ''~/uso.git/labs/05-cli/support/get-a-life/ex3/'' se află fișierul 
+''image.png''. Inspectați tipul fișierului. Scopul acestui exercițiu este să 
+aflați un mesaj secret. (Hint: ''file'')
 
-4. În directorul TODO se află numeroase fișiere. Să creeze o arhivă cu fișierele ce au o dimensiue mai 
-mare de 10MB.
+4. În directorul ''~/uso.git/labs/05-cli/support/get-a-life/ex4/'' se află numeroase 
+fișiere. Să creeze o arhivă cu fișierele ce au o dimensiue mai mare de 10MB.
 
 5. Să creeze un script care pornește programul ''firefox'' doar dacă acesta nu există deja. 
 Altfel, nu-l pornește, ci doar afișează informații depsre el. Configurați acest script să 
-ruleze din ''cron'' la fiecare 5 minute. (Hint: TODO link cron)
+ruleze din ''cron'' la fiecare 5 minute. 
+(Hint: [[https://www.thegeekstuff.com/2011/07/cron-every-5-minutes|cron]])
