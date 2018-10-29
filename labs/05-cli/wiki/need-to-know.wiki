@@ -1,3 +1,5 @@
+===== Need to know =====
+
 Pentru a afișa toate partițiile unui sistem folosim comanda ''fdisk -l''. La rularea acestei comenzi 
 observăm că nu avem dreptul să vedem aceste informații dacă nu suntem logați ca un utilizator privilegiat 
 sau dacă nu folosim contrucția ''sudo''.
@@ -20,7 +22,23 @@ fdisk: cannot open /dev/loop11: Permission denied
 student@uso:~/uso.git/$ sudo !!
 sudo fdisk -l
 [sudo] password for student:
-TODO output
+Disk /dev/loop0: 2.3 MiB, 2433024 bytes, 4752 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/loop1: 13 MiB, 13619200 bytes, 26600 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/loop2: 13 MiB, 13619200 bytes, 26600 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+(...)
 </code>
 
 <note>
@@ -28,7 +46,7 @@ Fără a mai tasta din nou comanda de mai sus, putem folosi ''!!'' care ține lo
 am dat-o, în cazul nostru ''sudo !!'' expandat înseamnă ''sudo fdisk -l''.
 </note>
 
-Shell-ul operează cu diferite variabile (pentru detalii, reveniți la secțiunea Concepte[TODO link]). Avem 
+Shell-ul operează cu diferite variabile (pentru detalii, reveniți la secțiunea Concepte). Avem 
 posibilitatea să ne definim propriile variabile în shell. Pentru a defini o nouă variabilă procedăm în felul 
 următor:
 
@@ -68,7 +86,7 @@ student@uso:~/uso.git/$ ./script.sh
 
 </code>
 
-Observăm că deși variabila ''x'' este deifinită din acest terminal, la rulare nu obținem nicio valoare. Acest 
+Observăm că deși variabila ''x'' este definită din acest terminal, la rulare nu obținem nicio valoare. Acest 
 lucru nu se întâmplă deoarece variabila ''x'', așa cum a fost deinită, nu este vizibilă subproceselor pornite 
 din cadrul acestui terminal. Pentru a face acest lucru posibil, trebuie să o exportăm.
 
@@ -85,18 +103,19 @@ student@uso:~/uso.git/$ ./script.sh
 
 === Redirectarea datelor de intrare, ieșire și erorile ===
 
-Pentru a urmări acest tutorial, mutați-vă în directorul TODO. Listăm conținutul directorul și observăm 
-că avem un program C și un Makefile. Compilăm programul folosind comanda ''make''. Folosiți comanda 
-''make run'' pentru a rula program și introduceți inputul care vi se cere.
+Pentru a urmări acest tutorial, mutați-vă în directorul ''~/uso.git/labs/05-cli/support/need-to-know''. 
+Listăm conținutul directorul și observăm că avem un program C și un Makefile. Compilăm programul 
+folosind comanda ''make''. Folosiți comanda ''make run'' pentru a rula program și introduceți inputul 
+care vi se cere.
 
 <code bash>
-student@uso:~/uso.git/TODO$ ls 
-simple_prog.c   Makefile
-student@uso:~/uso.git/TODO$ make
-gcc simple_prog.c -o out
-student@uso:~/uso.git/TODO$ make run
+student@uso:~/.../05-cli/support/need-to-know$ ls 
+dummy_check.c   Makefile
+student@uso:~/.../05-cli/support/need-to-know$ make
+gcc dummy_check.c -o out
+student@uso:~/.../05-cli/support/need-to-know$ make run
 ./out
-...
+(...)
 </code>
 
 Încercați să introduceți și date care nu se potrivesc cerințelor. Programul va produce erori care ne deranjează 
@@ -105,9 +124,9 @@ pe care vrem să le separăm de datele de ieșire standard. Pentru a face acest 
 fișierul ''err.txt''.
 
 <code bash>
-student@uso:~/uso.git/TODO$ make run_redirect_err
+student@uso:~/.../05-cli/support/need-to-know$ make run_redirect_err
 ./out 2> err.txt
-...
+(...)
 </code>
 
 <note>
@@ -124,8 +143,10 @@ Mai devreme am văzut cum putem redirecta intrarea standard astfel încât progr
 fișier datele de care are nevoie. Putem obține același efect folosind operatorul ''|'' (pipe).
 
 <code bash>
-student@uso:~/uso.git/TODO$ cat input.txt | ./out
-TODO output
+student@uso:~/.../05-cli/support/need-to-know$ cat input.txt | ./out
+Enter your name. Make sure it only contains letters: Now enter your surname. Make sure it only 
+contains letters: Can I have your email? And last, give me your age: [log] Thanks! You're good 
+to go..
 </code>
 
 Diferența dintre cele 2 exemple de mai sus o face numărul de procese create. În cazul redirectării, 
@@ -138,8 +159,54 @@ primului proces este servită drept **intrare** pentru ce de-al doilea.
 Să ne amintim de fișierul ''/etc/passwd'' conține informații despre toți utilizatorii din sistem. 
 
 <code bash>
+student@uso:~/.../05-cli/support/need-to-know$ cd ~/uso.git/
 student@uso:~/uso.git/$ cat /etc/passwd
-TODO output
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+uuidd:x:105:111::/run/uuidd:/usr/sbin/nologin
+avahi-autoipd:x:106:112:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+usbmux:x:107:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+dnsmasq:x:108:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+rtkit:x:109:114:RealtimeKit,,,:/proc:/usr/sbin/nologin
+cups-pk-helper:x:110:116:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+speech-dispatcher:x:111:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false
+whoopsie:x:112:117::/nonexistent:/bin/false
+kernoops:x:113:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+saned:x:114:119::/var/lib/saned:/usr/sbin/nologin
+pulse:x:115:120:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+avahi:x:116:122:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/usr/sbin/nologin
+colord:x:117:123:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+hplip:x:118:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+geoclue:x:119:124::/var/lib/geoclue:/usr/sbin/nologin
+gnome-initial-setup:x:120:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:121:125:Gnome Display Manager:/var/lib/gdm3:/bin/false
+student:x:1000:1000:Student User,,,:/home/student:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+sshd:x:122:65534::/run/sshd:/usr/sbin/nologin
+festival:x:123:29::/nonexistent:/usr/sbin/nologin
+test:x:1001:1001::/home/test:/bin/sh
+test2:x:1002:1002:,,,:/home/test2:/bin/bash
 </code>
 
 În Linux există filtrul de text ''cut'' prin care putem extrage doar anumite informații dintr-un output. 
@@ -148,7 +215,52 @@ Să zicem că vrem să extragem doar numele utilizatorilor, fără informațiile
 
 <code bash>
 student@uso:~/uso.git/$ cat /etc/passwd | cut -f1 -d:
-TODO output
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+gnats
+nobody
+systemd-network
+systemd-resolve
+syslog
+messagebus
+_apt
+uuidd
+avahi-autoipd
+usbmux
+dnsmasq
+rtkit
+cups-pk-helper
+speech-dispatcher
+whoopsie
+kernoops
+saned
+pulse
+avahi
+colord
+hplip
+geoclue
+gnome-initial-setup
+gdm
+student
+vboxadd
+sshd
+festival
+test
+test2
 </code>
 
 <note>
@@ -165,8 +277,9 @@ acestei comenzi doar data ultimei modificări. Vom folosi utilitaturl grep pentr
 află informațiile despre data ultimei modificări.
 
 <code bash>
-student@uso:~/uso.git/$ stat TODO | grep "Modify"
-TODO output
+student@uso:~/uso.git/$ cd ~/uso.git/labs/05-cli/support/need-to-know
+student@uso:~/.../05-cli/support/need-to-know$ stat Makefile | grep "Modify"
+Modify: 2018-10-29 23:40:49.942659138 +0200
 </code>
 
 1. Folosind filtrul ''cut'' extrageți din ieșirea comenzii anterioare doar data modificării.
@@ -176,13 +289,15 @@ combinația de taste ''CTRL + C'' pentru a opri acest proces.
 
 <code bash>
 student@uso:~/uso.git/$ cat /dev/urandom
-TODO output
+(...)
 
 ^C
 student@uso:~/uso.git/$
 </code>
 
-1. Folosindu-vă de fișierul ''/dev/random'', generați o parolă aleatoare de 32 de caractere (TODO link).
+1. Folosindu-vă de fișierul ''/dev/random'', generați o parolă aleatoare de 32 de caractere. Vă 
+puteți inspira de 
+[[https://www.howtogeek.com/howto/30184/10-ways-to-generate-a-random-password-from-the-command-line/|aici]].
 
 === Înlănțuirea comenzilor ===
 
@@ -190,10 +305,15 @@ Pentru a înlănțui 2 sau mai multe comenzi folosim operatorul '';''. Cele de p
 independente și se vor executa indiferent de finalitatea celei care se execută prima.
 
 <code bash>
-student@uso:~/uso.git/$ cd TODO; ls -l
+student@uso:~/uso.git/$ cd ~/uso/labs/05-cli/support/need-to-know; ls -l
+total 8
+-rw-rw-r-- 1 student student  122 Oct 29 23:40 Makefile
+-rw-rw-r-- 1 student student 1463 Oct 29 23:39 dummy_check.c
+student@uso:~/.../05-cli/support/need-to-know$
 </code>
 
-1. Alegeți 2 aplicații de aici (TODO link) și instalați-le folosind o singură comandă.
+1. Alegeți 2 aplicații de [[https://www.binarytides.com/linux-fun-commands/|aici]] și instalați-le 
+folosind o singură comandă.
 
 În continuare, vom folosi comanda ''ping www.google.com'' pentru a testa dacă avem conectivitate la 
 Internet. În cazul în care avem, vrem să deschidem un browser pe pagina ''www.google.com''. Vom folosi 
@@ -206,6 +326,7 @@ student@uso:~/uso.git/$ ping -c 1 www.google.com && firefox www.google.com
 Acum încercați să înlocuiți ''www.google.com'' cu ''www.random-webiste.xyz'' și ''&&'' cu ''||''. 
 Oservați ce se întâmplă.
 
-1. Mutați-vă la calea TODO și, folosind o singură comandă, compilați și rulați programul TODO. În cazul 
-în care apar erori de compilare, vrem să nu rulăm executabilul. Rezolvați eroarea astfel încât programul 
-să compileze și rulați-l.
+1. Mutați-vă la calea ''~/uso.git/labs/05-cli/support/need-to-know/err-file'' și, folosind o singură 
+comandă, compilați și rulați programul ''simple_pow.c''. În cazul în care apar erori de compilare, 
+vrem să nu rulăm executabilul. Rezolvați eroarea astfel încât programul să compileze cu succes și 
+rulați-l. (Hint: ce bibliotecă folosește programul ''simple_pow.c''?)
