@@ -1,0 +1,123 @@
+===== Nice to know =====
+
+=== Aliasuri ===
+
+În shell, un **alias** este un șir de caractere ce poate ține locul oricărei comenzi. Putem vedea ce 
+aliasuri sunt deja create în sistem dacă inspectăm fișierul ''~/.bashrc''. De regulă, ele se află la 
+sfârșitul fișierului sau sunt definite separat în fișierul ''~/.bash_aliases''. Inspectați ambele 
+fișiere.
+
+<code bash>
+student@uso:~/uso.git/$ cat ~/.bashrc
+... TODO output
+</code>
+
+<code bash>
+student@uso:~/uso.git/$ cat ~/.bash_aliases
+... TODO output
+</code>
+
+1. Creați-vă propriul alias și verificați că funcționează așa cum vă așteptați.(TODO link rerun script).
+
+=== Personalizarea shell-ului ===
+Prin personalizarea shell-ului înțelegem modificarea unor fișiere de configurație, schimbarea culorilor, 
+să modificăm ''username-ul'', ''hostname-ul'', ''home directory'' și/sau ''prompt-ul'', creearea unor 
+aliasuri etc. La această secțiune vrem să modificăm ''prompt-ul''. Urmăriți tutorialul de [[|aici]] pentru 
+a modifica prompt-ul să arate în felul următor:
+
+<code bash>
+tom@disney:~#
+</code>
+
+<note> TODO atenție
+Atenție! Urmăriți toți pașii din acel tutorial, inclusiv cei care modifică prompt-ul la loc. Modificările 
+făcute în fișierul ''~/.bashrc'' sunt **persistente**, adică sunt modificări care apar chiar și dupa reboot.
+</note>
+
+
+=== Editarea comenzilor ===
+
+De foarte multe ori ni se poate întâmpla să scriem o comandă și să ne dăm seama că e 
+parțial incorectă sau că am scris un cuvânt greșit. Tendința este să abuzăm de tasele
+săgeată-stânga și săgeată-dreapta pentru a corecta. Urmăriți tutorialul de mai jos pentru 
+a vedea cum putem opera cu terminalul mai rapid și eficient folosind câteva combinații de 
+taste.
+
+Mutați-vă la calea TODO înainte de a începe acest tutorial. Încercați să scrieți voi comenzile fără 
+a copia din laborator fiecare comandă.
+
+<code bash>
+student@uso:~/uso.git/TODO$ ls
+TODO output
+student@uso:~/uso.git/TODO$ gcv -g TODO TODO TODO -o TODO 
+TODO output erorare
+student@uso:~/uso.git/TODO$ # săgeată sus pentru a avea ultima comandă dată
+student@uso:~/uso.git/TODO$ ls
+</code>
+
+Cursorul se află în acest moment după ultimul caracter din comanda dată. Observăm că am scris greșit 
+''gcc''. Pentru a ne muta la începutul comenzii folosim combinația de taste ''CTRL + A''. Faceți această 
+modificare a comenzii. Pentru a muta cursorul din nou la sfârșitul liniei, folosim combinația de taste 
+''CTRL + E''.
+
+<code>
+student@uso:~/uso.git/TODO$ gcc -g TODO TODO TODO -o TODO TODO TODO TODO
+TODO output erorare
+</code bash>
+
+Observăm faptul că tot avem o problemă cu această comanda, și anume TODO. De data asta am scris greșit numele 
+fișierului TODO pe care vrem să-l compilăm. Mutați-vă cu cursorul deasupra literei greșite și folosiți 
+combinația ''CTRL + D'' pentru a o șterge. Dacă vrem să stergem tot la dreapta (până ajungem la primul spațiu) 
+folosim combinația ''Alt + D''. 
+
+Modificați comanda fără a o scrie din nou până când nu vor mai apărea erori și fișierele vor fi compilate cu succes.
+
+<note>
+În tutorialul de mai sus au fost prezentate doar o parte din prescurtările pe care le putem folosi în terminal.
+Pentru mai multe exemple de acest gen puteți consula website-ul de 
+[[https://www.howtogeek.com/howto/ubuntu/keyboard-shortcuts-for-bash-command-shell-for-ubuntu-debian-suse-redhat-linux-etc/|aici]].
+</note>
+
+=== Variabile de mediu ===
+Pentru a afișa variabilele de mediu din sistem, folosiți comanda ''env''.
+
+<code>
+student@uso:~/uso.git/TODO$ env
+TODO output
+</code>
+
+Ultima variabilă de mediu afișată mai sus este variabila ''OLDPWD'' care este, de fapt, directorul în 
+care ne-am aflat înainte să ne mutăm în cel care suntem în acest moment. Un exemplu de comandă care 
+folosește această variabilă este ''cd -'' care ne mută chiar în directorul anterior.
+
+<code bash>
+student@uso:~/uso.git/TODO$ pwd 
+TODO output
+student@uso:~/uso.git/TODO$ cd TODO
+student@uso:~/uso.git/TODO$ pwd 
+TODO output
+student@uso:~/uso.git/TODO$ echo $OLDPWD
+TODO output
+</code>
+
+1. Completați fișierul TODO pentru a afișa variabilele de mediu. Folosiți al treilea argument al 
+funcției ''main''.
+
+=== Variabila de mediu PATH ===
+
+Variabila de mediu ''PATH'' conține diverse căi din sistem în care se caută binarele rulate de noi în terminal.
+Folosim comanda ''echo $PATH'' pentru a afișa ce conține ea.
+
+<code bash>
+student@uso:~/uso.git/TODO$ echo $PATH
+TODO output
+</code>
+
+Concret, se pune problema: de unde știe sistemul să ruleze binarul ''/usr/bin/ls'' atunci când dăm comanda 
+''ls'' dacă nu avem un **alias** pentru el? El va căuta în căile reținute de variabila ''PATH'' executabilul  
+numit ''ls''.
+
+1. Creați un program C numit ''sum.c'' care să calculeze suma a două numere citite de la tastatură. 
+Compilați-l și obțineți executabilul ''sum''. Rulați programul pentru a vă asigura că totul este în regulă.
+2. Modificați variabila ''PATH'' astfel încât programul vostru să poată fi rulat de oriunde din sistem prin 
+comanda ''sum''. (HINT: variabila ''PATH'')
