@@ -24,7 +24,8 @@ De multe ori avem de a face cu un set de date foarte mare și dinamic
 și este pur și simplu inconvenabil să introducem datele manual de la 
 tastatură, așadar, pentru a ne face viața mai ușoară, avem posibilitatea 
 de a redirecta inputul unui program. Asta înseamnă că modificăm fluxul 
-standard de intrare cu ce vrem noi, un fișier, un pipe (TODO add link), 
+standard de intrare cu ce vrem noi, un fișier, un 
+[[https://alvinalexander.com/blog/post/linux-unix/linux-unix-command-mashups|pipe]], 
 un device etc. Pentru a redirecta inputul folosim operatorul ''<''.
 
 Să presupunem că un program primește ceva date de intrare, dar produce un 
@@ -34,19 +35,19 @@ Pentru a redirecta output-ul unui program vom folosi operatorul ''>''.
 
 În ceea ce privește redirectarea erorilor, lucrurile stau similar cu ceea ce 
 am văzut la fluxul de ieșire. Pentru a redirecta erorile produse de un program 
-folosim operatorul ''2>''. Atunci când vrem să ignorăm erorile apărute (TODO exemplu 
-cu find când nu are permisiuni) ne putem folosi de ''/dev/null''.
+folosim operatorul ''2>''. Atunci când vrem să ignorăm erorile apărute le putem 
+redirecta în fișierul ''/dev/null''.
 
 <note>
 La o singură rulare a unui program ne putem juca cu redirectările oricum vrem, adică 
 putem redirecta chiar și toate fluxurile deodată. Pentru a produce acest efect doar 
-trebuie să înlănțuim redirectările (TODO fix exprimare + exemple).
+trebuie să înlănțuim redirectările.
 </note>
 
 ==== Înlănțuirea comenzilor ====
 În Linux avem posibilitatea de a executa mai multe comenezi, una după cealaltă, 
 indiferent de rezultatul obținut de la fiecare folosind ''înlănțuirea comenzilor''.
-Pentru a înlănțui cel puțin două comenzi, folosim operatorul '';''. (TODO exemplu)
+Pentru a înlănțui cel puțin două comenzi, folosim operatorul '';''.
 
 ==== Procese ====
 În termeni largi, un ''proces'' este o instanță a execuției unui program. Este important 
@@ -55,14 +56,16 @@ acestuia. La rularea oricărui binar (să zicem ''ls''), shell-ul execută ''for
 crează o clonă a procesului curent (adică cel al shell-ului), după care execută ''exec()'' 
 care încarcă binarul cerut în memoria noului proces creat. Astfel, la rularea comenzii 
 ''ls'' vor exista în sistem, pe lângă multe altele, două procese - shell-ul curent și 
-ls (TODO altă exprimare, e grea acum).
+cel aferent comenzii ''ls''. 
+
+Aveți [[https://medium.com/@jhuang1012bn/what-happens-when-you-type-ls-l-in-the-shell-8cf0c182baa8|aici]] 
+o reprezentare vizuală a ceea ce se întâmplă atunci când un shell lansează un proces.
 
 ==== Comunicarea între procese ====
 O situație foarte des întâlnită în lumea calulatoarelor este comunicarea dintre două 
 sau mai multe procese. Există situații în care vrem ca outputul unui program (sau a 
 une comezni în cazul terminalului) să fie considerat drept inputul altuia. Pentru a 
 realiza acest lucru în linia de comandă, folosim operatorul ''|'' numit ''pipe''.
-(TODO exemplu)
 
 ==== Variabile ====
 O **variabilă** în shell-ul Linux este asemănătoare cu o variabilă pe care o declarăm 
@@ -107,8 +110,12 @@ manual din interfață grafică, ar dura foarte mult. Să zicem că vrem să cre
 unde ''X'' ia valori între ''1'' și ''10''. Dacă alegem să facem asta din linia de comandă, am face în felul următor:
 
 <code bash>
-student@uso:/uso.git/$ touch my_file{1..10}
-student@uso:/uso.git/$ TODO
+student@uso:/uso.git/$ cd labs/
+student@uso:/uso.git/labs/$ touch my_file{1..10}
+student@uso:/uso.git/$ ls
+00-intro    03-user    06-hw-boot  09-vm   my_file1   my_file3  my_file6  my_file9
+01-fs       04-appdev  07-storage  10-sec  my_file10  my_file4  my_file7
+02-process  05-cli     08-net      11-ctf  my_file2   my_file5  my_file8
 </code>
 
 În general, utilizatorii, în special cei nontehnici, preferă GUI în defavoarea CLI deoarece este mai intuitiv și 
