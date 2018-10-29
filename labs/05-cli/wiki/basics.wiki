@@ -24,11 +24,11 @@ terminalul nou deschis, putem inspecta valoarea variabilei ''$''.
 
 <code bash>
 student@uso:~$ echo $$
-14890
+22346
 </code>
 
 <note>
-Valoarea ''14890'' este unică sistemului pe care a fost făcut acest tutorial. Pe o altă stație, această 
+Valoarea ''22346'' este unică sistemului pe care a fost făcut acest tutorial. Pe o altă stație, această 
 valoare poate varia.
 </note>
 
@@ -37,7 +37,9 @@ care vă apare este procesul ''bash'' cu valoarea PID-ului egală cu valoarea va
 
 <code bash>
 student@uso:~$ ps
-TODO output
+  PID TTY          TIME CMD
+22346 pts/2    00:00:00 bash
+13266 pts/2    00:00:00 ps
 </code>
 
 1. Logați-vă ca utilizatorul ''root'' și porniți un proces cu comanda ''sleep 100 &''. Deconectați-vă 
@@ -46,8 +48,12 @@ TODO output
 Comanda ''ps - e'' ne afișează 4 atribute despre toate procesele din sistem: PID, TTY, TIME și CMD.
 
 <code bash>
-student@uso:~$ ps -E
-TODO output
+student@uso:~$ ps -e
+  PID TTY          TIME CMD
+    1 ?        00:00:04 systemd
+    2 ?        00:00:00 kthreadd
+    4 ?        00:00:00 kworker/0:0H
+(...)
 </code>
 
 Ne intersează pentru moment coloana a doua și anume ''TTY''. TTY face referire la terminalul din care 
@@ -61,7 +67,12 @@ a vedea istoricul comenzilor pe care le-am dat.
 
 <code bash>
 student@uso:~$ history
-TODO output
+(...)
+ 1189  ls
+ 1190  git status
+ 1191  ps
+ 1192  ps -e
+ 1193  history
 </code>
 
 O altă variantă ar fi să folosim tasta săgeată sus pentru a naviga printre ultimele comenzi pe care 
