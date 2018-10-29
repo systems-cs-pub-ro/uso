@@ -387,6 +387,3 @@ OLDPWD=/home/student/uso/labs/05-cli/support/demo
 
 O variabilă de mediu foarte importantă și destul de des folosită este variabila de mediu ''PATH''.
 Ea conține mai multe căi în care se caută binarele din sistem, cum ar fi ''ls''.
-
-
-
