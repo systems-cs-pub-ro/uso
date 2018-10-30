@@ -73,4 +73,4 @@ despre ''sed'', ''awk'' și multe altele [[http://coewww.rutgers.edu/linux/lesso
   - La calea ''~/uso.git/labs/05-cli/support/get-a-life/ex3/'' se află fișierul ''image.png''. Inspectați tipul fișierului. Scopul acestui exercițiu este să aflați un mesaj secret. (Hint: ''file'')
   - În directorul ''~/uso.git/labs/05-cli/support/get-a-life/ex4/'' se află numeroase fișiere. Să creeze o arhivă cu fișierele ce au o dimensiue mai mare de 10MB.
   - Să se creeze un script care pornește programul ''firefox'' doar dacă acesta nu există deja. Altfel, nu-l pornește, ci doar afișează informații depsre el. Configurați acest script să ruleze din ''cron'' la fiecare 5 minute. (Hint:  [[https://www.thegeekstuff.com/2011/07/cron-every-5-minutes|cron]])
-  - Realizați un script care să creeze câte o arhivă pentru fiecare branch al repository-ului. (Hint: ''man git'', [[https://www.cyberciti.biz/faq/bash-for-loop/|''for'']]) 
+  - Realizați un script care să creeze câte o arhivă pentru fiecare branch al repository-ului. (Hint: ''man git'', [[https://www.cyberciti.biz/faq/bash-for-loop/|for]]) 
