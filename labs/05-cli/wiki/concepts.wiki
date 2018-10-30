@@ -134,4 +134,3 @@ Totodată, shell-ul are propriile scripturi de configurare. Un exemplu ar fi ''~
 de comenzi, ce sunt rulate atunci când deschidem interactiv un nou terminal, și sunt utile la inițializarea 
 shell-ului. Vom vedea mai încolo că și noi ca utilizatori obișnuiți putem modifica acest script pentru a ne 
 personaliza shell-ul.
-
