@@ -61,17 +61,7 @@ Prin personalizarea shell-ului înțelegem modificarea unor fișiere de configur
 să modificăm ''username-ul'', ''hostname-ul'', ''home directory'' și/sau ''prompt-ul'', creearea unor 
 aliasuri etc. La această secțiune vrem să modificăm ''prompt-ul''.
 
-  - Urmăriți tutorialul de [[https://vitux.com/how-to-customize-ubuntu-bash-prompt/|aici]] pentru a modifica prompt-ul să arate în felul următor:
-
-<code bash>
-tom@disney:~#
-</code>
-
-<note> 
-Atenție! Urmăriți toți pașii din acel tutorial, inclusiv cei care modifică prompt-ul la loc. Modificările 
-făcute în fișierul ''~/.bashrc'' sunt **persistente**, adică sunt modificări care apar chiar și dupa reboot.
-</note>
-
+  - La acest exercițiu ne propunem să personalizăm culorile pentru ''username'' și ''hostname''. Intrați [[http://ezprompt.net|aici]] pentru a vă selecta culorile, după care faceți modificările în fișierul ''~/.bashrc''. După ce salvați fișierul rulați comanda ''. ~/.bashrc''.
 
 ==== Editarea comenzilor ====
 
