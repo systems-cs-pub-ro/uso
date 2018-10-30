@@ -2,7 +2,7 @@
 
 Pentru a afișa toate partițiile unui sistem folosim comanda ''fdisk -l''. La rularea acestei comenzi 
 observăm că nu avem dreptul să vedem aceste informații dacă nu suntem logați ca un utilizator privilegiat 
-sau dacă nu folosim contrucția ''sudo''.
+sau dacă nu folosim construcția ''sudo''.
 
 <code bash>
 student@uso:~/uso.git/$ fdisk -l
@@ -19,6 +19,14 @@ fdisk: cannot open /dev/loop8: Permission denied
 fdisk: cannot open /dev/loop9: Permission denied
 fdisk: cannot open /dev/loop10: Permission denied
 fdisk: cannot open /dev/loop11: Permission denied
+</code>
+
+<note>
+Fără a mai tasta din nou comanda de mai sus, putem folosi ''!!'' care ține locul ultimei comenzi pe care 
+am dat-o, în cazul nostru ''sudo !!'' expandat înseamnă ''sudo fdisk -l''.
+</note>
+
+<code bash>
 student@uso:~/uso.git/$ sudo !!
 sudo fdisk -l
 [sudo] password for student:
@@ -41,12 +49,7 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 (...)
 </code>
 
-<note>
-Fără a mai tasta din nou comanda de mai sus, putem folosi ''!!'' care ține locul ultimei comenzi pe care 
-am dat-o, în cazul nostru ''sudo !!'' expandat înseamnă ''sudo fdisk -l''.
-</note>
-
-Shell-ul operează cu diferite variabile (pentru detalii, reveniți la secțiunea Concepte). Avem 
+Shell-ul operează cu diferite variabile (pentru detalii, reveniți la secțiunea [[https://ocw.cs.pub.ro/courses/uso/laboratoare/new/05-cli/concepts|Concepte]]). Avem 
 posibilitatea să ne definim propriile variabile în shell. Pentru a defini o nouă variabilă procedăm în felul 
 următor:
 
@@ -62,6 +65,7 @@ Pentru a inspecta valoarea variabilei ''x'' folosim comanda ''echo''. Deschideț
 <code bash>
 student@uso:~/uso.git/$ echo $x
 
+student@uso:~/uso.git/$
 </code>
 
 <note>
@@ -84,6 +88,7 @@ script folosim comanda ''./script.sh''.
 <code bash>
 student@uso:~/uso.git/$ ./script.sh
 
+student@uso:~/uso.git/$
 </code>
 
 Observăm că deși variabila ''x'' este definită din acest terminal, la rulare nu obținem nicio valoare. Acest 
@@ -101,7 +106,7 @@ student@uso:~/uso.git/$ ./script.sh
 4
 </code>
 
-=== Redirectarea datelor de intrare, ieșire și erorile ===
+==== Redirectarea datelor de intrare, ieșire și erorile ====
 
 Pentru a urmări acest tutorial, mutați-vă în directorul ''~/uso.git/labs/05-cli/support/need-to-know''. 
 Listăm conținutul directorul și observăm că avem un program C și un Makefile. Compilăm programul 
@@ -133,11 +138,9 @@ student@uso:~/.../05-cli/support/need-to-know$ make run_redirect_err
 Uzual, erorile sunt redirectare erorile către fișierul special ''/dev/null''.
 </note>
 
-1. Adăugați o regulă în fișierul ''Makefile'' care să ruleze același program și să redirecteze atât 
-intrările, cât și erorile. Pentru a face acest lucru, creați un fisier numit ''input.txt'' care să 
-conțină informațiile pe care le cere programul. Folosiți operatorul ''<''.
+    - Adăugați o regulă în fișierul ''Makefile'' care să ruleze același program și să redirecteze atât intrările, cât și erorile. Pentru a face acest lucru, creați un fisier numit ''input.txt'' care să conțină informațiile pe care le cere programul. Folosiți operatorul ''<''.
 
-=== Comunicare interprocese ===
+==== Comunicare interprocese ====
 
 Mai devreme am văzut cum putem redirecta intrarea standard astfel încât programul să preia dintr-un 
 fișier datele de care are nevoie. Putem obține același efect folosind operatorul ''|'' (pipe).
@@ -154,7 +157,7 @@ este creat un singur proces, pe când în cel de-al doilea sunt create procese, 
 ''cat input.txt'' și ''./out'' care se ocupă de rularea binarului. Este de reținut faptul că **ieșirea** 
 primului proces este servită drept **intrare** pentru ce de-al doilea.
 
-=== Filtre de procesare ===
+==== Filtre de procesare ====
 
 Să ne amintim de fișierul ''/etc/passwd'' conține informații despre toți utilizatorii din sistem. 
 
@@ -268,9 +271,9 @@ Argumentul ''-f1'' specifică faptul că vrem prima coloană, iar argumentul ''-
 de coloane, în cazul nostru '':''.
 </note>
 
-1. Pornind de la comanda de mai sus, afișați numele utilizatorilor sortați alfabetic. (Hint: ''man sort'')
-2. Folosind utilitarul ''wc'', obțineți numărul de utilizatori din sistem.
-3. Să afișeze cele mai consumatoare de memorie 10 procese din sistem. (Hint: folosiți ''|'' și ''tail'').
+    - Pornind de la comanda de mai sus, afișați numele utilizatorilor sortați alfabetic. (Hint: ''man sort'')
+    - Folosind utilitarul ''wc'', obțineți numărul de utilizatori din sistem.
+    - Să afișeze cele mai consumatoare de memorie 10 procese din sistem. (Hint: folosiți ''|'' și ''tail'').
 
 Comanda ''stat'' ne afișează mai multe informații despre un fișier din sistem. Vrem să extragem din outputul 
 acestei comenzi doar data ultimei modificări. Vom folosi utilitaturl grep pentru a extrage linia pe care se 
@@ -282,7 +285,7 @@ student@uso:~/.../05-cli/support/need-to-know$ stat Makefile | grep "Modify"
 Modify: 2018-10-29 23:40:49.942659138 +0200
 </code>
 
-1. Folosind filtrul ''cut'' extrageți din ieșirea comenzii anterioare doar data modificării.
+    - Folosind filtrul ''cut'' extrageți din ieșirea comenzii anterioare doar data modificării.
 
 Fișierul special ''/dev/urandom'' conține bytes aleatori. Listați conținutul acestui fișier. Folosiți 
 combinația de taste ''CTRL + C'' pentru a opri acest proces.
@@ -295,11 +298,11 @@ student@uso:~/uso.git/$ cat /dev/urandom
 student@uso:~/uso.git/$
 </code>
 
-1. Folosindu-vă de fișierul ''/dev/random'', generați o parolă aleatoare de 32 de caractere. Vă 
+    - Folosindu-vă de fișierul ''/dev/random'', generați o parolă aleatoare de 32 de caractere. Vă 
 puteți inspira de 
 [[https://www.howtogeek.com/howto/30184/10-ways-to-generate-a-random-password-from-the-command-line/|aici]].
 
-=== Înlănțuirea comenzilor ===
+==== Înlănțuirea comenzilor ====
 
 Pentru a înlănțui 2 sau mai multe comenzi folosim operatorul '';''. Cele de procese pornite sunt 
 independente și se vor executa indiferent de finalitatea celei care se execută prima.
@@ -312,7 +315,7 @@ total 8
 student@uso:~/.../05-cli/support/need-to-know$
 </code>
 
-1. Alegeți 2 aplicații de [[https://www.binarytides.com/linux-fun-commands/|aici]] și instalați-le 
+    - Alegeți 2 aplicații de [[https://www.binarytides.com/linux-fun-commands/|aici]] și instalați-le 
 folosind o singură comandă.
 
 În continuare, vom folosi comanda ''ping www.google.com'' pentru a testa dacă avem conectivitate la 
@@ -326,7 +329,4 @@ student@uso:~/uso.git/$ ping -c 1 www.google.com && firefox www.google.com
 Acum încercați să înlocuiți ''www.google.com'' cu ''www.random-webiste.xyz'' și ''&&'' cu ''||''. 
 Oservați ce se întâmplă.
 
-1. Mutați-vă la calea ''~/uso.git/labs/05-cli/support/need-to-know/err-file'' și, folosind o singură 
-comandă, compilați și rulați programul ''simple_pow.c''. În cazul în care apar erori de compilare, 
-vrem să nu rulăm executabilul. Rezolvați eroarea astfel încât programul să compileze cu succes și 
-rulați-l. (Hint: ce bibliotecă folosește programul ''simple_pow.c''?)
+    - Mutați-vă la calea ''~/uso.git/labs/05-cli/support/need-to-know/err-file'' și, folosind o singură comandă, compilați și rulați programul ''simple_pow.c''. În cazul în care apar erori de compilare, vrem să nu rulăm executabilul. Rezolvați eroarea astfel încât programul să compileze cu succes și rulați-l. (Hint: ce bibliotecă folosește programul ''simple_pow.c''?)
