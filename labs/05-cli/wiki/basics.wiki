@@ -13,10 +13,8 @@ student@uso:~$ pwd
 /home/student
 </code>
 
-1. Logați-vă ca utilizatorul **root**. Observați că promptul arată diferit, dispare simbolul ''$'' 
-și apare simbolul ''#'' care ne atenționează că suntem logați ca utilizator privilegiat al sistemului.
-2. Deconectați-vă de pe acest cont și asigurați-vă că sunteți din nou logați ca utilizatorul cu care 
-erați logați anterior, și anume''student''.
+  - Logați-vă ca utilizatorul **root**. Observați că promptul arată diferit, dispare simbolul ''$'' și apare simbolul ''#'' care ne atenționează că suntem logați ca utilizator privilegiat al sistemului.
+  - Deconectați-vă de pe acest cont și asigurați-vă că sunteți din nou logați ca utilizatorul cu care erați logați anterior, și anume''student''.
 
 Prin deschiderea unui nou terminal, se creează de fapt un nou proces în sistem. Știm că orice proces 
 din sistem are un identificator unic numit ''PID'' (process ID). Pentru a afișa id-ul procesului asociat 
@@ -77,7 +75,9 @@ student@uso:~$ history
 
 O altă variantă ar fi să folosim tasta săgeată sus pentru a naviga printre ultimele comenzi pe care 
 le-am dat, însă această variantă vine cu dezavantajul că o căutare poate dura destul de mult în cazul 
-în care am dat multe comenzi între timp. Dacă ne amintim o parte din comandă putem folosi **reversed 
+în care am dat multe comenzi între timp. 
+
+Dacă ne amintim o parte din comandă, putem folosi **reversed 
 search** pentru a găsi o comandă dată anterior. Folosiți combinația de taste ''CTRL + R'' pentru a porni 
 căutarea, scrieți o parte din comandă. Folosiți în continuare aceeași combinație pentru a găsi comanda 
 exactă.

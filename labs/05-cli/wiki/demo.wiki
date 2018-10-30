@@ -26,6 +26,14 @@ rolul de date de intrare pentru o a doua comandă. Pentru a realiza acest lucru 
 
 <code bash>
 student@uso:/uso.git/$ ls | grep "lab"
+lab02
+lab03
+lab04
+lab05
+lab09
+lab10
+lab12
+labs
 </code>
 
 Aici, outputul comenzii ''ls'' va fi folosit ca intrare pentru [[https://linux.die.net/man/1/grep|grep]].
@@ -45,6 +53,8 @@ rtt min/avg/max/mdev = 245.160/245.160/245.160/0.000 ms
 [1]+  Done                    sleep 100
 student@uso:/uso.git/$ echo $?
 0
+</code>
+<code bash>
 student@uso:/uso.git/$ ping 192.12.12.1
 PING 192.12.12.1 (192.12.12.1) 56(84) bytes of data.
 ^C
