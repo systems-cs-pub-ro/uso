@@ -152,5 +152,5 @@ Concret, se pune problema: de unde știe sistemul să ruleze binarul ''/usr/bin/
 ''ls'' dacă nu avem un **alias** pentru el? El va căuta în căile reținute de variabila ''PATH'' executabilul  
 numit ''ls''.
 
-    - Creați un program C numit ''sum.c'' care să calculeze suma a două numere citite de la tastatură. Compilați-l și obțineți executabilul ''sum''. Rulați programul pentru a vă asigura că totul este în regulă.
-    - Modificați variabila ''PATH'' astfel încât programul vostru să poată fi rulat de oriunde din sistem prin comanda ''sum''. (Atenție! Vrem ca atât executabilele vechi cât și binarul ''sum'' să poată fi rulate de oriunde.)
+    - Creați un program C numit ''sum.c'' care să calculeze suma a două numere citite de la tastatură. Compilați-l și obțineți executabilul ''mysum''. Rulați programul pentru a vă asigura că totul este în regulă.
+    - Modificați variabila ''PATH'' astfel încât programul vostru să poată fi rulat de oriunde din sistem prin comanda ''mysum''. (Atenție! Vrem ca atât executabilele vechi cât și binarul ''mysum'' să poată fi rulate de oriunde.)
