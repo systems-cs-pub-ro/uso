@@ -8,6 +8,6 @@
 ==== Montare/Demontare ====
   - Montați fișierul ''image.iso'' la calea ''/mnt/my_image/'' (hint: ''mount -o loop''). Asigurați-vă că
   directorul ''my_image'' există.
-  - Cu ajutorul comenzii ''mount'' inspectați dacă operația ''moun'' s-a efectuat cu succes.
+  - Cu ajutorul comenzii ''mount'' inspectați dacă montarea s-a efectuat cu succes.
   - Demontați imaginea. (hint: ''umount'')
 
