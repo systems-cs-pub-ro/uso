@@ -261,6 +261,7 @@ student@uso:~$ sudo blkid /dev/sdb*
     - Pe HDD-ul cu dimensiunea de 2.5GB instalați cel puțiun două sisteme de fișiere diferite.
 
 ==== Montare/Demontare ====
+
 Pentru a avea acces la oricare dintre sistemele de fișiere instalate anterior, va trebui să îl montăm în cadrul sistemului de fișiere curent.
 Montarea se poate realiza în două modalități:
   * Temporar - cu ajutorul ''mount'';
@@ -301,6 +302,8 @@ student@uso:~$ mount | grep /dev/sdb1
 **Exerciții**
     - Montați fiecare dintre partițiile create anterior. Creați pentru fiecare partiție o intrare în ''/mnt/''.
     - Creați câte un fișier în fiecare dintre sistemele de fișiere montate anterior.
+    - Introduceți un stick USB în sistem. Urmăriți mesajele kernelului cu ajutorul ''dmesg'' pentru a identifica fișierul block asociat în directorul ''/dev''. Montați stick-ul în ''/mnt''.
+    - Repartiționați stick-ul usb și formatați fiecare partiție.
 
 ==== Montare permanentă (fstab) ====
 Am văzut anterior cum putem să montăm temporar un sistem de fișiere în cadrul unui sistem de opare Linux. În mod implicit, ne dorim ca partițiile unui HDD să fie montate permanent. Pentru a realiza această operație ne vom folosi de ''fstab'' (file system table).
