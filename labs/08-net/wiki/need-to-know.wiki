@@ -78,7 +78,7 @@ student@tom:~$ ip a s
     link/ether 08:00:27:94:2f:f3 brd ff:ff:ff:ff:ff:ff
     inet6 fe80::a00:27ff:fe94:2ff3/64 scope link 
        valid_lft forever preferred_lft forever
-</bash>
+</code>
 
 <note>
 Observăm faptul că adresa IP a mașinii ''tom'' este ''192.168.56.101''.
