@@ -7,7 +7,7 @@
 De exemplu dacă vrem să aflăm cine deține adresa IP ''141.85.241.51'', folosim comanda ''whois'' urmată de IP:
 
 <code bash>
-$ whois 141.85.241.51
+student@uso:~$ whois 141.85.241.51
 ...
 inetnum:        141.85.0.0 - 141.85.255.255
 netname:        PUB-NET
@@ -23,7 +23,7 @@ Din outputul obținut aflăm că adresa IP aparține Universității Politehnica
 Putem să obține informații și despre domenii, cum ar fi: organizația, datele de contact ale administratorilor, domain server, data la care a fost creat, ultima dată când a fost actualizat, etc.:
 
 <code bash>
-$ whois cs.curs.pub.ro
+student@uso:~$ whois cs.curs.pub.ro
 ...
 contact:      administrative
 name:         Ionut Eugen SANDU
@@ -52,7 +52,7 @@ Pentru a realiza o conexiune SSH fără parolă de pe mașina locală pe o mași
 1. Generați o pereche de chei publice și private pe masina locală:
 
 <code bash>
-$ ssh-keygen -t rsa
+student@uso:~$ ssh-keygen -t rsa
 </code>
 
 Apăsați ''enter'' pentru fiecare input cerut.
@@ -61,14 +61,14 @@ Pentru a verifica că cheia SSH a fost creată inspectați conținutul directoru
   * ''id_rsa.pub'' -- cheia publică
 
 <code bash>
-$ ls ~/.ssh/
+student@uso:~$ ls ~/.ssh/
 id_rsa  id_rsa.pub  known_hosts
 </code>
 
 2. Copiați cheia publică pe server:
 
 <code bash>
-ssh-copy-id -i ~/.ssh/id_rsa.pub student@<IP-tom>
+student@uso:~$ ssh-copy-id -i ~/.ssh/id_rsa.pub student@<IP-tom>
 </code>
 
 <note>
@@ -78,7 +78,7 @@ Citiți întotdeauna rezultatul comenzilor pe care le rulați. În acest exemplu
 3. Vă conectați la mașina remote. Dacă totul a funcționat corect, ar trebui să nu aveți nevoie de parolă:
 
 <code bash>
-$ ssh student@<IP-tom>
+student@uso:~$ ssh student@<IP-tom>
 </code>
 
 **[2a]** Acum că ați reușit să vă autentificați fără parolă pe mașina ''tom'', faceți același lucru și pe mașina vituală ''jerry''.
@@ -93,7 +93,7 @@ După cum știți, hostname-ul unei mașini se poate observa din prompt-ul termi
 Pentru a schimba hostname-ul unei mașini folosiți aceeași comandă, urmată de noul hostname. Pentru a observa modificarea hostname-ului, deschideți alt terminal.
 
 <code bash>
-$ hostname <new_hostame>
+student@uso:~$ hostname <new_hostame>
 </code>
 
 **[3a]** Schimbați hostname-ul celor două mașini virtuale ''tom'' și ''jerry'' în ''cat'' și ''mouse''.
@@ -115,7 +115,7 @@ Pentru a funcționa, X11 forwarding trebuie să fie activat atât pe client cât
 Pentru acest exercițiu trebuie să vă grupați în echipe de câte doi. Vă veți conecta la calculatorul colegului și veți rula programe cu interfață grafică (firefox, xeyes, etc.).
 
 <code bash>
-$ ssh -X <user>@<IP>
+student@uso:~$ ssh -X <user>@<IP>
 </code>
 
 ==== 5. Alias pentru conectare la un server SSH ====
@@ -124,7 +124,7 @@ Pentru a ușura conectarea prin SSH, se poate defini un alias care să înglobez
 În cadrul aliasului se poate activa și X11 forwarding folosind opțiunea ''ForwardX11 yes''.
 
 <code bash>
-$ cat ~/.ssh/config
+student@uso:~$ cat ~/.ssh/config
 Host coleg
     HostName <IP-coleg>
     User student
@@ -134,7 +134,7 @@ Host coleg
 Putem folosi alias-ul ''server'' ca în exemplul următor:
 
 <code bash>
-$ ssh coleg
+student@uso:~$ ssh coleg
 </code>
 
 **[5a]** Faceți modificările necesare a.î. să vă conectați prin SSH către cele două mașini virtuale folosind aliasuri în loc de numele de domeniu sau adresa IP.
