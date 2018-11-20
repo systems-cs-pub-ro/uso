@@ -257,7 +257,7 @@ student@uso:~$ cat /etc/resolv.conf
 # See man:systemd-resolved.service(8) for details about the supported modes of
 # operation for /etc/resolv.conf.
 
-nameserver 141.85.0.82
+nameserver 192.168.255.1
 search BlinkAP
 </code>
 
@@ -267,12 +267,12 @@ vedem că adresa este într-adevăr cea din fișierul editat mai devreme.
 
 <code bash>
 student@uso:~ $ nslookup www.google.com
-Server:		141.85.0.82
-Address:	141.85.0.82#53
-
+Server:		192.168.255.1
+Address:	192.168.255.1#53
+ 
 Non-authoritative answer:
 Name:	www.google.com
-Address: 216.58.213.196
+Address: 172.217.19.68
 </code>
 
 - Aduceți modificări asupra fișierului ''/etc/resolv.conf'' în așa fel încât adresa DNS-ului să fie ''8.8.8.8''. Verificați faptul că adresa serverului DNS a fost modificată. (Hint: aveți nevoie de drepturi privilegiate să modificați fișierul ''/etc/resolv.conf'')
