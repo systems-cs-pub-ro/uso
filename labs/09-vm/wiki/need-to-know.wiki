@@ -4,7 +4,7 @@
 
 Până acum am folosit doar mașini virtuale deja setate, le-am importat în VirtualBox și le-am folosit ca atare. Acum vom învăța cum să 
 ne instalăm propria mașină virtuală. Pentru a crea o mașină virtuală avem nevoie de un fișier ''.iso'' care conține imaginea sistemului 
-de operare pe care vrem să-l instalăm. Acesta conține TODO.
+de operare pe care vrem să-l instalăm. Acesta conține imaginea nucleului sistemului de operare pe care urmează să îl instalăm.
 
 Descărcați de [[|aici]] imaginea TinyCore-current.iso.
 Deschideți VirtualBox pentru a începe acest tutorial. Apăsați butonul ''new'':
