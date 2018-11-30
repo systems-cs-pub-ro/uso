@@ -114,5 +114,6 @@ mare. Soluția se găsește în conceptul de **light virtualization** sau **cont
 ierarhie de fișiere, separată de cea a mașinii gazdă. Ele sunt mult mai rapide decât mașinile virtuale, însă au dezavantajul că nu 
 pot rula un alt sistem de operare față de cel de pe mașina gazdă întrucât este nevoie de același tip de nucleu. În imaginea de mai jos 
 se poate observa mai clar diferența dintre rularea a 3 mașini virtuale pe un sistem și existența a 3 containere pe un sistem.
-
-
+Se observ[ că în primul caz (mșini virtuale - stânga) avem un hipervizor deasupra căruia rulează mașini virtuale cu nucleele aferente, 
+iar în cel de-al doilea (containere) avem mecanism de containerizare (în exemplul din figură se numește Docker) peste care rulează direct 
+aplicațiile.
