@@ -1,0 +1,59 @@
+===== Demo =====
+
+Intrucat laboratorul de azi este despre masini virtuale, vom face un scurt demo despre lucrul cu acestea. Sectiunea de demo se aplica atat utilizatorilor ce folosesc VirtualBox, cat si celor cu VMware deoarece prezinta concepte generale.
+
+==== 0. Pornirea unei masini virtuale ====
+
+Pentru inceput, vom porni o masina virtuala, mai exact masina oficiala de USO.
+
+TODO: POZA_VM_START
+
+Ne autentificam cu credidentialele ''student:student''.
+
+TODO: POZA_VM_AUTH
+
+Verificam accesul la internet. Putem folosi de exemplu comanda ''ping''.
+
+TODO: POZA_VM_PING
+
+==== 1. Vizualizarea resurselor hardware ====
+
+Putem vedea resursele hardware are masinii folosind comenzile ''lscpu, lshw si free''. Tineti cont de faptul ca intregul hardware este virtualizat, vom vedea mai tarziu cum putem schimba acestea caracteristici din setarile masinii.
+
+TODO: POZA_VM_LSCPU
+
+==== 2. Salvarea starii la inchiderea masinii ====
+
+In momentul in care dorim sa inchidem masina virtuala, putem opta sa ii salvam starea. Astfel, cand vom porni masina din nou, ea se va afla in starea in care era la momentul respectiv.
+
+TODO: POZA_VM_SAVE_STATE
+
+==== 3. Salvarea starii prin snapshot-uri ====
+
+De multe ori dorim sa putem reveni la o stare anterioara a masinii virtuale. Putem face acest lucru folosind snapshot-uri. Ele ne permit practic sa salvam starea curenta a masinii virtuale si sa o restituim ulterior. De exemplu, Microsoft ofera imagini de masini virtuale pentru dezvoltatori, dar care au licenta valabila 60 de zile. Chiar ei recomanda crearea unui snapshot pentru salvarea starii initiale. In continuare vom crea un snapshot pentru masina de USO.
+
+TODO: POZA_VM_SNAPSHOT
+
+==== 4. Modificarea resurselor hardware ====
+
+Dupa cum am zis mai sus, hardware-ul masinii virtuale este unul virtualizat. Astfel, noi putem defini ce CPU va avea, cata memorie RAM si asa mai departe. Dupa ce modificam caracteristicile hardware ale unei masini, o putem deschide si rula comenzile de mai sus pentru vizualizarea resurselor hardware. Vom observa ca acestea se schimba corespunzator cu setarile noastre.
+
+TODO: POZA_VM_MODIF_HARDWARE
+
+==== 5. Interfete de retea ====
+
+Masina virtuala comunica cu masina gazda (fizica) prin interfata de retea ''host-only''. Pentru a ne convinge de acest lucru, putem da ping de pe masina fizica pe masina virtuala. Initial cu interfata host-only activata, iar ulterior cu ea dezactivata. Vom observa ca in al doilea caz, ping-ul nu va merge.
+
+TODO: POZA_VM_HOST_ONLY
+TODO: POZE_VM_PING_DEZACT
+
+==== 6. SSH pe masina virtuala ====
+
+De multe ori ne este mai comod sa ne conectam prin ssh pentru a lucra pe o masina virtuala. De exemplu pentru o masina virtuala aflata in cloud, acesta este singurul mod de a o accesa. Pentru acest exemplu vom folosi clusterul facultatii ''fep.grid.pub.ro'', dar se putea folosi in loc si o masina virtuala locala.
+
+TODO: POZA_SSH_FEP
+
+
+
+
+
