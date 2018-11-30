@@ -1,0 +1,63 @@
+===== Nice to know =====
+
+==== VBoxManage ====
+
+Pentru gestiunea mașinilor virtuale dintr-un sistem, VirtualBox ne pune la dispoziți suita de comenzi **vboxmanage**.
+
+Folosind ''vboxmanage'' putem lista toate mașinile virtuale importate în VirtualBox în felul următor:
+
+<code bash>
+student@uso:~$ vboxmanage list vms 
+"USO_tom" {97c22092-baa0-485f-b254-c8f1a0235228}
+"USO_jerry" {cc61b2ce-6d2b-4dff-b245-3cd083d25070}
+</code>
+
+Porniți doar mașina virtuală ''tom'' din interfața grafică. Pentru a lista doar mașinile virtuale aflate în starea ''running'' folosim comanda:
+
+<code bash>
+student@uso:~$ vboxmanage list runningvms 
+"USO_tom" {97c22092-baa0-485f-b254-c8f1a0235228}
+</code>
+
+Dacă vrem să oprim mașina virtual din linia de comandă, avem nevoie de numele ei, ''USO_tom'' și rulăm comanda:
+
+<code bash>
+student@uso:~$ vboxmanage controlvm USO_tom acpipowerbutton 
+</code>
+
+Operația opusă, de pornire a unei mașini virutale din linia de comandă se face în felul următor:
+
+<code bash>
+student@uso:~$ vboxmanage startvm USO_jerry
+Waiting for VM "USO_jerry" to power on...
+VM "USO_jerry" has been successfully started.
+</code>
+
+Tot prin intermediul ''vboxmanage'' vrem să repornim o mașină virtuală ''jerry''. Pentru a restarta mașina virtuală procedăm în felul 
+următor:
+
+<code bash>
+student@uso:~$ vboxmanage controlvm USO_jerry reset 
+</code>
+
+O funcționalitate utilă a unei mașini virtuale este aceea de a-și salva starea curentă, prin trecerea în starea de pauză (pause), 
+în care nu consumă resurse, și revenirea la starea inițială atunci cand e nevoie de ea (resume). Comenzile folosite sunt:
+
+Pentru a trece în starea de pauză:
+<code bash>
+student@uso:~$ vboxmanage controlvm USO_jerry pause 
+</code>
+
+Pentru a reveni la starea de rulare:
+<code bash>
+student@uso:~$ vboxmanage controlvm USO_jerry resume 
+</code>
+
+    - Opriți toate mașinile virtuale pornite în tutorialul anterior folosind linia de comandă.
+
+==== Creare mașină virtuală pe OpenStack ====
+
+Așa cum este menționat și la secțiunea [[|Concepte]], OpenStack este un serviciu cloud privat ce ne oferă posibilitatea să creăm 
+mașini virtuale pentru uz propriu, nefiind nevoiți să trecem prin etapa de instalare a unui VMM, crearea unei mașini virtuale locale, 
+configurarea acesteia astfel încât să ne putem conecta la Internet. Pentru a crea o mașină virtuală pe OpenStack, urmăriți tutorialul 
+de [[|aici]].
