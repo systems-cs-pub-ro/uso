@@ -25,19 +25,8 @@ sudo apt-get update
 după care să rulați din nou comanda de instalare, care va rula acum fără probleme.
 </note>
 
-Pentru a rula o distribuție de Linux pentru platforma Raspberry Pi, trebuie rulată următoarea comandă în directorul în care aveți **atât** imaginea de kernel ''kernel-qemu'' cât și imaginea de Raspbian. 
+**[1b] Rulati o distribuție de Linux** pentru platforma Raspberry Pi, folosind cele 2 fisiere downladate mai sus.
 
-<code bash>
-student@uso~:$ qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -hda 2012-10-28-wheezy-raspbian.img
-</code>
-
-Să descifrăm fiecare parametru de mai sus:
-  * ''-cpu'' - specifică tipul de procesor care va fi emulat
-  * ''-m'' - specifică dimensiunea memoriei RAM
-  * ''-hda, -hdb'' etc. - specifică imaginea pentru primul hard disk, respectiv al doilea hard disk, ș.a.m.d
-  * ''-fda, -fdb'' - specifică imaginea pentru primul floppy disk, respectiv al doilea floppy disk
-  * ''-cdrom'' - specifică imaginea folosită de cdrom
-  * ''-serial'', ''-parallel'' - specifică porturile seriale, respectiv, paralele și modul de interacțiune a acestora cu host-ul
 
 După bootare vă apare un ecran de configurare. În ecranul apărut mergeți până la butonul ''Finish'' (folosind ''Tab'').
 
