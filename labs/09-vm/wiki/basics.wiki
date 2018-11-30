@@ -1,0 +1,13 @@
+===== Basics =====  
+
+==== 1. Importarea unei mașini virtuale ====  
+
+**[1a]** Descărcați mașina virtuală de [[http://elf.cs.pub.ro/uso/res/laborator/lab09/Tiny%20Linux%20VM.ova|aici]]. Pentru a o importa, deschideți VirtualBox, apoi ''File -> Import Appliance'' și selectați fișierul .ova. 
+
+**[1b]** Creați în directorul de home un fișier ''nume.txt'' în care vă treceți numele vostru. 
+
+**[1c]** Faceți un snapshot în starea curentă. 
+
+**[1d]** Ștergeți fișierul ''nume.txt''. 
+
+**[1e]** Reveniți la starea salvată în snapshot și verificați existența fișierului ''nume.txt''. 
