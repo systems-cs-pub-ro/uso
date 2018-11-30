@@ -65,3 +65,10 @@ Observați că în loc de arhitectura ''x86'' în output (așa cum vedeam la pri
 ==== 3. Masini virtuale in CLI ====
 
 Pana acum am folosit VirtualBox pentru a importa masini virtuale. Am facut acest lucru din interfata grafica, dar este important de stiut ca putem folosi si linia de comanda, si anume comanda VBoxManage. Urmariti tutorialul de [[https://www.perkin.org.uk/posts/create-virtualbox-vm-from-the-command-line.html|aici]].
+
+
+==== 4. Montare .vdi fara VM ====
+
+**[4a]** Descarcati de aici [[https://sourceforge.net/projects/virtualboximage/files/MINIX/3.2.0/Minix_320.7z/download|VM]] arhiva zip. 
+
+**[4b]** Dezarhivati arhiva si montati fisierul .vdi, fara a va folosi de o masina virtuala.
