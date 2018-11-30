@@ -1,0 +1,150 @@
+===== Need to know =====
+
+==== Crearea unei mașini virtuale ====
+
+Până acum am folosit doar mașini virtuale deja setate, le-am importat în VirtualBox și le-am folosit ca atare. Acum vom învăța cum să 
+ne instalăm propria mașină virtuală. Pentru a crea o mașină virtuală avem nevoie de un fișier ''.iso'' care conține imaginea sistemului 
+de operare pe care vrem să-l instalăm. Acesta conține TODO.
+
+Descărcați de [[|aici]] imaginea TinyCore-current.iso.
+Deschideți VirtualBox pentru a începe acest tutorial. Apăsați butonul ''new'':
+
+TODO: create vm 1
+
+Dați un nume mașinii virtuale, selectați tipul sistemului de operare ''Linux'' și ''Ubuntu (64 bit)''.
+
+TODO: create vm 2
+
+Setați dimensiunea memoriei RAM alocate mașinii voastre virtuale la 1024MB (adică 1GB).
+
+TODO: create vm 3
+
+Vrem să adăugăm și un hard disk corespunzător acestei mașini virtuale. Selectați opțiunea ''Create a new virtual hard disk now''.
+
+TODO: create vm 4
+
+Mai departe selectați tipul ''VDI (VirtualBox Disk Image)'' ca tip al fișierului hard disk.
+
+TODO: create vm 5
+
+Bifați opțiunea fixed size la pasul ''Storage on physical hard disk''. 
+
+TODO: create vm 6
+
+Selectați dimensiunea de 10GB, spre exemplu și calea unde vreți să fie salvat fișierul ''.vdi''.
+
+TODO: create vm 7
+
+În acest moment mașina virtuală este creată (adică au fost alocate toate resursele hardware pe care le-am specificat mai devreme). În 
+momentul în care pormim mașina virtulă, va trebui să îi specificăm ce imagine ''.iso'' să folosească. Vom folosi imaginea descărcată 
+anterior.
+
+TODO: create vm 8
+
+În acest moment aveți creată prima voastră mașină virtuală. 
+
+    - Exportați mașina virtuală anterior creată. (Hint: File -> Export Appliance)
+
+==== Resetarea parolei de root din GRUB ====
+
+Exista situatii în care sistemul poate deveni inaccesibil: am modificat greșit fișierul /etc/sudoers și nu mai putem folosi sudo, 
+am uitat parola utilizatorului și nu mai putem face login sau dorim setarea unei parole pentru root, dar nu avem drepturi privilegiate.
+
+Este nevoie să găsim o altă cale pentru a accesa sistemul. Este nevoie de recuperarea parolei utilizatorului root.
+
+Pentru a realiza acest lucru trebuie sa configuram sistemul ca atunci cand inițializează kernelul, în loc să pornească procesul ''init'', 
+să deschidă un shell. Și pentru ca utilizatorul root e cel care deține procesele inițiale, și shell-ul nostru o sa porneasca cu drepturi 
+"speciale".
+
+<note>
+Atenție, din motive de securitate, niciodată nu o să puteți afla parola unui utilizator. În cel mai bun caz o puteți doar suprascrie.
+</note>
+
+Pe mașina virtuală, reporniți sistemul. În meniul GRUB, apăsați tasta e atunci când intrarea corespunzătoare este selectată. Se va 
+deschide un mic script într-un editor. Printre instrucțiunile de acolo, avem și parametrii cu care pornește kernel-ul (linia care 
+începe cu linux). Adăugați la finalul acelei linii șirul init=/bin/bash, similar liniei de mai jos:
+
+<code bash>
+(...)
+linux /boot/vmlinuz-3.13.0-39-generic [...] init=/bin/bash
+(...)
+</code>
+
+Apăsați combinația de taste Ctrl+x pentru a salva modificările și a porni sistemul.
+
+În acest moment aveți acces privilegiat la sistem (vedeți prompt-ul de root care se încheie în #) și puteți face orice acțiuni. În mod 
+obișnuit așa se resetează parola de root (folosind comanda passwd) și apoi se bootează în Linux obișnuit și se folosește acea parolă.
+
+
+<note important>
+Este posibil să nu puteți modifica parola pentru că sistemul de fișiere a fost montat //read-only//. La rularea comenzii ''passwd'' veți primi mesajul de eroare:
+<code>
+passwd: Authentication token manipulation error
+</code>
+În această situație va trebui să remontați fișierul în mod //read-write// folosind comanda:
+<code>
+mount -o remount /
+</code>
+</note>
+
+<note important>
+După ce ați schimbat parola, nu puteți folosi comanda ''reboot'' pentru a reporni mașina virtuală. Folosiți interfața grafică VirtualBox pentru repornirea mașinii virtuale. După ce bootează, verificați că parola utilizatorului ''root'' este cea proaspăt introdusă.
+</note>
+
+==== Conectare la Internet ====
+
+În acest moment, mașina virtuală tocmai creată nu are acces la Internet. Putem verifica acest lucru folosind comanda ''ping''.
+
+<code bash>
+tc@box:~$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+ping: sendto: No route to host
+ping: sendto: No route to host
+Request timeout for icmp_seq 0
+ping: sendto: No route to host
+Request timeout for icmp_seq 1
+^C
+--- 8.8.8.8 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss
+</code>
+
+    - Urmăriți pașii de [[https://askubuntu.com/questions/363003/no-internet-connection-on-virtualbox-windows-7-as-guest-ubuntu-13-04-as-host|aici]] pentru a configura setările de networking pentru mașina voastră virtuală. Pentru a verifica faptul că totul este în regulă dați din nou ''ping 8.8.8.8''. Atenție: mașina virtuală trebuie să fie oprită în momentul în care faceți configurările de networking.
+
+Dacă totul decurge cum trebuie, trebuie să obțineți următorul output:
+<code bash>
+tc@box:~$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+64 bytes from 8.8.8.8: icmp_seq=0 ttl=119 time=62.082 ms
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=119 time=32.354 ms
+^C
+--- 8.8.8.8 ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 32.354/47.218/62.082/14.864 ms
+</code>
+
+==== Server SSH ====
+
+Vrem să ne putem conecta prin ssh la mașina noastră virtuală și invers. Dacă vrem să ne conectăm de pe mașina virtuală pe mașina fizică 
+trebuie să aflăm adresa IP a mașinii fizice.
+
+<code bash>
+student@uso:~$ ip a s eth0
+eth0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	ether dc:a9:04:7f:e2:53 
+	inet6 fe80::c65:9f0a:3b1e:cecd%en0 prefixlen 64 secured scopeid 0x8 
+	inet 192.168.1.6 netmask 0xffffff00 broadcast 192.168.1.255
+	nd6 options=201<PERFORMNUD,DAD>
+	media: autoselect
+	status: active
+</code>
+
+De pe mașina virtuală ne conectăm prin ssh în felul următor:
+
+<code bash>
+tc@box:~$ ssh student@192.168.1.6
+tc:- ssh command not found
+</code>
+
+Observăm că pe mașina virtuală nu avem instalat un ''server de ssh'', așadar nu putem folosi ''ssh'' încă. 
+
+    - Urmăriți tutorialul de [[https://iotbytes.wordpress.com/configure-ssh-server-on-microcore-tiny-linux/|aici]] pentru a instala un server de ssh **pe mașina virtuală**. La final, pentru verificare, conectați-vă la stația fizică prin ssh.
