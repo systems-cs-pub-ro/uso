@@ -6,32 +6,32 @@ Până acum am folosit doar mașini virtuale deja setate, le-am importat în Vir
 ne instalăm propria mașină virtuală. Pentru a crea o mașină virtuală avem nevoie de un fișier ''.iso'' care conține imaginea sistemului 
 de operare pe care vrem să-l instalăm. Acesta conține imaginea nucleului sistemului de operare pe care urmează să îl instalăm.
 
-Descărcați de [[|aici]] imaginea TinyCore-current.iso.
-Deschideți VirtualBox pentru a începe acest tutorial. Apăsați butonul ''new'':
+0. Descărcați de [[|aici]] imaginea TinyCore-current.iso.
+1. Deschideți VirtualBox pentru a începe acest tutorial. Apăsați butonul ''new'':
 
 TODO: create vm 1
 
-Dați un nume mașinii virtuale, selectați tipul sistemului de operare ''Linux'' și ''Ubuntu (64 bit)''.
+2. Dați un nume mașinii virtuale, selectați tipul sistemului de operare ''Linux'' și ''Ubuntu (64 bit)''.
 
 TODO: create vm 2
 
-Setați dimensiunea memoriei RAM alocate mașinii voastre virtuale la 1024MB (adică 1GB).
+3. Setați dimensiunea memoriei RAM alocate mașinii voastre virtuale la 1024MB (adică 1GB).
 
 TODO: create vm 3
 
-Vrem să adăugăm și un hard disk corespunzător acestei mașini virtuale. Selectați opțiunea ''Create a new virtual hard disk now''.
+4. Vrem să adăugăm și un hard disk corespunzător acestei mașini virtuale. Selectați opțiunea ''Create a new virtual hard disk now''.
 
 TODO: create vm 4
 
-Mai departe selectați tipul ''VDI (VirtualBox Disk Image)'' ca tip al fișierului hard disk.
+5. Mai departe selectați tipul ''VDI (VirtualBox Disk Image)'' ca tip al fișierului hard disk.
 
 TODO: create vm 5
 
-Bifați opțiunea fixed size la pasul ''Storage on physical hard disk''. 
+6. Bifați opțiunea fixed size la pasul ''Storage on physical hard disk''. 
 
 TODO: create vm 6
 
-Selectați dimensiunea de 10GB, spre exemplu și calea unde vreți să fie salvat fișierul ''.vdi''.
+7. Selectați dimensiunea de 10GB, spre exemplu și calea unde vreți să fie salvat fișierul ''.vdi''.
 
 TODO: create vm 7
 
