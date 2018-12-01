@@ -4,7 +4,7 @@
 
 **Virtualizarea** este o tehnologie care partajează și alocă resursele hardware ale unui sistem de calcul în mai multe “mașini virtuale” 
 (VM = Virtual Machine) și creează posibilitatea rulării **simultane** a mai multor sisteme de operare pe un singur calculator. Practic, 
-prin intermediul virtualizării se crează o abstractizare a hardware-ului. TODO: puțin mai mult
+prin intermediul virtualizării se crează o abstractizare a hardware-ului.
 
 <note>
 Abstractizarea hardware-ului se referă la faptul că se creează câte o instantă virtuală pentru fiecare componentă dintr-un sistem de 
