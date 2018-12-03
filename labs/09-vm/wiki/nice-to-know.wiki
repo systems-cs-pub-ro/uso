@@ -82,11 +82,24 @@ de [[|aici]].
 
 ==== Creare mașină virtuală pornind de la un VDI existent ====
 
-La această secțiune ne propunem să ne configurăm o nouă mașină virtuală, dar de data asta vrem să folosim un VDI deja existent, nu să 
-creăm unul, așa cum am făcut la secțiunea [[|Need to know]]. Descărcați fișierul ''.vdi'' de [[|aici]] până a începe tutorialul.
-Urmăriți aceiași pași de acolo, doar că la pasul 4, alegeți opțiunea ''Use an existing hard disk file''.
+==== Creare mașină virtuală pornind de la un VDI existent ====
 
-După finalizarea pașilor porniți mașina și verificați că totul este în regulă.
+La această secțiune ne propunem să ne configurăm o nouă mașină virtuală, dar de data asta vrem să folosim un VDI deja existent, nu să 
+creăm noi unul, așa cum am făcut la secțiunea Need to know. 
+
+Descărcați arhiva ''minix.zip'' unde veți găsi un fișier ''.vdi'' de [[http://elf.cs.pub.ro/uso/res/laborator/lab09/|aici]] până a începe tutorialul. 
+
+Urmăriți pașii de la secțiunea [[https://ocw.cs.pub.ro/courses/uso/laboratoare/new/09-vm/need-to-know|Need to know]] cu următoarele modificări:
+
+  * la pasul 2, selectați tipul sistemului de operare ''Other''.
+  * la pasul 4, alegeți opțiunea ''Use an existing hard disk file''.
+
+După ce creați mașina virtuală, deschideți-o și vedeți că funcționează.
+
+<note>
+Accesați sistemul prin utilizatorul ''root''. Nu vi se va cere parolă.
+</note>
+
 
 ==== Headless mode ====
 
