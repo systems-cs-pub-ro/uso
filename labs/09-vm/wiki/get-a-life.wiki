@@ -53,22 +53,22 @@ Observați că în loc de arhitectura ''x86'' în output (așa cum vedeam la pri
 **Informativ**: Pentru a scrie imaginea de mai sus pe un card SD și a o rula pe un dispozitiv de tipul [[https://www.raspberrypi.org/|Raspberry Pi]] trebuie să rulăm trei comenzi: una pentru idenficarea partițiilor (e.g. ''df''), una pentru demontarea partiției care repzintă cardul SD și una pentru scrierea imaginii de Raspbian pe cardul SD, folosind ''dd''. Urmăriți [[https://www.raspberrypi.org/documentation/installation/installing-images/linux.md|indicațiile de aici]] dacă nu sunteți siguri ce comenzi trebuie să dați. 
 </note>
 
-==== 2. Docker ====
-[[http://qemu.org|Docker]] este un program folosit pentru virtualizare la nivelul sistemului de operare, cunoscut si sub numele de "containerization". Docker este folosit pentru a rula pachete software numite ''containere''. Containerele sunt izolate intre ele, dar pot comunica prin diverse canale bine definite. Toate containerele sunt rulate de un singur sistem de operare, fapt ce face Docker mai ''"lightweight"'' decat masinile virtuale clasice.
+==== 2. Docker ==== 
+[[http://qemu.org|Docker]] este un program folosit pentru virtualizare la nivelul sistemului de operare, cunoscut și sub numele de "containerization". Docker este folosit pentru a rula pachete software numite ''containere''. Containerele sunt izolate între ele, dar pot comunica prin diverse canale bine definite. Toate containerele sunt rulate de un singur sistem de operare, fapt ce face Docker mai ''"lightweight"'' decât mașinile virtuale clasice. 
 
-**[2a]** Instalati Docker pe masina fizica folosind [[https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script|ghidul oficial]], varianta de instalare printr-un script.
+**[2a]** Instalați Docker pe mașina fizică folosind [[https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script|ghidul oficial]], varianta de instalare printr-un script. 
 
-**[2b]** Clonati repo-ul [[https://github.com/yeasy/simple-web|simple-web]]. Deschideti-l si inspectati fisierele Dockerfile si index.py. Incercati sa intelegi fiecare linie din Dockerfile (intrebati asistentul daca aveti nelamuriri).
+**[2b]** Clonați repo-ul [[https://github.com/yeasy/simple-web|simple-web]]. Deschideți-l și inspectați fișierele Dockerfile și index.py. Încercați să înțelegi fiecare linie din Dockerfile (întrebați asistentul dacă aveți nelămuriri). 
 
-**[2c]** Folosind proiectul clonat mai devreme, creati un container folosind Docker. Pentru a va verifica, accesati http://localhost/.
+**[2c]** Folosind proiectul clonat mai devreme, creați un container folosind Docker. Pentru a vă verifica, accesați http://localhost/. 
 
-==== 3. Masini virtuale in CLI ====
+==== 3. Mașini virtuale în CLI ==== 
 
-Pana acum am folosit VirtualBox pentru a importa masini virtuale. Am facut acest lucru din interfata grafica, dar este important de stiut ca putem folosi si linia de comanda, si anume comanda VBoxManage. Urmariti tutorialul de [[https://www.perkin.org.uk/posts/create-virtualbox-vm-from-the-command-line.html|aici]].
+Până acum am folosit VirtualBox pentru a importa mașini virtuale. Am făcut acest lucru din interfața grafică, dar este important de știut că putem folosi și linia de comandă, și anume comanda VBoxManage. Urmăriți tutorialul de [[https://www.perkin.org.uk/posts/create-virtualbox-vm-from-the-command-line.html|aici]]. 
 
 
-==== 4. Montare .vdi fara VM ====
+==== 4. Montare .vdi fără VM ==== 
 
-**[4a]** Descarcati de aici [[https://sourceforge.net/projects/virtualboximage/files/MINIX/3.2.0/Minix_320.7z/download|VM]] arhiva zip. 
+**[4a]** Descărcați de aici [[https://sourceforge.net/projects/virtualboximage/files/MINIX/3.2.0/Minix_320.7z/download|VM]] arhivă zip.  
 
-**[4b]** Dezarhivati arhiva si montati fisierul .vdi, fara a va folosi de o masina virtuala.
+**[4b]** Dezarhivați arhiva și montați fișierul .vdi, fără a vă folosi de o mașină virtuală. 
