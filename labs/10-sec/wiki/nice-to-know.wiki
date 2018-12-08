@@ -1,0 +1,47 @@
+ ===== Nice to Know ===== 
+  
+ Pentru primele 2 exerciții, mergeți în directorul ''/home/student/uso.git/labs/10-sec/support/nice-to-know''. 
+  
+ ==== 1. Spargerea parolei prin brute-force ==== 
+  
+ Tehnica de **brute-force** presupune încercarea oricăror combinării posibile de caractere în încercarea de a sparge o parolă. În cazul nostru, vom lucra cu un **zip**. 
+  
+ Dacă parola este suficient de lungă (peste 10-12 caractere) atunci ea este considerată relativ sigură pentru un atac de acest tip întrucât va dura mult prea mult găsirea parolei corecte, chiar cu cele mai puternice CPU-uri din prezent. 
+  
+ Vom încerca să spargem parola arhive zip ''secret_brute_force.zip''. Pentru a face acest lucru, vom instala utilitarul **fcrackzip**: 
+  
+ <code bash> 
+ student@uso:~$ sudo apt-get install fcrackzip 
+ </code> 
+  
+ Știm faptul că arhiva are o parolă de maxim 4 caractere, deci este fezabil să rulăm un atac de tip brute-force: 
+  
+ <code bash> 
+ student@uso:~/.../10-sec/support/nice-to-know$ fcrackzip -v -l 1-4 -u secret_brute_force.zip  
+ found file 'flag.txt', (size cp/uc     34/    22, flags 1, chk 6543) 
+  
+  
+ PASSWORD FOUND!!!!: pw == fd7 
+ student@uso:~/.../10-sec/support/nice-to-know$ unzip -P fd7 secret_brute_force.zip  
+ Archive:  secret_brute_force.zip 
+  extracting: flag.txt                 
+ student@uso:~/.../10-sec/support/nice-to-know$ cat flag.txt  
+ USO{viața_pe_internet} 
+  
+ </code> 
+  
+ Argumentele comenzii **fcrackzip** sunt următoarele: 
+   * ''-v'' -> verbose 
+   * ''-l 1-4'' -> atac de tip brute-force cu lungimea parolei între 1 și 4 caractere 
+   * ''-u'' -> verifică parola prin încercarea de a dezarhiva arhiva 
+  
+ ==== 2. Spargerea parolei cu wordlist ==== 
+  
+ Asemănător exemplului de mai sus, avem în același director arhiva zip ''secret_wordlist.zip''. Deoarece parola este suficient de lungă, ea nu poate fi spartă folosind un atac de tip brute-force. 
+  
+ Poate fi însă spartă folosind un dicționar de cuvinte. **fcrackzip** are opțiunea de a încerca parole dintr-o listă (numite wordlist). Dacă parola arhivei se află în lista de cuvinte, atunci ea va putea fi spartă. 
+  
+ Deși sună greu de realizat în practică (Ce wordlist va avea în ea parola mea ''5gangmoduavion??'' ??), multe persoane folosesc parole simple pentru a-și proteja datele personale. 
+  
+ **[2a]** Spargeți parola arhivei ''secret_wordlist.zip'' folosind dicționarul ''wordlists.txt''. ''HINT: man fcrackzip sau Google'' 
+  
