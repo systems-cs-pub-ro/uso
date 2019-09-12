@@ -124,7 +124,7 @@ Processing triggers for man-db (2.8.3-2) ...
 22346 pts/2    00:00:00 bash
 </code>
 
-==== Execuția mai multor procese ====
+==== Execuția condiționată a mai multor procese ====
 De multe ori putem avea o situație în care 2 procese depind unul de celălalt. Pentru a realiza acest 
 lucru folosim operatorul ''&&'' care ne asigură faptul că a doua comandă se va executa doar în cazul în 
 care prima se execută cu succes.
