@@ -137,7 +137,8 @@ student@uso:/uso.git/$ echo $?
 </code>
 
 Observăm faptul că fișierul ''my_nonexisting_file.txt'' nu există și faptul că a doua comandă nu se 
-mai execută, exact ce am dorit să arătăm.
+mai execută, exact ce am dorit să arătăm, codul de eroare 1 arătând că prima comandă nu s-a
+terminat cu succes.
 
 Schimbăm puțin abordarea astfel încât ambele comenzi să fie executate.
 
