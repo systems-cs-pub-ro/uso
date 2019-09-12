@@ -331,7 +331,7 @@ Jerry_the_best
 </code>
 
 Un alt caz în care expandarea este utilă este evaluarea expresiilor aritmetice. Pentru început, declarăm 2 
-variabile propii în shell:
+variabile în shell:
 
 <code bash>
 student@uso:~/uso.git/$ a=3
