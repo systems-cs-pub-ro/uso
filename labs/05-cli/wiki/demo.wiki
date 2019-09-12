@@ -350,8 +350,8 @@ student@uso:~/uso.git/$ echo $((a+b))
 
 <note>
 Dacă am fi folosit comanda ''echo $a+$b'', shell-ul ar fi înlocuit ''$a'' cu valoarea lui a, adică ''3'' 
-și ''$b'' cu valoarea lui b, adică ''4'', iar rezultatul comenzii va fi ''3+4'', nu ''7'' așa cum ne-am fi 
-așteptat.
+și ''$b'' cu valoarea lui b, adică ''4'', iar rezultatul comenzii ar fi fost șirul de caractere ''3+4'', 
+nu ''7'' așa cum ne-am fi așteptat.
 </note>
 
 ==== Variabile de mediu ====
