@@ -86,7 +86,7 @@ exactă.
 (reverse-i-search)`': ps
 </code>
 
-În final, dacă vrem să "curățam" terminalul pentru a nu ne încurca, folsim comanda ''clear'' sau 
+În final, dacă vrem să "curățam" terminalul pentru a nu ne încurca, folosim comanda ''clear'' sau 
 combinația de taste ''CTRL + L''.
 
 <code bash>
