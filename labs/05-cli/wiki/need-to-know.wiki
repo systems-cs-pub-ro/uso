@@ -138,7 +138,7 @@ student@uso:~/.../05-cli/support/need-to-know$ make run_redirect_err
 Uzual, erorile sunt redirectare erorile către fișierul special ''/dev/null''.
 </note>
 
-    - Adăugați o regulă în fișierul ''Makefile'' care să ruleze același program și să redirecteze atât intrările, cât și erorile. Pentru a face acest lucru, creați un fișier numit ''input.txt'' care să conțină informațiile pe care le cere programul. Folosiți operatorul ''<''.
+    - Adăugați o regulă în fișierul ''Makefile'' care să ruleze același program și să redirecteze atât intrările, cât și erorile, într-o singură comandă. Pentru intrări, creați un fișier numit ''input.txt'' care să conțină informațiile pe care le cere programul. Folosiți operatorul ''<''. Pentru erori, redirectați în fișierul ''errors.txt''. Observați că pentru a redirecta ieșirile sau erorile, fișierul va fi creat automat.
 
 ==== Comunicare interprocese ====
 
