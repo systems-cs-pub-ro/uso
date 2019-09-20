@@ -327,6 +327,6 @@ student@uso:~/uso.git/$ ping -c 1 www.google.com && firefox www.google.com
 </code>
 
 Acum încercați să înlocuiți ''www.google.com'' cu ''www.random-webiste.xyz'' și ''&&'' cu ''||''. 
-Oservați ce se întâmplă.
+Observați ce se întâmplă.
 
     - Mutați-vă la calea ''~/uso.git/labs/05-cli/support/need-to-know/err-file'' și, folosind o singură comandă, compilați și rulați programul ''simple_pow.c''. În cazul în care apar erori de compilare, vrem să nu rulăm executabilul. Rezolvați eroarea astfel încât programul să compileze cu succes și rulați-l. (Hint: ce bibliotecă folosește programul ''simple_pow.c''?)
