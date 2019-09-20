@@ -125,7 +125,7 @@ student@uso:~/.../05-cli/support/need-to-know$ make run
 
 Încercați să introduceți și date care nu se potrivesc cerințelor. Programul va produce erori care ne deranjează 
 pe care vrem să le separăm de datele de ieșire standard. Pentru a face acest lucru putem redirecta erorile 
-într-un fișier. Rulați comanda ''make run_redirect_err'' care va redireca eventualele erori apărute în 
+într-un fișier. Rulați comanda ''make run_redirect_err'' care va redirecta eventualele erori apărute în 
 fișierul ''err.txt''.
 
 <code bash>
