@@ -54,7 +54,7 @@ student@uso:~$ ps -e
 (...)
 </code>
 
-Ne intersează pentru moment coloana a doua și anume ''TTY''. TTY face referire la terminalul din care 
+Ne interesează pentru moment coloana a doua și anume ''TTY''. TTY face referire la terminalul din care 
 a fost pornit un anumit proces. Observăm pe a doua coloană intrări de tipul ''?''.
 Semnul întrebării apare în momentul în care procesul este unul de tip **daemon**, mai exact atunci când 
 procesul nu e atașat de niciun terminal.
