@@ -38,7 +38,7 @@ student@uso:~/.../support/get-a-life/tutorial-sed$ cat songs2.txt
 </code>
 
 === awk ===
-Mai devreme am văzut că putem extrage numele tuturor utilizatorilo din sistem folosind ''tr''. Vrem să 
+Mai devreme am văzut că putem extrage numele tuturor utilizatorilor din sistem folosind ''tr''. Vrem să 
 facem asta folosind și filtrul ''awk''.
 
 Ne amintim că informațiile despre toți utilizatorii din sistem se află în fișierul ''/etc/passwd''.
@@ -68,18 +68,20 @@ despre ''sed'', ''awk'' și multe altele [[http://coewww.rutgers.edu/linux/lesso
 </note>
 
 ==== Exerciții ====
-  - Să scrie un script în care trebuie să schimbe directorul de lucru. (Hint: ''source'')
+  - Scrieți un script care trebuie să schimbe directorul de lucru în ''~''. De ce nu ar merge dacă am scrie pur și simplu ''cd ~'' în script? (Hint: ''source'')
   - Mutați-vă la calea ''~/uso.git/labs/05-cli/support/get-a-life/ex2/'' și rulați scriptul ''just_regular_updates_here.sh''. După rularea scriptului închideți terminalul curent și deschideți unul nou. Continuați să folosiți comenzile de bază (ls, cat). Observați ce se întâmplă și rezolvați problema.
   - La calea ''~/uso.git/labs/05-cli/support/get-a-life/ex3/'' se află fișierul ''image.png''. Inspectați tipul fișierului. Scopul acestui exercițiu este să aflați un mesaj secret. (Hint: ''file'')
-  - În directorul ''~/uso.git/labs/05-cli/support/get-a-life/ex4/'' se află numeroase fișiere. Să creeze o arhivă cu fișierele ce au o dimensiue mai mare de 10MB.
-  - Să se creeze un script care pornește programul ''firefox'' doar dacă acesta nu există deja. Altfel, nu-l pornește, ci doar afișează informații depsre el. Configurați acest script să ruleze din ''cron'' la fiecare 5 minute. (Hint:  [[https://www.thegeekstuff.com/2011/07/cron-every-5-minutes|cron]])
+  - În directorul ''~/uso.git/labs/05-cli/support/get-a-life/ex4/'' se află numeroase fișiere. Să se creeze o arhivă cu fișierele ce au o dimensiune mai mare de 10MB.
+  - Să se creeze un script care pornește programul ''firefox'' doar dacă acesta nu rulează deja. Altfel, nu-l pornește, ci doar afișează informații despre el. Configurați acest script să ruleze din ''cron'' la fiecare 5 minute. (Hint:  [[https://www.thegeekstuff.com/2011/07/cron-every-5-minutes|cron]])
   - Realizați un script care să creeze câte o arhivă pentru fiecare branch al repository-ului. (Hint: ''man git'', [[https://www.cyberciti.biz/faq/bash-for-loop/|for]]) 
-  - Folosind tot website-ul de [[http://ezprompt.net|aici]], modificați prompt-ul astfel încât să vă arate branch-ul curent Git pe care vă aflați.
+  - Folosind tot website-ul de [[http://ezprompt.net|aici]], modificați prompt-ul astfel încât să vă arate și branch-ul curent Git pe care vă aflați.
 
 Înainte:
+  
 <code bash>
 student@uso:~$
 </code>
+  
 După:
 <code bash>
 student@uso:~[lab-05-cli]$
