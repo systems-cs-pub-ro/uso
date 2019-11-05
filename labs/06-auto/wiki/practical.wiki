@@ -1,6 +1,6 @@
 ===== Exerciții =====
 
-Accesați subdirectorul ''support/'' pentru exercițiile de laborator. Sunt și tutoriale (deja făcute / rezolvate) și exerciții. Tutorialele au rolul de a vă acomoda cu diferitele comenzi iar exercițiile sunt parte practică efectivă.
+Accesați subdirectorul ''~/uso-lab/06-auto/support/'' pentru exercițiile de laborator. Sunt și tutoriale (deja făcute / rezolvate) și exerciții. Tutorialele au rolul de a vă acomoda cu diferitele comenzi iar exercițiile sunt parte practică efectivă.
 
 Realizați exercițiile în ordine. De la secțiunea 7 faceți echipe de 2-3 persoane, sub coordonarea asistentului și lucrați împreună la rezolvarea exercițiilor.
 
@@ -12,20 +12,20 @@ Accesați subdirectorul ''01-alias/''. Nu există fișiere de suport pentru aces
 
 Pentru început să folosim comanda ''xdg-open'' în formele de mai jos:
 
-```
-razvan@yggdrasil:~/uso-lab/06-auto/support/01-alias$ xdg-open .
-$ xdg-open http://google.com
-$ xdg-open ../07-extend-scripts/convert/Orar1CA.xls 
-```
+<code>
+xdg-open .
+xdg-open http://google.com
+xdg-open ../07-extend-scripts/convert/Orar1CA.xls 
+</code>
 
 Aceste comenzi deschid respectiv, un file browser, un web browser și LibreOffice.
 
 Pentru a realiza mai rapid acțiunile, folosim un alias. Facem alias-urile ''open'' și ''go'' pentru ''xdg-open'' ca mai jos:
 
-```
+<code>
 alias open='xdg-open'
 alias go='xdg-open'
-```
+</code>
 
 **Exercițiu**: Acum folosiți comanda ''open'' sau comanda ''go'' pentru cele trei acțiuni de mai sus. Am simplificat comanda ''xdg-open'' (mai greu de scris și mai greu de reținut).
 
@@ -46,16 +46,16 @@ sudo apt install inkscape
 
 Pentru a converti fișierul ''acl.svg'' în fișierul ''acl.png'' folosim comanda:
 <code>
-$ inkscape --export-png=acl.png acl.svg
+inkscape --export-png=acl.png acl.svg
 </code>
 În urma comenzii a apărut fișierul ''acl.png''. Verificăm conversia corectă folosind alias-ul ''go'' creat anterior:
 <code>
-$ go acl.png
+go acl.png
 </code>
 
 Pentru a realiza conversia **tuturor** fișiereleor din directorul curent folosim one liner-ul:
 <code>
-$ for i in *.svg; do inkscape --export-png=$(basename "$i" .svg).png "$i"; done
+for i in *.svg; do inkscape --export-png=$(basename "$i" .svg).png "$i"; done
 </code>
 
 În urma rulării acestui one liner, toate fișierele ''.svg'' au fost convertite în fișiere PNG păstrându-se numele și adăugându-se extensia ''.png''.
@@ -100,14 +100,14 @@ Accesați subdirectorul ''03-one-liners-vs-commands/'' din directorul laboratoru
 
 Rulăm următoarele comenzi pentru a genera o parolă de 16 caractere și pentru a afișa PID-urile proceselor utilizatorului ''student'':
 <code>
-$ tr -dc 'a-zA-Z0-9~!@#$%^&*_()+}{?></";.,[]=-' < /dev/urandom | fold -w 32 | head -n 1
-$ ps -ef | grep student | tr -s ' ' | cut -d ' ' -f 2
+tr -dc 'a-zA-Z0-9~!@#$%^&*_()+}{?></";.,[]=-' < /dev/urandom | fold -w 32 | head -n 1
+ps -ef | grep student | tr -s ' ' | cut -d ' ' -f 2
 </code>
 
 Aceste acțiuni le putem realiza și folosind comenzi dedicate și opțiunile lor, fără a fi nevoie de trecerea prin operatorul ''|'' (//pipe//):
 <code>
-$ pwgen -y 16 1
-$ ps -u student -o pid --no-header
+pwgen -y 16 1
+ps -u student -o pid --no-header
 </code>
 
 <note important>

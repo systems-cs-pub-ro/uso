@@ -38,12 +38,12 @@ student@uso:~$ cd ~
 student@uso:~$ git clone https://github.com/systems-cs-pub-ro/uso-lab.git
 </code>
 
-În directorul ``uso-lab/06-auto`` găsim fișierele necesare pentru laboratorul 06. Accesăm acel director folosind comanda:
-<cpde>
+În directorul ''uso-lab/06-auto'' găsim fișierele necesare pentru laboratorul 06. Accesăm acel director folosind comanda:
+<code>
 student@uso:~$ cd uso/06-auto
 student@uso:~/uso-lab/06-auto$ pwd
 /home/student/uso-lab/06-auto
-</code
+</code>
 
 </note>
 
