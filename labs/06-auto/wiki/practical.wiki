@@ -331,14 +331,74 @@ Accesați subdirectorul ''08-sample-real-scripts/'' din directorul laboratorului
 
 Accesați subdirectorul ''09-args/'' din directorul laboratorului.
 
+=== Orar ===
+
+Intrați în directorul ''timetable/''. Scriptul ''download'' descarcă orarele din anul universitar curent semestrul 1. Rulați scriptul pentru a-l testa:
+<code>
+./download
+</code>
+Va descărca fișierele pentru orar în format ''.xls''.
+
+**Exercițiu**: Creați un script numit ''solution'' care primește două argumente: primul este anul universitar, altul este semestrul și descarcă orarele pentru acel an universitar și pentru acel semestru de pe site-ul de orare: http://acs.pub.ro/~cpop/
+
+Rularea fără argumente a scriptului ''solution'' ar trebui să afișeze un mesaj de forma:
+<code>
+$ ./solution
+Usage: ./solution <academic-year> <semester>
+  Example: ./solution 2017_2018 sem1
+</code>
+
+=== Medie ===
+
+Intrați în directorul ''average/''.
+
+Scriptul ''compute'' calculează media la a doua notă pentru **toți** studenții din fișierul ''../../04-regex/students.csv'':
+<code>
+$ ./compute
+Average: 6.72
+</code>
+
+**Exercițiu**: Creați un script numit ''solution'' care primește ca argument un nume de grupă și calculează media doar pentru aceștia. Un exemplu de rulare este
+<code>
+$ ./solution 314CC
+Average: 7.56
+</code>
+
 ==== 10. Înlocuiri de șiruri ====
 
 Accesați subdirectorul ''10-replace/'' din directorul laboratorului.
+
+Fișierul ''template_reader.c'' conține template-ul unui fișier C. În acest fișier construcția ''__TEMPLATE__'' trebuie înlocuită cu un "mesaj secret". Acest mesaj este generat dintr-un șir în care fiecare literă este înlocuită cu valoarea sa ASCII din care scădem valoarea ''0x41'' (în hexazecimal). Pentru a face înlocuirea folosim scriptul ''generate'':
+<code>
+./generate
+</code>
+În urma rulării scriptului ''generate'' a fost creat fișierul ''reader.c'' pornind de la fișierul ''template_reader.c''. Acum putem compila fișierul folosind fișierul ''Makefile'' cu ajutorul comenzii:
+<code>
+make
+</code>
+În urma rulării comenzii ''make'' a rezultat executabilul ''reader'' pe care îl putem acum lansa:
+<code>
+./reader
+</code>
+
+Parcurgeți scriptul ''generate'' și înțelegeți-l. Acolo unde aveți nelămuriri, adresați-vă asistentului.
 
 ==== 11. Dezvoltare de exerciții cu scripting ====
 
 Accesați subdirectorul ''11-practical/'' din directorul laboratorului.
 
+În fiecare dintre cele 3 subdirectoare aveți niște provocări. Fiecare provocare are un fișier ''flag'' care conține un mesaj ascuns. Va trebuie să "descifrați" acel mesaj. Ca să întelegeți cum a fost generat acel mesaj ascuns, vedeți scriptul ''encode''. Scriptul encode este scriptul folosit pentru generarea fișierului ''flag'' pornind de la un mesaj inițial (pe care trebuie să îl aflați).
+
+**Exercițiu**: Alegeți o provocare (sau mai multe) și creați un script ''decode'' care decodifică mesajul ascuns în fișierul ''flag'' și afișează mesajul inițial.
+
+**Exercițiu**: Gândiți-vă voi la o provocare și creați pentru aceasta scriptul ''encode'' și ''decode'' și fișierele auxiliare.
+
 ==== 12. Shell vs Python ====
 
-Accesați subdirectorul ''12-shell-vs-python/'' din directorul laboratorului.
+Accesați subdirectorul ''12-shell-vs-python/'' din directorul laboratorului. Vrem să vedem cum se compară scripturi scrise în shell față de scripturi scrise în Python.
+
+Scriptul ''generate'' este un script shell pe care l-am folosit în secțiunea 10. Scriptul ''generate.py'' are aceeași funcționalitate, dar scris în Python, iar mesajul inițial este citit din fișieru ''in''.
+
+<note important>
+În general, pentru acțiuni simple, folosim shell scripting. Pentru prelucrări de date și acțiuni mai complexe, este recomandat să folosim un limbaj de scripting mai puternic, precum Python.
+</note>
