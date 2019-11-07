@@ -37,7 +37,7 @@ Găsiți un tool online [[http://regexr.com/|aici]] care va permite să vizualiz
 
 Pentru căutarea și selectarea de linii din fișiere text folosim comanda ''grep'' care folosește, la rândul ei, expresii regulate. Astfel, dacă dorim să selectăm studenții care au litera ''z'' în numele lor, folosim comanda
 <code bash>
-student@uso:~/uso-lab/06-auto/00-basics$ grep 'z' students.txt 
+student@uso:~/uso-lab/06-auto/support/00-basics$ grep 'z' students.txt
 GHECENCO F. Răzvan	312CC	8	8.75	4.67
 MARIN N. Răzvan	312CC	5	3.5	4.2
 </code>
@@ -75,7 +75,7 @@ atunci va fi afișat chiar șirul ''$USER''. Asta pentru că apostrofurile, spre
 
 Doar că expresia ''z'' nu se potrivește (nu face //match//) pe litera ''Z'' (majusculă). Pentru a selecta studenții al cărore nume conține atât litera ''z'' cât și ''Z'' (majusculă) folosim expresia regulată ''%%[zZ]%%'' și comanda
 <code bash>
-student@uso:~/uso-lab/06-auto/00-basics$ grep '[zZ]' students.txt 
+student@uso:~/uso-lab/06-auto/support/00-basics$ grep '[zZ]' students.txt
 PAJARCU Z.P. Raul-Constantin	312CC	2	0.5	1.7
 GHECENCO F. Răzvan	312CC	8	8.75	4.67
 MARIN N. Răzvan	312CC	5	3.5	4.2
@@ -85,14 +85,14 @@ Expresia regulată ''%%[zZ]%%'' se potrivește pe setul de caractere compus din 
 
 Dacă vrem să selectăm studenții al căror nume de familie începe cu litera ''F'', atunci vom folosi expresia regulată ''%%^F%%'' denotând litera ''F'' (majusculă) la început de rând. Vom folosi, așadar, comanda de mai jos:
 <code bash>
-student@uso:~/uso-lab/06-auto/00-basics$ grep '^F' students.txt 
+student@uso:~/uso-lab/06-auto/support/00-basics$ grep '^F' students.txt
 FLOREA N. Monica-Andreea	313CC	9	7.5	8.5
 FULGER P. Alexandru-Gabriel	315CC	7	4.25	5
 </code>
 
 Dacă vrem în schimb să selectăm studenții al căror prenume începe cu litera ''F'' trebuie să privim lucrurile altfel. Urmărind textul putem observa că prenumele sunt precedate fie de caracterul spațiu (//blank//) fie de caracterul minus (''-''). Pentru început vom folosi expresia regulată ''%%[ -]F%%'' care face match pe caracterul spațiu sau minus urmat de caracterul ''F'' majusculă. Comanda aferentă este:
 <code bash>
-student@uso:~/uso-lab/06-auto/00-basics$ grep '[ -]F' students.txt 
+student@uso:~/uso-lab/06-auto/support/00-basics$ grep '[ -]F' students.txt
 ONEA I. Flavia-Katilina	311CC	7	6.5	4.33
 PLEȘEA Fl. Alexandru	311CC	9	9.25	7.9
 GHECENCO F. Răzvan	312CC	8	8.75	4.67
@@ -117,7 +117,7 @@ Găsiți această precizare în pagina de manual a comenzii ''grep''; căutați 
 
 Astfel, comanda ''grep'' pentru a extrage studenții al căror prenume începe cu litera ''F'' este
 <code bash>
-student@uso:~/uso-lab/06-auto/00-basics$ grep '[ -]F[a-z]\+[^\.]' students.txt 
+student@uso:~/uso-lab/06-auto/support/00-basics$ grep '[ -]F[a-z]\+[^\.]' students.txt
 ONEA I. Flavia-Katilina	311CC	7	6.5	4.33
 EPURE P. Andi-Florin	314CC	8	9.5	3.67
 NEACȘU C. Florin-Mărgărit	314CC	10	9	9
@@ -140,16 +140,16 @@ Diferența dintre tr și sed este că primul efectuează transformări la nivel 
   
 Spre exemplu, folosind atât **tr**, cât și **sed**, să înlocuim caracterul ',' cu ''TAB'' în ''student.csv'': 
 <code Bash>
-student@ubuntu:~/uso-lab/06-auto/00-basics$ cat students.csv | tr , "\t" > students.out
-student@ubuntu:~/uso-lab/06-auto/00-basics$ cat students.out 
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ cat students.csv | tr , "\t" > students.out
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ cat students.out
 VLĂDUȚU I. Liviu-Alexandru	311CC	6	3.5	5.22
 GEORGIU V. Alexandra-Maria	311CC	10	10	9.67
 PĂUNOIU N. Gabriel	311CC	7	6.5	3.5
 BĂCÎRCEA A. Andrei	311CC	7	5.5	4.44
 [...]
 
-student@ubuntu:~/uso-lab/06-auto/00-basics$ sed 's/,/\t/g' students.csv > students.out 
-student@ubuntu:~/uso-lab/06-auto/00-basics$ cat students.out 
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ sed 's/,/\t/g' students.csv > students.out
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ cat students.out
 VLĂDUȚU I. Liviu-Alexandru	311CC	6	3.5	5.22
 GEORGIU V. Alexandra-Maria	311CC	10	10	9.67
 PĂUNOIU N. Gabriel	311CC	7	6.5	3.5
@@ -159,16 +159,16 @@ BĂCÎRCEA A. Andrei	311CC	7	5.5	4.44
 
 Observăm că cele două comenzi au același efect. Pentru a înlocui șiruri de caractere, tr nu mai oferă funcționalitatea dorită întrucât el face o mapare 1-la-1 între caracterele setul ce trebuie înlocuit și setul ce înlocuiește. În exemplul de mai jos, ''1'' este translatat în ''2'' indiferent unde apare, iar ''C'' în ''A'': 
 <code Bash>
-student@ubuntu:~/uso-lab/06-auto/00-basics$ cat students.csv | tr "311CC" "312CA" > students.out
-student@ubuntu:~/uso-lab/06-auto/00-basics$ cat students.out 
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ cat students.csv | tr "311CC" "312CA" > students.out
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ cat students.out
 VLĂDUȚU I. Liviu-Alexandru,322AA,6,3.5,5.22
 GEORGIU V. Alexandra-Maria,322AA,20,20,9.67
 PĂUNOIU N. Gabriel,322AA,7,6.5,3.5
 BĂAÎRAEA A. Andrei,322AA,7,5.5,4.44
 [...]
 
-student@ubuntu:~/uso-lab/06-auto/00-basics$ sed "s/311CC/312CA/g" students.csv > students.out
-student@ubuntu:~/uso-lab/06-auto/00-basics$ cat students.out 
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ sed "s/311CC/312CA/g" students.csv > students.out
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ cat students.out
 VLĂDUȚU I. Liviu-Alexandru,312CA,6,3.5,5.22
 GEORGIU V. Alexandra-Maria,312CA,10,10,9.67
 PĂUNOIU N. Gabriel,312CA,7,6.5,3.5
@@ -180,7 +180,7 @@ BĂCÎRCEA A. Andrei,312CA,7,5.5,4.44
 
 Am văzut în laboratoarele precedente cum putem extrage informații structurate pe linii și coloane folosind utilitarul **cut**. 
 <code Bash>
-student@ubuntu:~/uso-lab/06-auto/00-basics$ cat /etc/passwd | cut -d':' -f1,6 | head -3
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ cat /etc/passwd | cut -d':' -f1,6 | head -3
 root:/root
 daemon:/usr/sbin
 bin:/bin
@@ -189,19 +189,19 @@ bin:/bin
 Utilitarul [[https://linux.die.net/man/1/awk|awk]] permite aceleași acțiuni ca și **cut**, dar funcționalitatea sa este mai extinsă. Spre exemplu, awk poate folosi o expresie regulată ca delimitator, pe când cut acceptă un singur caracter: 
 
 <code Bash>
-student@ubuntu:~/uso-lab/06-auto/00-basics$ netstat -i
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ netstat -i
 Kernel Interface table
 Iface   MTU Met   RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
 eth0       1500 0      1955      0      0 0           521      0      0      0 BMRU
 lo        65536 0       359      0      0 0           359      0      0      0 LRU
 
-student@ubuntu:~/uso-lab/06-auto/00-basics$ netstat -i | cut -d' ' -f1,2
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ netstat -i | cut -d' ' -f1,2
 Kernel Interface
 Iface 
 eth0 
 lo 
 
-student@ubuntu:~/uso-lab/06-auto/00-basics$ netstat -i | awk -F' *' '{print $1,$2,$4}'
+student@ubuntu:~/uso-lab/06-auto/support/00-basics$ netstat -i | awk -F' *' '{print $1,$2,$4}'
 Kernel Interface 
 Iface MTU RX-OK
 eth0 1500 2029
@@ -216,7 +216,7 @@ lo 65536 359
 
 Dacă dorim să sortăm studenții din fișier în ordinea numelor vom folosi comanda ''sort'':
 <code Bash>
-student@uso:~/uso-lab/06-auto/00-basics$ sort students.csv 
+student@uso:~/uso-lab/06-auto/support/00-basics$ sort students.csv
 ALECU C. Ionuț-Gabriel,312CC,7,4.5,6.4
 ASĂVOAEI P. Cătălin,315CC,8,6.75,7
 BĂCÎRCEA A. Andrei,311CC,7,5.5,4.44
@@ -238,7 +238,7 @@ Vezi și discuția de [[http://unix.stackexchange.com/questions/52762/trying-to-
 
 Dorim sa facem o sortare numerica descrescatoare după notă, urmata de o sortare alfabetică după grupă (adică să fie toate notele de 10 la început dar sortate în ordinea grupelor). Astfel, pentru a sorta intrările în ordinea notei, vom folosi separatorul '','' (virgulă, //comma//) și coloana a 3-a pentru cheie:
 <code Bash>
-student@uso:~/uso-lab/06-auto/00-basics$ sort -t ',' -k 3,3nr -k 2,2 students.csv
+student@uso:~/uso-lab/06-auto/support/00-basics$ sort -t ',' -k 3,3nr -k 2,2 students.csv
 GEORGIU V. Alexandra-Maria,311CC,10,10,9.67
 MUȘATESCU V. Alexandru-Petrișor,311CC,10,8.5,9
 RADU L. Alina,311CC,10,10,7.89
@@ -256,11 +256,11 @@ BENE D. Adrian,312CC,9,10,5
 [...]
 </file>
 <code Bash>
-student@uso:~/uso-lab/06-auto/00-basics$ sort -t ',' -k 3,3nr -k 2,2 students.csv | wc -l
+student@uso:~/uso-lab/06-auto/support/00-basics$ sort -t ',' -k 3,3nr -k 2,2 students.csv | wc -l
 93
-student@uso:~/uso-lab/06-auto/00-basics$ sort -t ',' -k 3,3nr -k 2,2 students.csv | uniq | wc -l
+student@uso:~/uso-lab/06-auto/support/00-basics$ sort -t ',' -k 3,3nr -k 2,2 students.csv | uniq | wc -l
 92
-student@uso:~/uso-lab/06-auto/00-basics$ uniq students.csv | wc -l
+student@uso:~/uso-lab/06-auto/support/00-basics$ uniq students.csv | wc -l
 93
 </code>
 
@@ -333,7 +333,7 @@ student@uso:~$ ./arguments.sh banane cirese caise castraveti
 === Constructia while read ===
 
 Pentru parsare în shell folosim construcția ''%%while read ...%%''. Construcția este urmată de numele variabilelor în care vom reține câmpurile parsate din cadrul fiecărei linii. Folosim la intrare fișierul ''students.csv'' aflat în directorul părinte; este un fișier în format CSV (//Comma Separated Values//) folosind ca separator caracterul virgulă ('','', //comma//). Pentru a extrage doar numele studenților din fișierul de intrare vom rula scriptul ''extract-name'':<code>
-student@uso:~/uso-lab/06-auto/00-basics$ ./extract-name
+student@uso:~/uso-lab/06-auto/support/00-basics$ ./extract-name
 VLĂDUȚU I. Liviu-Alexandru
 GEORGIU V. Alexandra-Maria
 PĂUNOIU N. Gabriel
